@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "turnId": "preview-1795266119314",
+  "phaseId": "generate",
+  "mode": "greenfield",
+  "currentStage": "backend",
+  "completedStages": [
+    "scaffold",
+    "schema"
+  ],
+  "status": "finalized",
+  "fingerprint": {
+    "prdHash": "78fbe6907ae3a7174881e78bedcef5fa46efeb0c8a5214130a53e537b5c5d73b",
+    "stackHash": "b8197d82f88f3dc60511a1272b556d49e0b92b4e5cbd6a4ab1a91b1776ef04f9",
+    "manifestHash": "",
+    "workspaceRoot": "c:\\Users\\DeLL\\Desktop\\GlowLedger"
+  },
+  "startedAt": "2026-11-21T13:02:10.054Z",
+  "updatedAt": "2026-11-21T13:55:48.486Z",
+  "pipelineStateLog": [
+    {
+      "event": "pipeline_state",
+      "stage": "generate",
+      "status": "active",
+      "ts": 1795266130059
+    }
+  ],
+  "finalizedAt": "2026-11-21T13:55:48.486Z"
+}

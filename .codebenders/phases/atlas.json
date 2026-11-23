@@ -1,0 +1,184 @@
+{
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/api/who-owes-me",
+      "handler": "dashboard-1",
+      "auth_required": false,
+      "group": "Dashboard",
+      "request_shape": "",
+      "response_shape": "{alerts: {sentence: string, invoice_id: string, bill_id: string | null, outstanding_balance: number}[], overdue_clients: {invoice_id: string, client_name: string, outstanding_balance: number, days_overdue: number}[]}",
+      "description": "Returns the Who Owes Me home screen: plain-sentence action alerts that tie overdue balances to upcoming bills, and the overdue clients sorted by days overdue, longest first. outstanding_balance = total_fee − advance_paid − sum of received payments; an invoice is overdue when outstanding_balance > 0 and today is after its event_date, and days_overdue = today − event_date in days."
+    },
+    {
+      "method": "GET",
+      "path": "/api/invoices",
+      "handler": "invoices-2",
+      "auth_required": false,
+      "group": "Invoices",
+      "request_shape": "",
+      "response_shape": "Invoice[]",
+      "description": "Returns all invoices for the Invoices list screen, each with client name, event date, total fee, advance paid and computed pending_balance = total_fee − advance_paid − sum of received payments, plus its current status."
+    },
+    {
+      "method": "POST",
+      "path": "/api/invoices",
+      "handler": "invoices-3",
+      "auth_required": false,
+      "group": "Invoices",
+      "request_shape": "Invoice",
+      "response_shape": "Invoice",
+      "description": "Creates an invoice from the New Invoice form: rejects the save when advance_paid is negative or greater than total_fee, otherwise sets balance_due = total_fee − advance_paid, status to paid when balance_due is zero and pending otherwise, and records the advance as a received Payment dated today when it is greater than zero; the New Invoice screen then returns to the Invoices list."
+    },
+    {
+      "method": "GET",
+      "path": "/api/invoices/{invoiceId}",
+      "handler": "invoices-4",
+      "auth_required": false,
+      "group": "Invoices",
+      "request_shape": "",
+      "response_shape": "{invoice: Invoice, payments: Payment[], remaining_balance: number, days_overdue: number}",
+      "description": "Returns one invoice for the Invoice Detail screen with its fee, advance paid, remaining_balance = total_fee − advance_paid − sum of received payments (never below zero), its payment history, and days_overdue counted from the due date when the balance remains."
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/invoices/{invoiceId}",
+      "handler": "invoices-5",
+      "auth_required": false,
+      "group": "Invoices",
+      "request_shape": "Partial<Invoice>",
+      "response_shape": "Invoice",
+      "description": "Corrects an invoice's client name, event date, total fee, advance paid or due date from the Invoice Detail screen; rejects the change when advance_paid would exceed total_fee and recalculates balance_due, pending_balance and status."
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/invoices/{invoiceId}",
+      "handler": "invoices-6",
+      "auth_required": false,
+      "group": "Invoices",
+      "request_shape": "",
+      "response_shape": "",
+      "description": "Removes an invoice the artist created by mistake from the Invoice Detail screen, together with its payment records."
+    },
+    {
+      "method": "GET",
+      "path": "/api/invoice-defaults",
+      "handler": "invoices-7",
+      "auth_required": false,
+      "group": "Invoices",
+      "request_shape": "",
+      "response_shape": "{event_date: string, advance_paid: number}",
+      "description": "Returns the pre-filled default event date (today) and default advance paid for the New Invoice form so the artist can finish in three taps."
+    },
+    {
+      "method": "GET",
+      "path": "/api/invoices/{invoiceId}/payments",
+      "handler": "payments-8",
+      "auth_required": false,
+      "group": "Payments",
+      "request_shape": "",
+      "response_shape": "Payment[]",
+      "description": "Returns the payment history of one invoice, with each payment's amount and whether it is expected or received, for the Invoice Detail screen."
+    },
+    {
+      "method": "POST",
+      "path": "/api/invoices/{invoiceId}/payments",
+      "handler": "payments-9",
+      "auth_required": false,
+      "group": "Payments",
+      "request_shape": "{amount: number, status?: \"expected\"}",
+      "response_shape": "Payment",
+      "description": "Records an expected payment against an invoice from the Invoice Detail screen; rejects an amount that is zero or negative or that exceeds the invoice's remaining balance, and saves the payment with status expected."
+    },
+    {
+      "method": "POST",
+      "path": "/api/payments/{paymentId}/receive",
+      "handler": "payments-10",
+      "auth_required": false,
+      "group": "Payments",
+      "request_shape": "",
+      "response_shape": "Payment",
+      "description": "Marks a payment as received from the Invoice Detail screen by setting status to received, received_on to today and received_at to now; rejects a payment that is already received, and the invoice's remaining balance and status are recalculated (paid when the balance reaches zero)."
+    },
+    {
+      "method": "GET",
+      "path": "/api/invoices/{invoiceId}/reminder",
+      "handler": "reminders-11",
+      "auth_required": false,
+      "group": "Reminders",
+      "request_shape": "",
+      "response_shape": "{client_name: string, outstanding_balance: number, can_remind: boolean, reminder_text: string}",
+      "description": "Returns a polite WhatsApp payment reminder for the reminder card, built from the client name and outstanding_balance = total_fee − advance_paid − sum of received payments; can_remind is false and reminder_text is empty when that balance is zero or less. Copying the text changes no record."
+    },
+    {
+      "method": "GET",
+      "path": "/api/cash-forecast",
+      "handler": "cash-forecast-12",
+      "auth_required": false,
+      "group": "Cash Forecast",
+      "request_shape": "?late_bridal_payment=boolean",
+      "response_shape": "{late_bridal_payment: boolean, horizons: {days: number, expected_inflows: number, upcoming_bills: number, net_cash: number}[]}",
+      "description": "Returns the 30, 60 and 90 day cash forecast for the Cash Forecast chart: expected_inflows sums expected payments and pending balances placed on their event dates, upcoming_bills sums unpaid bills due within each horizon, and net_cash = expected_inflows − upcoming_bills; when late_bridal_payment is true the key bridal client's (the invoice with the largest pending balance) inflow is moved 15 days later before the totals are computed."
+    },
+    {
+      "method": "GET",
+      "path": "/api/bills",
+      "handler": "bills-13",
+      "auth_required": false,
+      "group": "Bills",
+      "request_shape": "",
+      "response_shape": "Bill[]",
+      "description": "Returns all bills for the Bills list screen with name, category, amount, due date and paid status."
+    },
+    {
+      "method": "POST",
+      "path": "/api/bills",
+      "handler": "bills-14",
+      "auth_required": false,
+      "group": "Bills",
+      "request_shape": "Bill",
+      "response_shape": "Bill",
+      "description": "Adds an upcoming bill such as rent or a cosmetic restock from the New Bill screen with its name, category, amount and due date, saved with status upcoming and is_paid false."
+    },
+    {
+      "method": "GET",
+      "path": "/api/bills/{billId}",
+      "handler": "bills-15",
+      "auth_required": false,
+      "group": "Bills",
+      "request_shape": "",
+      "response_shape": "Bill",
+      "description": "Returns one bill with its name, category, amount, due date and paid status."
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/bills/{billId}",
+      "handler": "bills-16",
+      "auth_required": false,
+      "group": "Bills",
+      "request_shape": "Partial<Bill>",
+      "response_shape": "Bill",
+      "description": "Edits a bill's name, category, amount or due date; rejects the edit once the bill is marked paid."
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/bills/{billId}",
+      "handler": "bills-17",
+      "auth_required": false,
+      "group": "Bills",
+      "request_shape": "",
+      "response_shape": "",
+      "description": "Removes a bill the artist added by mistake from the Bills list."
+    },
+    {
+      "method": "POST",
+      "path": "/api/bills/{billId}/mark-paid",
+      "handler": "bills-18",
+      "auth_required": false,
+      "group": "Bills",
+      "request_shape": "",
+      "response_shape": "Bill",
+      "description": "Marks a bill as paid from the Bills list, setting is_paid to true, status to paid and paid_at to now, and removes it from upcoming bills in the cash forecast; rejects a bill that is already paid."
+    }
+  ]
+}

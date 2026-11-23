@@ -1,0 +1,192 @@
+{
+  "orm": "prisma",
+  "models": [
+    {
+      "name": "invoices",
+      "fields": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "nullable": false,
+          "pk": true
+        },
+        {
+          "name": "created_at",
+          "type": "datetime",
+          "nullable": false,
+          "default": "now"
+        },
+        {
+          "name": "updated_at",
+          "type": "datetime",
+          "nullable": false,
+          "default": "now"
+        },
+        {
+          "name": "client_name",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "event_date",
+          "type": "date",
+          "nullable": false
+        },
+        {
+          "name": "due_date",
+          "type": "date",
+          "nullable": true
+        },
+        {
+          "name": "total_fee",
+          "type": "decimal",
+          "nullable": false
+        },
+        {
+          "name": "advance_paid",
+          "type": "decimal",
+          "nullable": false,
+          "default": "0"
+        },
+        {
+          "name": "balance_due",
+          "type": "decimal",
+          "nullable": false,
+          "default": "0"
+        },
+        {
+          "name": "pending_balance",
+          "type": "decimal",
+          "nullable": false,
+          "default": "0"
+        },
+        {
+          "name": "status",
+          "type": "enum(pending|overdue|paid)",
+          "nullable": false,
+          "default": "pending"
+        }
+      ],
+      "persona_access": {
+        "Solo Freelance Makeup Artist": "full"
+      }
+    },
+    {
+      "name": "payments",
+      "fields": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "nullable": false,
+          "pk": true
+        },
+        {
+          "name": "created_at",
+          "type": "datetime",
+          "nullable": false,
+          "default": "now"
+        },
+        {
+          "name": "updated_at",
+          "type": "datetime",
+          "nullable": false,
+          "default": "now"
+        },
+        {
+          "name": "invoice_id",
+          "type": "uuid",
+          "nullable": false,
+          "fk": "invoices.id"
+        },
+        {
+          "name": "amount",
+          "type": "decimal",
+          "nullable": false
+        },
+        {
+          "name": "status",
+          "type": "enum(expected|received)",
+          "nullable": false,
+          "default": "expected"
+        },
+        {
+          "name": "received_on",
+          "type": "date",
+          "nullable": true
+        },
+        {
+          "name": "received_at",
+          "type": "datetime",
+          "nullable": true
+        }
+      ],
+      "persona_access": {
+        "Solo Freelance Makeup Artist": "full"
+      }
+    },
+    {
+      "name": "bills",
+      "fields": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "nullable": false,
+          "pk": true
+        },
+        {
+          "name": "created_at",
+          "type": "datetime",
+          "nullable": false,
+          "default": "now"
+        },
+        {
+          "name": "updated_at",
+          "type": "datetime",
+          "nullable": false,
+          "default": "now"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "category",
+          "type": "enum(rent|restock|other)",
+          "nullable": false,
+          "default": "other"
+        },
+        {
+          "name": "amount",
+          "type": "decimal",
+          "nullable": false
+        },
+        {
+          "name": "due_date",
+          "type": "date",
+          "nullable": false
+        },
+        {
+          "name": "status",
+          "type": "enum(upcoming|paid)",
+          "nullable": false,
+          "default": "upcoming"
+        },
+        {
+          "name": "is_paid",
+          "type": "boolean",
+          "nullable": false,
+          "default": "false"
+        },
+        {
+          "name": "paid_at",
+          "type": "datetime",
+          "nullable": true
+        }
+      ],
+      "persona_access": {
+        "Solo Freelance Makeup Artist": "full"
+      }
+    }
+  ]
+}

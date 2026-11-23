@@ -1,0 +1,4 @@
+2026-11-21T12:27:06.540Z  [phase-gate] Scaffolding project structure: start files=7
+2026-11-21T12:27:06.656Z  [phase-gate] Scaffolding project structure: plan check=true installDeps=true prismaGenerate=false prismaMigrate=false orm=prisma dbReachable=unprobed
+2026-11-21T12:27:06.956Z  [phase-gate] Scaffolding project structure: deps ready=false took=299ms — npm install failed: npm install exited with code 1
+2026-11-21T12:52:34.364Z  [phase-gate] Scaffolding project structure: done (preconditions only) total=1527906ms

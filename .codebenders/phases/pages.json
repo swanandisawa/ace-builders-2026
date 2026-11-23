@@ -1,0 +1,81 @@
+{
+  "pages": [
+    {
+      "name": "Who Owes Me",
+      "route": "/",
+      "description": "Home dashboard listing overdue clients with exact amounts and days overdue, plus clear action alerts.",
+      "personas": [
+        "Solo Freelance Makeup Artist"
+      ],
+      "uses": {
+        "Solo Freelance Makeup Artist": "scan overdue clients, act on alerts like chasing a balance before rent, copy reminders"
+      }
+    },
+    {
+      "name": "Invoices",
+      "route": "/invoices",
+      "description": "List of all invoices showing client, event date, total fee, advance paid and pending balance.",
+      "personas": [
+        "Solo Freelance Makeup Artist"
+      ],
+      "uses": {
+        "Solo Freelance Makeup Artist": "track pending balances, open invoices, mark payments received"
+      }
+    },
+    {
+      "name": "Invoice Detail",
+      "route": "/invoices/[id]",
+      "description": "Shows one invoice's fee, advance and balance, and lets the artist mark payments received and copy a payment reminder.",
+      "personas": [
+        "Solo Freelance Makeup Artist"
+      ],
+      "uses": {
+        "Solo Freelance Makeup Artist": "record a payment received, copy a one-click WhatsApp reminder"
+      }
+    },
+    {
+      "name": "New Invoice",
+      "route": "/invoices/new",
+      "description": "Form to create an invoice in three taps with client name, event date, total fee and advance paid.",
+      "personas": [
+        "Solo Freelance Makeup Artist"
+      ],
+      "uses": {
+        "Solo Freelance Makeup Artist": "enter client name, event date, total fee and advance paid"
+      }
+    },
+    {
+      "name": "Cash Forecast",
+      "route": "/cash-forecast",
+      "description": "30, 60 and 90 day chart comparing expected client inflows against upcoming bills, with a what-if toggle for a late bridal payment.",
+      "personas": [
+        "Solo Freelance Makeup Artist"
+      ],
+      "uses": {
+        "Solo Freelance Makeup Artist": "review 30/60/90 day cash and switch the late bridal payment what-if on or off"
+      }
+    },
+    {
+      "name": "Bills",
+      "route": "/bills",
+      "description": "List of upcoming bills such as rent and cosmetic restocks with their due dates and amounts.",
+      "personas": [
+        "Solo Freelance Makeup Artist"
+      ],
+      "uses": {
+        "Solo Freelance Makeup Artist": "review upcoming rent and restock costs"
+      }
+    },
+    {
+      "name": "New Bill",
+      "route": "/bills/new",
+      "description": "Form to add an upcoming bill such as rent or a cosmetic restock with its amount and due date.",
+      "personas": [
+        "Solo Freelance Makeup Artist"
+      ],
+      "uses": {
+        "Solo Freelance Makeup Artist": "enter bill name, amount and due date"
+      }
+    }
+  ]
+}

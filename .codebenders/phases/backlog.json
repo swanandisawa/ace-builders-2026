@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "items": [],
+  "leftOut": {
+    "at": "2026-11-21T12:05:18.556Z",
+    "items": [
+      {
+        "id": "bl-mwqd2j4t-3",
+        "title": "Correct or delete an invoice from Invoice Detail",
+        "detail": "The artist must be able to fix an invoice's details or remove one created by mistake; the PRD asks for both \"from the Invoice Detail screen\", but the plan's Invoice Detail screen does not include these actions.",
+        "step": "pages",
+        "source": "plan",
+        "priority": "medium",
+        "effort": "S",
+        "tokens": 22558,
+        "status": "open"
+      },
+      {
+        "id": "bl-mwqd2j4t-4",
+        "title": "Edit or delete a bill from the Bills list",
+        "detail": "The artist must be able to edit a bill's details or remove one added by mistake; the PRD asks for removal \"from the Bills list\", and the plan's Bills screen has no edit or delete actions.",
+        "step": "pages",
+        "source": "plan",
+        "priority": "medium",
+        "effort": "S",
+        "tokens": 22558,
+        "status": "open"
+      },
+      {
+        "id": "bl-mwqd2j4t-5",
+        "title": "Small salon owner with 1 to 3 assistants as a user",
+        "detail": "The PRD lists small salon owners with 1 to 3 assistants as target users, but the plan has only the solo freelance persona.",
+        "step": "persona",
+        "source": "plan",
+        "priority": "low",
+        "effort": "S",
+        "tokens": 22544,
+        "status": "open"
+      }
+    ],
+    "deferred": []
+  }
+}

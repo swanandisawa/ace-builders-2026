@@ -1,0 +1,1760 @@
+[
+  {
+    "flow_id": "F001",
+    "name": "Create Invoice in Three Taps",
+    "description": "The artist creates a new client invoice by entering client name, event date, total fee and advance paid, then saves it and sees it in the invoice list.",
+    "priority": "P1",
+    "priority_label": "High Use",
+    "steps": [
+      {
+        "step_id": "1",
+        "description": "Artist opens the New Invoice screen and sees the form with sensible defaults pre-filled for event date and advance.",
+        "component_name": "NewInvoicePage",
+        "component_path": "src/app/invoices/new/page.tsx",
+        "order": 1,
+        "records": [
+          "Invoice"
+        ],
+        "business_rules": [
+          {
+            "name": "new_invoice_prefills_event_date_default",
+            "priority": "Medium",
+            "description": "When the artist opens a new invoice, the event date is pre-filled with a sensible default so the artist can finish in three taps.",
+            "status": "generated",
+            "triggers": [
+              "Artist opens the New Invoice screen"
+            ],
+            "affected_fields": [
+              "Invoice.event_date"
+            ],
+            "side_effects": [
+              "Invoice.event_date is set to the default date shown in the form",
+              "Artist can change the pre-filled event date before saving"
+            ],
+            "error_handling": [
+              "If no default can be determined, Invoice.event_date is left empty and the artist must enter it manually"
+            ]
+          },
+          {
+            "name": "new_invoice_prefills_advance_default",
+            "priority": "Medium",
+            "description": "When the artist opens a new invoice, the advance paid is pre-filled with a sensible default amount so the artist only adjusts it when it differs.",
+            "status": "generated",
+            "triggers": [
+              "Artist opens the New Invoice screen"
+            ],
+            "affected_fields": [
+              "Invoice.advance_paid"
+            ],
+            "side_effects": [
+              "Invoice.advance_paid is set to the default amount shown in the form",
+              "Artist can change the pre-filled advance before saving"
+            ],
+            "error_handling": [
+              "If no default is available, Invoice.advance_paid is set to 0 and the artist enters the amount manually"
+            ]
+          },
+          {
+            "name": "new_invoice_starts_unsaved_until_submitted",
+            "priority": "Low",
+            "description": "A new invoice exists only as an unsaved draft on the New Invoice screen until the artist submits the form.",
+            "status": "generated",
+            "triggers": [
+              "Artist opens the New Invoice screen",
+              "Artist leaves the New Invoice screen without submitting"
+            ],
+            "affected_fields": [
+              "Invoice.status"
+            ],
+            "side_effects": [
+              "No Invoice record is persisted when the screen is merely opened or left",
+              "Invoice.status is not set until the artist submits the form"
+            ],
+            "error_handling": [
+              "If the artist leaves the screen with changes, the entered values are discarded and no Invoice record is created"
+            ]
+          }
+        ],
+        "validation_rules": [
+          {
+            "field_name": "Invoice.client_name",
+            "description": "Client name is required and must not be blank.",
+            "status": "generated",
+            "field_type": "text",
+            "validation_type": "required",
+            "error_message": "Please enter the client's name."
+          },
+          {
+            "field_name": "Invoice.event_date",
+            "description": "Event date is required and must be a valid calendar date.",
+            "status": "generated",
+            "field_type": "date",
+            "validation_type": "required",
+            "error_message": "Please choose a valid event date."
+          },
+          {
+            "field_name": "Invoice.total_fee",
+            "description": "Total fee is required and must be greater than 0.",
+            "status": "generated",
+            "field_type": "number",
+            "validation_type": "range",
+            "error_message": "Please enter a total fee greater than 0."
+          },
+          {
+            "field_name": "Invoice.advance_paid",
+            "description": "Advance paid must be 0 or more and cannot exceed the total fee.",
+            "status": "generated",
+            "field_type": "number",
+            "validation_type": "range",
+            "error_message": "Advance paid must be between 0 and the total fee."
+          }
+        ]
+      },
+      {
+        "step_id": "2",
+        "description": "Artist enters client name, confirms the event date, types the total fee and advance paid using large tap targets.",
+        "component_name": "InvoiceForm",
+        "component_path": "src/components/InvoiceForm.tsx",
+        "order": 2,
+        "records": [
+          "Invoice"
+        ],
+        "business_rules": [
+          {
+            "name": "invoice_balance_derived_from_fee_and_advance",
+            "priority": "High",
+            "description": "The balance due on an invoice is the total fee minus the advance paid, recalculated whenever either amount changes.",
+            "status": "generated",
+            "triggers": [
+              "Artist types or changes the total fee",
+              "Artist types or changes the advance paid"
+            ],
+            "affected_fields": [
+              "Invoice.total_fee",
+              "Invoice.advance_paid",
+              "Invoice.balance_due"
+            ],
+            "side_effects": [
+              "Invoice.balance_due is set to Invoice.total_fee minus Invoice.advance_paid and shown to the artist before saving"
+            ],
+            "error_handling": [
+              "If the advance paid is empty, treat it as zero so the balance equals the total fee",
+              "If either amount is not a valid number, leave balance_due blank and do not show a balance until both are valid"
+            ]
+          },
+          {
+            "name": "advance_cannot_exceed_total_fee",
+            "priority": "High",
+            "description": "The advance paid must be zero or more and no greater than the total fee, so the balance never goes negative.",
+            "status": "generated",
+            "triggers": [
+              "Artist enters an advance paid amount greater than the total fee",
+              "Artist lowers the total fee below an already entered advance paid amount"
+            ],
+            "affected_fields": [
+              "Invoice.advance_paid",
+              "Invoice.total_fee",
+              "Invoice.balance_due"
+            ],
+            "side_effects": [
+              "The save action is blocked until the advance paid is within range",
+              "The artist sees the advance paid field flagged and no balance is saved"
+            ],
+            "error_handling": [
+              "Advance greater than total fee: show error and block save",
+              "Negative advance: show error and block save"
+            ]
+          },
+          {
+            "name": "invoice_status_pending_or_paid_on_creation",
+            "priority": "High",
+            "description": "A newly created invoice is set to pending, or to paid when the advance covers the full total fee (pending → paid).",
+            "status": "generated",
+            "triggers": [
+              "Artist saves a new invoice from the InvoiceForm"
+            ],
+            "affected_fields": [
+              "Invoice.status",
+              "Invoice.balance_due",
+              "Invoice.total_fee",
+              "Invoice.advance_paid"
+            ],
+            "side_effects": [
+              "Invoice.status becomes pending when balance_due is greater than zero",
+              "Invoice.status becomes paid when balance_due is zero",
+              "The invoice appears in the pending balances list when its status is pending"
+            ],
+            "error_handling": [
+              "If status cannot be determined because the amounts are invalid, the save is blocked and no status is written"
+            ]
+          },
+          {
+            "name": "advance_recorded_as_payment_received",
+            "priority": "High",
+            "description": "An advance paid greater than zero is recorded as a received Payment against the invoice on the same day the invoice is saved.",
+            "status": "generated",
+            "triggers": [
+              "Artist saves an invoice with an advance paid greater than zero"
+            ],
+            "affected_fields": [
+              "Invoice.advance_paid",
+              "Payment.amount",
+              "Payment.invoice_id",
+              "Payment.received_on"
+            ],
+            "side_effects": [
+              "A Payment record is created with amount equal to the advance paid, linked to the new invoice, and dated today",
+              "Payment history for the invoice shows the advance as already received"
+            ],
+            "error_handling": [
+              "If the Payment record cannot be written, the invoice is not saved so the advance is never lost or double counted"
+            ]
+          },
+          {
+            "name": "client_name_links_invoice_to_client",
+            "priority": "Medium",
+            "description": "The client name entered on the invoice identifies who owes the balance and is the name used in dashboards and reminders.",
+            "status": "generated",
+            "triggers": [
+              "Artist types the client name"
+            ],
+            "affected_fields": [
+              "Invoice.client_name"
+            ],
+            "side_effects": [
+              "Invoice.client_name is shown on the Who Owes Me dashboard and in reminder text for this invoice"
+            ],
+            "error_handling": [
+              "Blank client name blocks save so no nameless balance enters the dashboard"
+            ]
+          },
+          {
+            "name": "event_date_drives_payment_timing",
+            "priority": "Medium",
+            "description": "The event date is stored on the invoice and is the reference date from which days overdue and cash forecast timing are measured.",
+            "status": "generated",
+            "triggers": [
+              "Artist confirms the event date"
+            ],
+            "affected_fields": [
+              "Invoice.event_date"
+            ],
+            "side_effects": [
+              "Invoice.event_date is used to place the balance on the 30, 60, and 90 day cash forecast",
+              "Days overdue on the Who Owes Me dashboard are counted from the event date"
+            ],
+            "error_handling": [
+              "Blank or invalid event date blocks save"
+            ]
+          }
+        ],
+        "validation_rules": [
+          {
+            "field_name": "Invoice.client_name",
+            "description": "Client name is required and must not be blank.",
+            "status": "generated",
+            "field_type": "text",
+            "validation_type": "required",
+            "error_message": "Enter the client's name."
+          },
+          {
+            "field_name": "Invoice.client_name",
+            "description": "Client name is at most 100 characters.",
+            "status": "generated",
+            "field_type": "text",
+            "validation_type": "length",
+            "error_message": "Client name must be 100 characters or fewer."
+          },
+          {
+            "field_name": "Invoice.event_date",
+            "description": "Event date is required.",
+            "status": "generated",
+            "field_type": "date",
+            "validation_type": "required",
+            "error_message": "Pick the event date."
+          },
+          {
+            "field_name": "Invoice.event_date",
+            "description": "Event date must be a valid calendar date.",
+            "status": "generated",
+            "field_type": "date",
+            "validation_type": "format",
+            "error_message": "Enter a valid date for the event."
+          },
+          {
+            "field_name": "Invoice.total_fee",
+            "description": "Total fee is required.",
+            "status": "generated",
+            "field_type": "number",
+            "validation_type": "required",
+            "error_message": "Enter the total fee."
+          },
+          {
+            "field_name": "Invoice.total_fee",
+            "description": "Total fee must be greater than zero.",
+            "status": "generated",
+            "field_type": "number",
+            "validation_type": "range",
+            "error_message": "Total fee must be more than zero."
+          },
+          {
+            "field_name": "Invoice.advance_paid",
+            "description": "Advance paid must be zero or more and no greater than Invoice.total_fee.",
+            "status": "generated",
+            "field_type": "number",
+            "validation_type": "range",
+            "error_message": "Advance paid must be between 0 and the total fee."
+          },
+          {
+            "field_name": "Invoice.total_fee",
+            "description": "Total fee accepts at most two decimal places.",
+            "status": "generated",
+            "field_type": "number",
+            "validation_type": "format",
+            "error_message": "Enter the amount with no more than two decimal places."
+          }
+        ]
+      },
+      {
+        "step_id": "3",
+        "description": "Artist submits the form; the invoice is saved with its pending balance calculated and the artist is taken to the invoice list where the new invoice appears.",
+        "component_name": "InvoicesListPage",
+        "component_path": "src/app/invoices/page.tsx",
+        "order": 3,
+        "records": [
+          "Invoice"
+        ],
+        "business_rules": [
+          {
+            "name": "pending_balance_equals_total_fee_minus_advance_paid",
+            "priority": "High",
+            "description": "On save, Invoice.pending_balance is calculated as Invoice.total_fee minus Invoice.advance_paid, so a new invoice with no advance carries its full total as pending.",
+            "status": "generated",
+            "triggers": [
+              "Artist submits the Create Invoice form"
+            ],
+            "affected_fields": [
+              "Invoice.total_fee",
+              "Invoice.advance_paid",
+              "Invoice.pending_balance"
+            ],
+            "side_effects": [
+              "Invoice.pending_balance is stored with the new invoice as total_fee minus advance_paid",
+              "The new invoice is saved with its client name, event date, total fee, and advance paid",
+              "The artist is taken to the invoice list, where the new invoice appears with its pending balance"
+            ],
+            "error_handling": [
+              "If Invoice.total_fee or Invoice.advance_paid is missing or not a number, the invoice is not saved and the artist stays on the form with the field flagged",
+              "If the save fails, no partial invoice is stored and the artist stays on the form with the entered values kept"
+            ]
+          },
+          {
+            "name": "advance_paid_must_not_exceed_total_fee",
+            "priority": "High",
+            "description": "An invoice is saved only when Invoice.advance_paid is less than or equal to Invoice.total_fee, so the pending balance is never negative.",
+            "status": "generated",
+            "triggers": [
+              "Artist submits the Create Invoice form with an advance greater than the total fee"
+            ],
+            "affected_fields": [
+              "Invoice.total_fee",
+              "Invoice.advance_paid",
+              "Invoice.pending_balance"
+            ],
+            "side_effects": [
+              "No Invoice record is created and the artist remains on the form",
+              "Invoice.pending_balance is not calculated because the save is rejected"
+            ],
+            "error_handling": [
+              "If advance_paid exceeds total_fee, the save is blocked and the advance field shows a message that it cannot be more than the total fee"
+            ]
+          }
+        ],
+        "validation_rules": [
+          {
+            "field_name": "Invoice.client_name",
+            "description": "Client name is required before an invoice can be saved.",
+            "status": "generated",
+            "field_type": "text",
+            "validation_type": "required",
+            "error_message": "Please enter the client's name."
+          },
+          {
+            "field_name": "Invoice.client_name",
+            "description": "Client name is between 1 and 100 characters.",
+            "status": "generated",
+            "field_type": "text",
+            "validation_type": "length",
+            "error_message": "Client name must be 100 characters or fewer."
+          },
+          {
+            "field_name": "Invoice.event_date",
+            "description": "Event date is required before an invoice can be saved.",
+            "status": "generated",
+            "field_type": "date",
+            "validation_type": "required",
+            "error_message": "Please choose the event date."
+          },
+          {
+            "field_name": "Invoice.total_fee",
+            "description": "Total fee is required before an invoice can be saved.",
+            "status": "generated",
+            "field_type": "number",
+            "validation_type": "required",
+            "error_message": "Please enter the total fee."
+          },
+          {
+            "field_name": "Invoice.total_fee",
+            "description": "Total fee is greater than 0.",
+            "status": "generated",
+            "field_type": "number",
+            "validation_type": "range",
+            "error_message": "Total fee must be more than 0."
+          },
+          {
+            "field_name": "Invoice.advance_paid",
+            "description": "Advance paid is 0 or more and no more than the total fee.",
+            "status": "generated",
+            "field_type": "number",
+            "validation_type": "range",
+            "error_message": "Advance paid must be between 0 and the total fee."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "flow_id": "F002",
+    "name": "Chase Overdue Balance via Reminder",
+    "description": "The artist opens the home dashboard, reviews the Who Owes Me list and action alerts, then opens an overdue client's invoice and copies a ready-to-send WhatsApp reminder.",
+    "priority": "P1",
+    "priority_label": "High Use",
+    "steps": [
+      {
+        "step_id": "1",
+        "description": "Artist opens the home screen and sees action alerts in plain sentences at the top, followed by the Who Owes Me list of overdue clients sorted by days overdue with exact amounts.",
+        "component_name": "WhoOwesMeDashboard",
+        "component_path": "src/app/page.tsx",
+        "order": 1,
+        "records": [
+          "Invoice",
+          "Bill"
+        ],
+        "business_rules": [
+          {
+            "name": "invoice_outstanding_balance_is_total_minus_payments",
+            "priority": "High",
+            "description": "An invoice's outstanding balance equals its total fee minus the advance paid minus all recorded payments against it.",
+            "status": "generated",
+            "triggers": [
+              "Artist opens the home screen and the Who Owes Me list loads",
+              "A payment is recorded against an invoice, changing what remains owed"
+            ],
+            "affected_fields": [
+              "Invoice.total_fee",
+              "Invoice.advance_paid",
+              "Invoice.event_date",
+              "Payment.amount",
+              "Payment.invoice_id"
+            ],
+            "side_effects": [
+              "The outstanding balance shown for each client on the Who Owes Me list is recalculated",
+              "An invoice with zero remaining balance drops off the Who Owes Me list"
+            ],
+            "error_handling": [
+              "If Payment.amount sums to more than the invoice total minus advance paid, the balance is treated as zero and the overpayment is flagged for the artist to review rather than shown as a negative owed amount",
+              "If Invoice.total_fee is missing, the invoice is excluded from the Who Owes Me list and flagged as incomplete"
+            ]
+          },
+          {
+            "name": "overdue_invoice_qualifies_when_balance_remains_past_event_date",
+            "priority": "High",
+            "description": "An invoice appears on the Who Owes Me list as overdue when it has a positive outstanding balance and today's date is after its event date.",
+            "status": "generated",
+            "triggers": [
+              "Artist opens the home screen",
+              "Current date passes an event date for an invoice with an unpaid balance"
+            ],
+            "affected_fields": [
+              "Invoice.event_date",
+              "Invoice.total_fee",
+              "Invoice.advance_paid",
+              "Payment.amount"
+            ],
+            "side_effects": [
+              "The invoice is listed in the Who Owes Me dashboard with its days overdue calculated from the event date"
+            ],
+            "error_handling": [
+              "If Invoice.event_date is empty, the invoice is not marked overdue and is shown in a separate needs-attention note instead of the overdue list",
+              "Invoices with a future event date and a remaining balance are not listed as overdue"
+            ]
+          },
+          {
+            "name": "who_owes_me_sorted_by_days_overdue_descending",
+            "priority": "Medium",
+            "description": "Overdue clients are listed with the longest-overdue first, and each row shows the client name, exact outstanding amount, and days overdue.",
+            "status": "generated",
+            "triggers": [
+              "Artist opens the home screen",
+              "An overdue balance changes or a new overdue invoice qualifies"
+            ],
+            "affected_fields": [
+              "Invoice.client_name",
+              "Invoice.event_date",
+              "Invoice.total_fee",
+              "Invoice.advance_paid",
+              "Payment.amount"
+            ],
+            "side_effects": [
+              "The Who Owes Me list on the home screen is ordered by days overdue, longest first"
+            ],
+            "error_handling": [
+              "If two invoices have the same days overdue, they are ordered by larger outstanding amount first",
+              "If the list is empty, the dashboard shows that no clients currently owe money instead of a blank panel"
+            ]
+          },
+          {
+            "name": "action_alerts_generated_from_overdue_balances_and_upcoming_bills",
+            "priority": "High",
+            "description": "The home screen shows action alerts written as plain sentences that tie an overdue client balance to an upcoming bill, such as telling the artist to chase a client's balance to cover next month's rent.",
+            "status": "generated",
+            "triggers": [
+              "Artist opens the home screen",
+              "An overdue balance exists while a Bill is due within the next month"
+            ],
+            "affected_fields": [
+              "Bill.name",
+              "Bill.amount",
+              "Bill.due_date",
+              "Invoice.client_name",
+              "Invoice.event_date",
+              "Invoice.total_fee",
+              "Invoice.advance_paid",
+              "Payment.amount"
+            ],
+            "side_effects": [
+              "An alert sentence appears above the Who Owes Me list naming the client, the outstanding amount, and the upcoming bill it would cover",
+              "Alerts are ranked above the Who Owes Me list on the home screen"
+            ],
+            "error_handling": [
+              "If there are no overdue balances, no chase alert is shown and no empty alert placeholder appears",
+              "If the outstanding amount is smaller than the upcoming bill, the alert states the shortfall instead of claiming the balance covers it",
+              "If no Bill is due in the next month, the alert omits the bill reference and only states the overdue amount and days overdue"
+            ]
+          }
+        ],
+        "validation_rules": []
+      },
+      {
+        "step_id": "2",
+        "description": "Artist taps an overdue client row to open that client's invoice detail, showing fee, advance and remaining balance.",
+        "component_name": "InvoiceDetailPage",
+        "component_path": "src/app/invoices/[id]/page.tsx",
+        "order": 2,
+        "records": [
+          "Invoice"
+        ],
+        "business_rules": [
+          {
+            "name": "remaining_balance_equals_fee_less_advance_and_payments",
+            "priority": "High",
+            "description": "The remaining balance shown is Invoice.total_fee minus Invoice.advance_paid minus the sum of Payment.amount for that invoice, and it never shows a negative amount.",
+            "status": "generated",
+            "triggers": [
+              "Artist taps an overdue client row and the invoice detail page loads"
+            ],
+            "affected_fields": [
+              "Invoice.total_fee",
+              "Invoice.advance_paid",
+              "Payment.amount",
+              "Payment.invoice_id"
+            ],
+            "side_effects": [
+              "The invoice detail shows fee, advance paid and remaining balance as three figures that reconcile to each other",
+              "No record is changed; the figures are calculated for display only"
+            ],
+            "error_handling": [
+              "If a payment record cannot be read, the remaining balance is not shown as a final figure and the artist sees a message that the balance could not be verified",
+              "If payments exceed the fee, the remaining balance shows zero and the surplus is flagged as an overpayment rather than a negative balance"
+            ]
+          },
+          {
+            "name": "invoice_is_overdue_when_balance_remains_past_due_date",
+            "priority": "High",
+            "description": "An Invoice moves from pending to overdue when its remaining balance is greater than zero and its due date has passed, and the days overdue are counted from that due date.",
+            "status": "generated",
+            "triggers": [
+              "Artist taps an overdue client row and the invoice detail page loads",
+              "The day passes the invoice due date while a balance is still owed"
+            ],
+            "affected_fields": [
+              "Invoice.status",
+              "Invoice.due_date",
+              "Invoice.total_fee",
+              "Invoice.advance_paid",
+              "Payment.amount"
+            ],
+            "side_effects": [
+              "The invoice detail displays the overdue status and the number of days overdue",
+              "The invoice remains listed under Who Owes Me until the balance is cleared"
+            ],
+            "error_handling": [
+              "If the due date is missing, the invoice is not labelled overdue and the detail page shows that no due date is set"
+            ]
+          },
+          {
+            "name": "invoice_status_becomes_paid_when_balance_reaches_zero",
+            "priority": "Medium",
+            "description": "An Invoice moves from overdue to paid when the sum of advance paid and payments received equals or exceeds its total fee, at which point the overdue status is removed.",
+            "status": "generated",
+            "triggers": [
+              "A Payment is recorded against the invoice and the remaining balance reaches zero"
+            ],
+            "affected_fields": [
+              "Invoice.status",
+              "Invoice.total_fee",
+              "Invoice.advance_paid",
+              "Payment.amount"
+            ],
+            "side_effects": [
+              "The invoice detail stops showing overdue and days overdue",
+              "The client is removed from the Who Owes Me list"
+            ],
+            "error_handling": [
+              "If a payment would make the balance negative, the payment is still saved but the invoice is marked paid and the overpayment is shown on the detail"
+            ]
+          }
+        ],
+        "validation_rules": []
+      },
+      {
+        "step_id": "3",
+        "description": "Artist sees a copy-ready polite WhatsApp payment reminder card and taps the single copy button without any extra confirmation.",
+        "component_name": "ReminderCopyCard",
+        "component_path": "src/components/ReminderCopyCard.tsx",
+        "order": 3,
+        "records": [
+          "Invoice"
+        ],
+        "business_rules": [
+          {
+            "name": "reminder_copy_uses_current_outstanding_balance",
+            "priority": "High",
+            "description": "The copied reminder text states the invoice's outstanding balance, calculated as total fee minus advance paid minus all payments received so far.",
+            "status": "generated",
+            "triggers": [
+              "Artist taps the copy button on the reminder card"
+            ],
+            "affected_fields": [
+              "Invoice.total_fee",
+              "Invoice.advance_paid",
+              "Invoice.client_name",
+              "Payment.amount",
+              "Payment.invoice_id"
+            ],
+            "side_effects": [
+              "The reminder text containing the client name and exact outstanding amount is copied to the device clipboard",
+              "No Invoice or Payment record is changed by the copy"
+            ],
+            "error_handling": [
+              "If Payments recorded since the card was rendered change the balance, the card recalculates and the copied text reflects the latest balance at the moment of the tap",
+              "If the device clipboard is unavailable or denies access, the reminder text is shown on screen so the artist can select and copy it manually"
+            ]
+          },
+          {
+            "name": "copy_action_does_not_change_invoice_status",
+            "priority": "Medium",
+            "description": "Copying a reminder is a non-committal action: it does not mark the invoice as reminded, change its status, or send anything to the client, since the artist sends the message manually in WhatsApp.",
+            "status": "generated",
+            "triggers": [
+              "Artist taps the copy button on the reminder card"
+            ],
+            "affected_fields": [
+              "Invoice.status",
+              "Invoice.balance_due"
+            ],
+            "side_effects": [
+              "The invoice remains in its current overdue or partially paid state",
+              "The client receives nothing from the app; the artist must paste and send the message in WhatsApp themselves"
+            ],
+            "error_handling": [
+              "If the artist copies the reminder but never sends it, the invoice remains overdue and continues to appear on the Who Owes Me dashboard"
+            ]
+          },
+          {
+            "name": "reminder_card_only_for_invoices_with_balance_due",
+            "priority": "Medium",
+            "description": "The copy action is only available when the invoice has a positive balance due (total fee minus advance paid minus payments received is greater than zero).",
+            "status": "generated",
+            "triggers": [
+              "Reminder card is rendered for an invoice",
+              "Artist taps the copy button on the reminder card"
+            ],
+            "affected_fields": [
+              "Invoice.total_fee",
+              "Invoice.advance_paid",
+              "Payment.amount",
+              "Payment.invoice_id"
+            ],
+            "side_effects": [
+              "When the balance is zero or less, the copy button is disabled and no reminder text is produced"
+            ],
+            "error_handling": [
+              "If a payment brings the balance to zero before the artist taps copy, the button becomes disabled and a message states the invoice is fully paid"
+            ]
+          }
+        ],
+        "validation_rules": []
+      }
+    ]
+  },
+  {
+    "flow_id": "F003",
+    "name": "Record Payment Received",
+    "description": "The artist finds an invoice with a pending balance, opens it, and records a payment received so the balance updates.",
+    "priority": "P2",
+    "priority_label": "Moderate Use",
+    "steps": [
+      {
+        "step_id": "1",
+        "description": "Artist opens the Invoices list and scans client rows showing event date, total fee, advance paid and pending balance.",
+        "component_name": "InvoicesListPage",
+        "component_path": "src/app/invoices/page.tsx",
+        "order": 1,
+        "records": [
+          "Invoice"
+        ],
+        "business_rules": [
+          {
+            "name": "pending_balance_is_fee_less_advance_and_payments",
+            "priority": "High",
+            "description": "Each invoice's pending balance is its total fee minus the advance paid minus all payments received so far, and the Invoices list shows this figure for every client row.",
+            "status": "generated",
+            "triggers": [
+              "Artist opens the Invoices list",
+              "Artist returns to the Invoices list after a payment is recorded"
+            ],
+            "affected_fields": [
+              "Invoice.total_fee",
+              "Invoice.advance_paid",
+              "Invoice.pending_balance",
+              "Payment.amount"
+            ],
+            "side_effects": [
+              "Each client row in the Invoices list displays the computed Invoice.pending_balance next to the total fee and advance paid"
+            ],
+            "error_handling": [
+              "If an invoice has no Payment records, the pending balance equals total fee minus advance paid",
+              "If the computed pending balance would be negative because payments exceed the fee, the row shows a zero balance and flags the overpayment for the artist to review"
+            ]
+          },
+          {
+            "name": "invoice_rows_show_event_date_fee_and_balance",
+            "priority": "Medium",
+            "description": "Every invoice row in the Invoices list shows the client's event date, total fee, advance paid, and pending balance so the artist can scan payment status without drilling in.",
+            "status": "generated",
+            "triggers": [
+              "Artist opens the Invoices list",
+              "Artist scans client rows for outstanding payments"
+            ],
+            "affected_fields": [
+              "Invoice.event_date",
+              "Invoice.total_fee",
+              "Invoice.advance_paid",
+              "Invoice.pending_balance"
+            ],
+            "side_effects": [
+              "The Invoices list renders one row per Invoice with event date, total fee, advance paid, and pending balance visible"
+            ],
+            "error_handling": [
+              "If an invoice has no event date recorded, the row displays a placeholder instead of a date and the rest of the row still renders"
+            ]
+          }
+        ],
+        "validation_rules": []
+      },
+      {
+        "step_id": "2",
+        "description": "Artist taps an invoice to open its detail view showing fee, advance and current balance.",
+        "component_name": "InvoiceDetailPage",
+        "component_path": "src/app/invoices/[id]/page.tsx",
+        "order": 2,
+        "records": [
+          "Invoice"
+        ],
+        "business_rules": [
+          {
+            "name": "invoice_balance_is_fee_less_advance_and_payments",
+            "priority": "High",
+            "description": "The current balance shown on an invoice equals the total fee minus the advance paid minus the sum of all Payment amounts recorded against that invoice, and is calculated from those stored values rather than stored as a separate figure.",
+            "status": "generated",
+            "triggers": [
+              "Artist taps an invoice to open its detail view",
+              "Artist returns to the invoice detail view after a payment is recorded"
+            ],
+            "affected_fields": [
+              "Invoice.total_fee",
+              "Invoice.advance_paid",
+              "Payment.amount",
+              "Payment.invoice_id"
+            ],
+            "side_effects": [
+              "The detail view shows the calculated current balance next to the fee and advance",
+              "No stored balance on Invoice is written; the value is recomputed each time the invoice is opened"
+            ],
+            "error_handling": [
+              "If an invoice has no Payment records, the current balance equals total_fee minus advance_paid",
+              "If the calculated balance is zero, the invoice is shown as fully paid rather than showing an outstanding amount"
+            ]
+          },
+          {
+            "name": "invoice_detail_shows_fee_advance_and_balance_together",
+            "priority": "High",
+            "description": "The invoice detail view presents the total fee, the advance paid, and the current balance together as the primary financial summary for the invoice, alongside the client name and event date that identify it.",
+            "status": "generated",
+            "triggers": [
+              "Artist taps an invoice in the invoice list",
+              "Artist navigates back to an invoice from the dashboard or a reminder screen"
+            ],
+            "affected_fields": [
+              "Invoice.client_name",
+              "Invoice.event_date",
+              "Invoice.total_fee",
+              "Invoice.advance_paid"
+            ],
+            "side_effects": [
+              "The artist sees the fee, advance, and remaining balance for the selected client and event without changing any record",
+              "Opening the detail view does not alter Invoice or Payment data"
+            ],
+            "error_handling": [
+              "If the invoice cannot be found, the artist is shown a message that the invoice is unavailable and returned to the invoice list",
+              "If the invoice has no advance recorded, the advance is shown as zero rather than blank"
+            ]
+          },
+          {
+            "name": "invoice_detail_is_read_only_until_payment_recorded",
+            "priority": "Medium",
+            "description": "Opening the invoice detail view performs no writes; changes to balance happen only when a Payment is recorded through a separate action.",
+            "status": "generated",
+            "triggers": [
+              "Artist opens an invoice detail view"
+            ],
+            "affected_fields": [
+              "Invoice.total_fee",
+              "Invoice.advance_paid",
+              "Payment.amount"
+            ],
+            "side_effects": [
+              "No Invoice or Payment records are created, modified, or deleted by viewing the detail"
+            ],
+            "error_handling": [
+              "If the detail view fails to load the financial figures, it shows the invoice header with a retry option instead of showing a partial or incorrect balance"
+            ]
+          }
+        ],
+        "validation_rules": []
+      },
+      {
+        "step_id": "3",
+        "description": "Artist enters the amount received and marks the payment as received; the pending balance on the invoice is reduced accordingly.",
+        "component_name": "PaymentRecordForm",
+        "component_path": "src/components/PaymentRecordForm.tsx",
+        "order": 3,
+        "records": [
+          "Payment",
+          "Invoice"
+        ],
+        "business_rules": [
+          {
+            "name": "payment_received_reduces_invoice_pending_balance",
+            "priority": "High",
+            "description": "When the artist marks a payment as received, the amount is recorded and the Invoice's pending balance is reduced by that amount (pending → partially paid → paid).",
+            "status": "generated",
+            "triggers": [
+              "Artist enters the amount received and marks the payment as received in PaymentRecordForm"
+            ],
+            "affected_fields": [
+              "Payment.amount",
+              "Payment.status",
+              "Payment.received_at",
+              "Payment.invoice_id",
+              "Invoice.pending_balance",
+              "Invoice.status"
+            ],
+            "side_effects": [
+              "Payment.status becomes received",
+              "Payment.received_at is set to the time the artist confirmed receipt",
+              "Invoice.pending_balance is reduced by Payment.amount",
+              "Invoice.status becomes partially_paid while Invoice.pending_balance is greater than zero",
+              "Invoice.status becomes paid when Invoice.pending_balance reaches zero",
+              "The Who Owes Me dashboard and cash forecast reflect the lower outstanding balance"
+            ],
+            "error_handling": [
+              "If the amount is missing, zero, or negative, the payment is not saved and the artist is asked to enter a positive amount",
+              "If the amount is greater than the Invoice.pending_balance, the payment is not saved and the artist is asked to enter an amount no greater than the balance due",
+              "If the Invoice has already been paid in full (Invoice.pending_balance is zero), the payment is not recorded and the artist is told no balance is outstanding",
+              "If saving fails, Payment.status stays pending and Invoice.pending_balance is left unchanged so the artist can retry"
+            ]
+          },
+          {
+            "name": "payment_and_balance_update_must_be_atomic",
+            "priority": "High",
+            "description": "Marking a payment as received and reducing the Invoice pending balance must succeed or fail together so the two records never disagree.",
+            "status": "generated",
+            "triggers": [
+              "Artist confirms the payment received action in PaymentRecordForm"
+            ],
+            "affected_fields": [
+              "Payment.status",
+              "Payment.amount",
+              "Invoice.pending_balance",
+              "Invoice.status"
+            ],
+            "side_effects": [
+              "Either both Payment.status becomes received and Invoice.pending_balance is reduced, or neither changes"
+            ],
+            "error_handling": [
+              "If the balance update fails after the payment is marked, the payment change is rolled back and the artist sees an error to retry",
+              "If two confirmations for the same payment arrive together, only one reduces the Invoice.pending_balance"
+            ]
+          },
+          {
+            "name": "payment_amount_cannot_exceed_pending_balance",
+            "priority": "Medium",
+            "description": "The amount recorded as received on a payment must be greater than zero and no more than the Invoice's current pending balance.",
+            "status": "generated",
+            "triggers": [
+              "Artist enters an amount in PaymentRecordForm"
+            ],
+            "affected_fields": [
+              "Payment.amount",
+              "Invoice.pending_balance"
+            ],
+            "side_effects": [
+              "The payment is accepted only when Payment.amount is within the pending balance"
+            ],
+            "error_handling": [
+              "If the entered amount exceeds Invoice.pending_balance, the form shows the remaining balance and does not save"
+            ]
+          }
+        ],
+        "validation_rules": [
+          {
+            "field_name": "Payment.amount",
+            "description": "An amount received must be entered before the payment can be marked received.",
+            "status": "generated",
+            "field_type": "number",
+            "validation_type": "required",
+            "error_message": "Enter the amount received."
+          },
+          {
+            "field_name": "Payment.amount",
+            "description": "The amount received must be greater than zero and no more than the invoice's current pending balance.",
+            "status": "generated",
+            "field_type": "number",
+            "validation_type": "range",
+            "error_message": "Enter an amount greater than 0 and no more than the balance due."
+          },
+          {
+            "field_name": "Payment.received_at",
+            "description": "A received date is recorded for the payment, defaulting to today.",
+            "status": "generated",
+            "field_type": "date",
+            "validation_type": "required",
+            "error_message": "Choose the date the payment was received."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "flow_id": "F004",
+    "name": "Review 30/60/90 Day Cash Forecast and What-If",
+    "description": "The artist opens the cash forecast, reviews expected inflows against upcoming bills across 30, 60 and 90 days, and toggles the late bridal payment what-if scenario.",
+    "priority": "P2",
+    "priority_label": "Moderate Use",
+    "steps": [
+      {
+        "step_id": "1",
+        "description": "Artist opens the Cash Forecast screen and sees the 30, 60 and 90 day view selector.",
+        "component_name": "CashForecastPage",
+        "component_path": "src/app/cash-forecast/page.tsx",
+        "order": 1,
+        "records": [
+          "Invoice",
+          "Bill"
+        ],
+        "business_rules": [
+          {
+            "name": "forecast_window_limited_to_30_60_90_days",
+            "priority": "High",
+            "description": "The cash forecast can only be viewed over a 30, 60, or 90 day window starting from today.",
+            "status": "generated",
+            "triggers": [
+              "Artist opens the Cash Forecast screen",
+              "Artist changes the 30/60/90 day view selector"
+            ],
+            "side_effects": [
+              "The forecast chart and totals are recalculated for the selected window only"
+            ],
+            "error_handling": [
+              "If no window is selected, the screen defaults to the 30 day view",
+              "Any window other than 30, 60, or 90 days is not offered as an option"
+            ]
+          },
+          {
+            "name": "expected_client_inflows_come_from_unpaid_invoice_balances",
+            "priority": "High",
+            "description": "Expected inflows in the forecast are the unpaid balance of each open invoice (total fee minus advance paid), placed on the date the balance is expected to be received.",
+            "status": "generated",
+            "triggers": [
+              "Artist opens the Cash Forecast screen",
+              "Artist changes the 30/60/90 day view selector"
+            ],
+            "affected_fields": [
+              "Invoice.total_fee",
+              "Invoice.advance_paid",
+              "Invoice.event_date",
+              "Invoice.status"
+            ],
+            "side_effects": [
+              "Each open invoice balance appears as an inflow in the forecast chart within the selected window"
+            ],
+            "error_handling": [
+              "Invoices already marked as fully paid contribute no inflow",
+              "Invoices with a balance of zero or less contribute no inflow"
+            ]
+          },
+          {
+            "name": "upcoming_bills_are_outflows_due_within_window",
+            "priority": "High",
+            "description": "Bills such as rent and cosmetic restocks are shown as outflows on their due dates, but only when the due date falls within the selected 30, 60, or 90 day window.",
+            "status": "generated",
+            "triggers": [
+              "Artist opens the Cash Forecast screen",
+              "Artist changes the 30/60/90 day view selector"
+            ],
+            "affected_fields": [
+              "Bill.amount",
+              "Bill.due_date",
+              "Bill.status"
+            ],
+            "side_effects": [
+              "Each unpaid bill appears as an outflow in the forecast chart on its due date"
+            ],
+            "error_handling": [
+              "Bills already marked as paid are excluded from outflows",
+              "Bills due after the selected window are not shown in that window's totals"
+            ]
+          },
+          {
+            "name": "forecast_net_cash_position_per_window",
+            "priority": "Medium",
+            "description": "For the selected window, the forecast shows total expected inflows, total upcoming bill outflows, and the resulting net cash position over time.",
+            "status": "generated",
+            "triggers": [
+              "Artist opens the Cash Forecast screen",
+              "Artist changes the 30/60/90 day view selector"
+            ],
+            "affected_fields": [
+              "Invoice.total_fee",
+              "Invoice.advance_paid",
+              "Bill.amount",
+              "Bill.due_date"
+            ],
+            "side_effects": [
+              "The screen displays a running net cash position, so any dip below zero is visible on the chart"
+            ],
+            "error_handling": [
+              "If there are no invoices and no bills in the window, the forecast shows a zero position rather than an error"
+            ]
+          },
+          {
+            "name": "viewing_forecast_changes_no_stored_data",
+            "priority": "Medium",
+            "description": "Opening the Cash Forecast screen and switching between 30, 60, and 90 day views only reads invoice and bill data; it does not change any stored record.",
+            "status": "generated",
+            "triggers": [
+              "Artist opens the Cash Forecast screen",
+              "Artist changes the 30/60/90 day view selector"
+            ],
+            "side_effects": [
+              "No invoice, bill, or payment record is modified by viewing the forecast"
+            ]
+          }
+        ],
+        "validation_rules": [
+          {
+            "field_name": "forecast_horizon_days",
+            "description": "The forecast window must be exactly 30, 60, or 90 days.",
+            "status": "generated",
+            "field_type": "select",
+            "validation_type": "range",
+            "error_message": "Please choose a 30, 60, or 90 day forecast."
+          }
+        ]
+      },
+      {
+        "step_id": "2",
+        "description": "Artist reviews the chart comparing expected client inflows against upcoming bills such as rent and cosmetic restocks.",
+        "component_name": "CashForecastChart",
+        "component_path": "src/components/CashForecastChart.tsx",
+        "order": 2,
+        "records": [
+          "Invoice",
+          "Bill"
+        ],
+        "business_rules": [
+          {
+            "name": "forecast_buckets_by_30_60_90_day_window",
+            "priority": "High",
+            "description": "The chart groups expected inflows and upcoming bills into 30, 60, and 90 day windows counted from today, and each item appears in the earliest window that contains its date.",
+            "status": "generated",
+            "triggers": [
+              "Artist opens the 30/60/90 day cash forecast chart",
+              "Artist switches between the 30, 60, and 90 day views"
+            ],
+            "affected_fields": [
+              "Invoice.event_date",
+              "Bill.due_date"
+            ],
+            "side_effects": [
+              "The chart displays inflow and outflow totals for the selected window",
+              "Items dated beyond the selected window are excluded from its totals"
+            ],
+            "error_handling": [
+              "If an Invoice has no event_date, its balance is shown in an 'undated' group and is not counted in any window",
+              "If a Bill has no due_date, it is shown in an 'undated' group and is not counted in any window"
+            ]
+          },
+          {
+            "name": "expected_inflow_is_outstanding_invoice_balance",
+            "priority": "High",
+            "description": "Each invoice contributes an expected inflow equal to its total fee minus the advance paid and any payments already received, dated on its event date.",
+            "status": "generated",
+            "triggers": [
+              "Chart loads or refreshes with current invoices",
+              "A payment is recorded against an invoice"
+            ],
+            "affected_fields": [
+              "Invoice.total_fee",
+              "Invoice.advance_paid",
+              "Invoice.event_date",
+              "Payment.amount",
+              "Payment.invoice_id"
+            ],
+            "side_effects": [
+              "The expected inflow amount for that client appears in the matching window on the chart",
+              "The inflow drops or disappears from the chart once the balance is fully paid"
+            ],
+            "error_handling": [
+              "If received payments exceed the remaining balance, the expected inflow is floored at zero and the overpayment is flagged for review",
+              "If total_fee is missing or zero, the invoice contributes no inflow and is flagged as incomplete"
+            ]
+          },
+          {
+            "name": "overdue_invoice_balances_counted_as_due_now",
+            "priority": "High",
+            "description": "An invoice whose event_date has passed and still has an outstanding balance is treated as an inflow due today rather than in a future window.",
+            "status": "generated",
+            "triggers": [
+              "Chart loads and an invoice's event_date is in the past with balance remaining"
+            ],
+            "affected_fields": [
+              "Invoice.event_date",
+              "Invoice.total_fee",
+              "Invoice.advance_paid",
+              "Payment.amount"
+            ],
+            "side_effects": [
+              "The overdue balance is shown in the 30 day window flagged as overdue",
+              "The client appears in the overdue list alongside the forecast"
+            ],
+            "error_handling": [
+              "If the overdue balance is zero after payments, it is removed from the forecast"
+            ]
+          },
+          {
+            "name": "unpaid_bills_are_outflows_in_their_due_window",
+            "priority": "High",
+            "description": "Each unpaid bill, such as rent or cosmetic restock, is an outflow equal to its amount on its due date, and bills already marked paid are excluded.",
+            "status": "generated",
+            "triggers": [
+              "Chart loads or refreshes with current bills",
+              "Artist marks a bill as paid"
+            ],
+            "affected_fields": [
+              "Bill.amount",
+              "Bill.due_date",
+              "Bill.is_paid"
+            ],
+            "side_effects": [
+              "Each unpaid bill appears as an outflow in the window that contains its due date",
+              "A bill marked paid is removed from the outflow totals"
+            ],
+            "error_handling": [
+              "If Bill.amount is missing or zero, the bill is excluded and flagged for correction"
+            ]
+          },
+          {
+            "name": "running_balance_projects_cash_position",
+            "priority": "High",
+            "description": "The chart computes a running cash position by adding expected inflows and subtracting bills in date order, starting from the artist's current cash on hand.",
+            "status": "generated",
+            "triggers": [
+              "Chart calculates the forecast for the selected window"
+            ],
+            "affected_fields": [
+              "Invoice.total_fee",
+              "Invoice.advance_paid",
+              "Invoice.event_date",
+              "Bill.amount",
+              "Bill.due_date"
+            ],
+            "side_effects": [
+              "The chart line shows projected balance at each point in time",
+              "Any point where the projected balance drops below zero is highlighted as a shortfall"
+            ],
+            "error_handling": [
+              "If no current cash balance has been entered, the projection starts from zero and is labelled as relative to zero"
+            ]
+          },
+          {
+            "name": "shortfall_triggers_action_alert",
+            "priority": "Medium",
+            "description": "When the projected running balance goes negative within the selected window, the artist is shown a shortfall alert naming the earliest date and the amount short.",
+            "status": "generated",
+            "triggers": [
+              "Projected running balance falls below zero within the 30, 60, or 90 day window"
+            ],
+            "affected_fields": [
+              "Bill.amount",
+              "Bill.due_date",
+              "Invoice.event_date",
+              "Invoice.total_fee",
+              "Invoice.advance_paid"
+            ],
+            "side_effects": [
+              "A shortfall alert appears on the chart with the earliest negative date and shortfall amount",
+              "The alert links the artist to the overdue or upcoming invoices that would close the gap"
+            ],
+            "error_handling": [
+              "If there are no outstanding invoices to close the gap, the alert still shows the shortfall and states that no expected inflow covers it"
+            ]
+          },
+          {
+            "name": "forecast_is_read_only_and_does_not_alter_records",
+            "priority": "Medium",
+            "description": "Viewing the forecast calculates figures from Invoice, Payment, and Bill records without changing any of them.",
+            "status": "generated",
+            "triggers": [
+              "Artist views the chart",
+              "Artist switches the forecast window"
+            ],
+            "affected_fields": [
+              "Invoice.total_fee",
+              "Invoice.advance_paid",
+              "Bill.amount",
+              "Bill.is_paid"
+            ],
+            "side_effects": [
+              "No invoice, payment, or bill is created, updated, or deleted by viewing the chart"
+            ],
+            "error_handling": [
+              "If a calculation fails for one record, that record is skipped, the rest of the chart still renders, and the skipped record is noted on the chart"
+            ]
+          }
+        ],
+        "validation_rules": []
+      },
+      {
+        "step_id": "3",
+        "description": "Artist switches the what-if toggle on to simulate a key bridal client paying 15 days late, and the chart and projected cash balance update to show the impact.",
+        "component_name": "WhatIfToggle",
+        "component_path": "src/components/WhatIfToggle.tsx",
+        "order": 3,
+        "records": [
+          "Invoice"
+        ],
+        "business_rules": [
+          {
+            "name": "what_if_delay_is_simulation_only",
+            "priority": "High",
+            "description": "Turning on the what-if toggle recalculates the 30, 60, and 90 day forecast and projected cash balance using shifted dates, without changing any saved invoice data.",
+            "status": "generated",
+            "triggers": [
+              "Artist switches the what-if toggle on",
+              "Artist switches the what-if toggle off"
+            ],
+            "affected_fields": [
+              "Invoice.due_date",
+              "Invoice.balance_due"
+            ],
+            "side_effects": [
+              "The forecast chart and projected cash balance display the delayed scenario",
+              "Invoice.due_date and Invoice.balance_due stay unchanged in storage",
+              "Turning the toggle off restores the baseline forecast"
+            ],
+            "error_handling": [
+              "If the forecast cannot be recalculated, the toggle reverts to off and the baseline forecast stays on screen with a short message that the scenario could not be shown"
+            ]
+          },
+          {
+            "name": "what_if_shifts_only_unpaid_invoices",
+            "priority": "High",
+            "description": "The 15 day delay applies only to invoices with an outstanding balance (balance_due greater than zero); invoices already paid in full are excluded from the shift.",
+            "status": "generated",
+            "triggers": [
+              "Artist switches the what-if toggle on while forecast invoices are loaded"
+            ],
+            "affected_fields": [
+              "Invoice.balance_due",
+              "Invoice.due_date",
+              "Payment.amount"
+            ],
+            "side_effects": [
+              "Only outstanding invoices have their expected inflow date moved 15 days later in the simulation",
+              "Fully paid invoices remain in their original forecast period"
+            ],
+            "error_handling": [
+              "If an invoice has no due_date, it is left out of the shift and the forecast notes that it could not be delayed"
+            ]
+          },
+          {
+            "name": "what_if_delay_moves_inflow_across_forecast_windows",
+            "priority": "Medium",
+            "description": "A 15 day delay can push an invoice's expected inflow from one forecast window (30, 60, or 90 days) into a later one, or past the 90 day horizon, and the forecast reflects that movement.",
+            "status": "generated",
+            "triggers": [
+              "Artist switches the what-if toggle on for an invoice due within 15 days of a window boundary"
+            ],
+            "affected_fields": [
+              "Invoice.due_date",
+              "Invoice.balance_due"
+            ],
+            "side_effects": [
+              "The invoice amount moves from the 30 day total into the 60 day total, or out of the 90 day total",
+              "Projected cash balance for the affected window drops by the invoice's balance_due"
+            ],
+            "error_handling": [
+              "If the shifted date falls beyond 90 days, the invoice is shown as outside the forecast horizon rather than dropped silently"
+            ]
+          }
+        ],
+        "validation_rules": []
+      }
+    ]
+  },
+  {
+    "flow_id": "F005",
+    "name": "Add Upcoming Bill",
+    "description": "The artist reviews upcoming bills such as rent and restocks, then adds a new bill with its name, amount and due date.",
+    "priority": "P3",
+    "priority_label": "Low Use",
+    "steps": [
+      {
+        "step_id": "1",
+        "description": "Artist opens the Bills screen and sees the list of upcoming bills with their due dates and amounts.",
+        "component_name": "BillsListPage",
+        "component_path": "src/app/bills/page.tsx",
+        "order": 1,
+        "records": [
+          "Bill"
+        ],
+        "business_rules": [
+          {
+            "name": "bills_list_shows_only_unpaid_bills",
+            "priority": "High",
+            "description": "The Bills screen lists only bills whose status is pending or overdue, and hides bills that have been paid.",
+            "status": "generated",
+            "triggers": [
+              "Artist opens the Bills screen",
+              "Artist returns to the Bills screen after marking a bill as paid"
+            ],
+            "affected_fields": [
+              "Bill.status",
+              "Bill.due_date",
+              "Bill.amount"
+            ],
+            "side_effects": [
+              "The Bills list shows each pending or overdue Bill with its due date and amount",
+              "Bills with status paid do not appear in the list"
+            ],
+            "error_handling": [
+              "If no bills are pending or overdue, the screen shows an empty state inviting the artist to add an upcoming bill",
+              "If a bill's due date or amount is missing, the bill is still listed with a visible placeholder and is flagged for correction rather than hidden"
+            ]
+          },
+          {
+            "name": "bills_sorted_by_nearest_due_date",
+            "priority": "High",
+            "description": "Listed bills are ordered by due_date ascending, so overdue bills appear first and the soonest upcoming bill appears next.",
+            "status": "generated",
+            "triggers": [
+              "Artist opens the Bills screen",
+              "A new bill is added or an existing bill's due date changes"
+            ],
+            "affected_fields": [
+              "Bill.due_date",
+              "Bill.status"
+            ],
+            "side_effects": [
+              "The Bills list reorders so the most urgent bill is at the top"
+            ],
+            "error_handling": [
+              "Bills with the same due_date are ordered by creation time so the list order stays stable between visits"
+            ]
+          },
+          {
+            "name": "bill_becomes_overdue_after_due_date_passes",
+            "priority": "Medium",
+            "description": "A bill whose status is pending and whose due_date is before today is displayed as overdue (pending → overdue), and it stays overdue until it is marked paid.",
+            "status": "generated",
+            "triggers": [
+              "A day passes such that a pending bill's due_date is in the past",
+              "Artist opens the Bills screen"
+            ],
+            "affected_fields": [
+              "Bill.status",
+              "Bill.due_date"
+            ],
+            "side_effects": [
+              "Bill.status changes from pending to overdue",
+              "The overdue bill is highlighted in the Bills list with the number of days past due"
+            ],
+            "error_handling": [
+              "If the device date is incorrect, overdue status is recalculated on next open rather than stored permanently"
+            ]
+          },
+          {
+            "name": "bills_list_limited_to_forecast_horizon",
+            "priority": "Low",
+            "description": "The Bills list shows bills due within the 90-day cash forecast window from today, matching the 30, 60, and 90 day forecast horizons.",
+            "status": "generated",
+            "triggers": [
+              "Artist opens the Bills screen"
+            ],
+            "affected_fields": [
+              "Bill.due_date",
+              "Bill.amount"
+            ],
+            "side_effects": [
+              "Bills due beyond 90 days are not shown on the list but remain stored"
+            ],
+            "error_handling": [
+              "Overdue bills are always shown regardless of how far in the past their due_date is"
+            ]
+          }
+        ],
+        "validation_rules": []
+      },
+      {
+        "step_id": "2",
+        "description": "Artist opens the New Bill screen to add a bill.",
+        "component_name": "NewBillPage",
+        "component_path": "src/app/bills/new/page.tsx",
+        "order": 2,
+        "records": [
+          "Bill"
+        ],
+        "business_rules": [
+          {
+            "name": "new_bill_starts_unpaid",
+            "priority": "High",
+            "description": "A bill created from the New Bill screen is saved with status unpaid and is not marked paid until the artist records a payment against it.",
+            "status": "generated",
+            "triggers": [
+              "Artist submits the New Bill form"
+            ],
+            "affected_fields": [
+              "Bill.status",
+              "Bill.paid_at"
+            ],
+            "side_effects": [
+              "Bill.status is set to unpaid",
+              "Bill.paid_at is left empty",
+              "the bill is listed as an upcoming outflow on the cash forecast"
+            ],
+            "error_handling": [
+              "If the artist attempts to enter a status directly on the form, the status is ignored and the bill is saved as unpaid"
+            ]
+          },
+          {
+            "name": "bill_amount_must_be_positive",
+            "priority": "High",
+            "description": "A bill amount must be greater than zero so that forecast outflows are never zero or negative.",
+            "status": "generated",
+            "triggers": [
+              "Artist enters an amount and submits the New Bill form"
+            ],
+            "affected_fields": [
+              "Bill.amount"
+            ],
+            "side_effects": [
+              "the bill is saved only when the amount is valid",
+              "the 30, 60, and 90 day cash forecast includes the bill amount as an outflow"
+            ],
+            "error_handling": [
+              "If the amount is zero or negative, the bill is not saved and the artist is asked to enter a valid amount",
+              "If the amount is blank, the bill is not saved and the artist is asked to enter an amount"
+            ]
+          },
+          {
+            "name": "bill_due_date_drives_forecast_window",
+            "priority": "Medium",
+            "description": "A bill is included in the 30, 60, or 90 day cash forecast based on how many days remain until its due date, and bills due within 7 days raise an action alert.",
+            "status": "generated",
+            "triggers": [
+              "Artist saves a new bill with a due date",
+              "A day passes and an existing bill moves closer to its due date"
+            ],
+            "affected_fields": [
+              "Bill.due_date",
+              "Bill.status"
+            ],
+            "side_effects": [
+              "the bill appears in the matching 30, 60, or 90 day forecast bucket",
+              "an action alert is shown to the artist when an unpaid bill is due within 7 days, such as reminding her to set aside money for next month's rent"
+            ],
+            "error_handling": [
+              "If the due date is missing, the bill is not saved and the artist is asked to choose a due date",
+              "If the due date is more than 90 days away, the bill is saved but is excluded from the 90 day forecast until it falls within that window"
+            ]
+          },
+          {
+            "name": "bill_category_limited_to_known_types",
+            "priority": "Low",
+            "description": "A bill must be assigned one of the supported categories (rent, cosmetic restock, or other) so the forecast can group outflows meaningfully.",
+            "status": "generated",
+            "triggers": [
+              "Artist selects a category on the New Bill form"
+            ],
+            "affected_fields": [
+              "Bill.category"
+            ],
+            "side_effects": [
+              "the forecast chart groups the bill under its category"
+            ],
+            "error_handling": [
+              "If no category is selected, the bill defaults to other",
+              "If an unsupported category value is submitted, the bill is not saved and the artist is asked to choose a valid category"
+            ]
+          }
+        ],
+        "validation_rules": [
+          {
+            "field_name": "Bill.name",
+            "description": "Bill name is required and must be provided before the bill can be saved.",
+            "status": "generated",
+            "field_type": "text",
+            "validation_type": "required",
+            "error_message": "Please enter a name for this bill."
+          },
+          {
+            "field_name": "Bill.name",
+            "description": "Bill name can be at most 80 characters.",
+            "status": "generated",
+            "field_type": "text",
+            "validation_type": "length",
+            "error_message": "Bill name must be 80 characters or fewer."
+          },
+          {
+            "field_name": "Bill.amount",
+            "description": "Bill amount is required.",
+            "status": "generated",
+            "field_type": "number",
+            "validation_type": "required",
+            "error_message": "Please enter the amount for this bill."
+          },
+          {
+            "field_name": "Bill.amount",
+            "description": "Bill amount must be greater than 0 and no more than 10,000,000 in local currency.",
+            "status": "generated",
+            "field_type": "number",
+            "validation_type": "range",
+            "error_message": "Bill amount must be greater than 0."
+          },
+          {
+            "field_name": "Bill.due_date",
+            "description": "Due date is required so the bill can be placed in a forecast window.",
+            "status": "generated",
+            "field_type": "date",
+            "validation_type": "required",
+            "error_message": "Please choose a due date for this bill."
+          },
+          {
+            "field_name": "Bill.due_date",
+            "description": "Due date must be a valid calendar date in DD/MM/YYYY format.",
+            "status": "generated",
+            "field_type": "date",
+            "validation_type": "format",
+            "error_message": "Please enter a valid due date."
+          },
+          {
+            "field_name": "Bill.category",
+            "description": "Category is one of rent, cosmetic restock, or other, and defaults to other when left unselected.",
+            "status": "generated",
+            "field_type": "select",
+            "validation_type": "required",
+            "error_message": "Please choose a valid category for this bill."
+          }
+        ]
+      },
+      {
+        "step_id": "3",
+        "description": "Artist enters the bill name, amount and due date, then saves so the bill appears in the upcoming bills list and forecast.",
+        "component_name": "BillForm",
+        "component_path": "src/components/BillForm.tsx",
+        "order": 3,
+        "records": [
+          "Bill"
+        ],
+        "business_rules": [
+          {
+            "name": "bill_saved_as_upcoming_outflow",
+            "priority": "High",
+            "description": "A newly saved bill starts as unpaid and counts as an upcoming outflow in the upcoming bills list and the 30, 60, and 90 day cash forecast.",
+            "status": "generated",
+            "triggers": [
+              "Artist taps save on the Add Upcoming Bill form with a valid name, amount, and due date"
+            ],
+            "affected_fields": [
+              "Bill.name",
+              "Bill.amount",
+              "Bill.due_date",
+              "Bill.status"
+            ],
+            "side_effects": [
+              "A new Bill record is created with Bill.status set to unpaid",
+              "The bill appears in the upcoming bills list",
+              "The bill's amount is subtracted from the matching day in the 30, 60, and 90 day cash forecast based on Bill.due_date",
+              "The forecast totals and the Who Owes Me and action alert views recalculate to include the bill"
+            ],
+            "error_handling": [
+              "If the save fails, no Bill record is created, the form stays open with the entered values kept, and the artist sees a retry message",
+              "If the forecast cannot be recalculated after a successful save, the bill is still listed and the forecast refreshes on next app open"
+            ]
+          },
+          {
+            "name": "bill_amount_must_be_positive",
+            "priority": "High",
+            "description": "A bill amount must be greater than zero so that forecast outflows are never zero, negative, or unset.",
+            "status": "generated",
+            "triggers": [
+              "Artist enters or edits the amount on the Add Upcoming Bill form and taps save"
+            ],
+            "affected_fields": [
+              "Bill.amount"
+            ],
+            "side_effects": [
+              "A Bill record is saved only when Bill.amount is greater than zero",
+              "The forecast uses the entered Bill.amount as the outflow for the due date"
+            ],
+            "error_handling": [
+              "If Bill.amount is empty, zero, or negative, the save is blocked and the amount field shows an inline error",
+              "If Bill.amount has more than two decimal places, the save is blocked and the artist is asked to correct the amount"
+            ]
+          },
+          {
+            "name": "bill_due_date_required_for_forecast_placement",
+            "priority": "High",
+            "description": "Every bill must have a due date so it can be placed on the correct day within the 30, 60, or 90 day forecast window.",
+            "status": "generated",
+            "triggers": [
+              "Artist selects or enters the due date on the Add Upcoming Bill form and taps save"
+            ],
+            "affected_fields": [
+              "Bill.due_date"
+            ],
+            "side_effects": [
+              "A Bill record is saved only when Bill.due_date is set",
+              "The bill is placed in the forecast window that contains Bill.due_date"
+            ],
+            "error_handling": [
+              "If Bill.due_date is empty, the save is blocked and the date field shows an inline error",
+              "If Bill.due_date is more than 90 days away, the bill is saved and listed but is not shown in the 30, 60, or 90 day forecast until it falls within the window"
+            ]
+          },
+          {
+            "name": "bill_due_date_past_flagged_overdue",
+            "priority": "Medium",
+            "description": "A bill saved with a due date earlier than today is accepted and immediately marked overdue in the upcoming bills list.",
+            "status": "generated",
+            "triggers": [
+              "Artist saves a bill whose due date is before today"
+            ],
+            "affected_fields": [
+              "Bill.due_date",
+              "Bill.status"
+            ],
+            "side_effects": [
+              "Bill.status shows as overdue in the upcoming bills list",
+              "The bill is counted in today's cash position rather than a future forecast day"
+            ],
+            "error_handling": [
+              "If the artist meant a future date and entered a past one by mistake, they can correct Bill.due_date from the bill before the forecast is final"
+            ]
+          }
+        ],
+        "validation_rules": [
+          {
+            "field_name": "Bill.name",
+            "description": "Bill name is required and must not be blank or only spaces.",
+            "status": "generated",
+            "field_type": "text",
+            "validation_type": "required",
+            "error_message": "Enter a name for this bill, such as Studio rent or Lash restock."
+          },
+          {
+            "field_name": "Bill.name",
+            "description": "Bill name can be up to 60 characters.",
+            "status": "generated",
+            "field_type": "text",
+            "validation_type": "length",
+            "error_message": "Keep the bill name to 60 characters or fewer."
+          },
+          {
+            "field_name": "Bill.amount",
+            "description": "Bill amount is required.",
+            "status": "generated",
+            "field_type": "number",
+            "validation_type": "required",
+            "error_message": "Enter the amount this bill costs."
+          },
+          {
+            "field_name": "Bill.amount",
+            "description": "Bill amount must be greater than zero and no more than 1,000,000.",
+            "status": "generated",
+            "field_type": "number",
+            "validation_type": "range",
+            "error_message": "Enter an amount greater than 0 and up to 1,000,000."
+          },
+          {
+            "field_name": "Bill.amount",
+            "description": "Bill amount may have at most two decimal places.",
+            "status": "generated",
+            "field_type": "number",
+            "validation_type": "format",
+            "error_message": "Use at most two decimal places for the amount."
+          },
+          {
+            "field_name": "Bill.due_date",
+            "description": "Bill due date is required.",
+            "status": "generated",
+            "field_type": "date",
+            "validation_type": "required",
+            "error_message": "Choose the date this bill is due."
+          },
+          {
+            "field_name": "Bill.due_date",
+            "description": "Bill due date must be a valid calendar date.",
+            "status": "generated",
+            "field_type": "date",
+            "validation_type": "format",
+            "error_message": "Enter a valid date for the due date."
+          }
+        ]
+      }
+    ]
+  }
+]

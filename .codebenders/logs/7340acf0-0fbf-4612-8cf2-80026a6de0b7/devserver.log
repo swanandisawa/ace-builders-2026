@@ -1,0 +1,1400 @@
+2026-11-21T12:27:06.773Z  [await-install] node_modules/typescript missing in c:\Users\DeLL\Desktop\GlowLedger — installing
+2026-11-21T12:27:06.946Z  'npm' is not recognized as an internal or external command,
+                          operable program or batch file.
+2026-11-21T12:27:06.955Z  [await-install] npm install failed: npm install exited with code 1
+2026-11-21T12:27:08.826Z  [dev-server] node_modules missing in c:\Users\DeLL\Desktop\GlowLedger — running npm install (this can take 30-90s)
+2026-11-21T12:27:08.905Z  'npm' is not recognized as an internal or external command,
+                          operable program or batch file.
+2026-11-21T12:27:10.824Z  [dev-server] node_modules missing in c:\Users\DeLL\Desktop\GlowLedger — running npm install (this can take 30-90s)
+2026-11-21T12:27:10.910Z  'npm' is not recognized as an internal or external command,
+                          operable program or batch file.
+2026-11-21T12:52:10.165Z  [await-install] node_modules/typescript missing in c:\Users\DeLL\Desktop\GlowLedger — installing
+2026-11-21T12:52:10.232Z  'npm' is not recognized as an internal or external command,
+                          operable program or batch file.
+2026-11-21T12:52:10.239Z  [await-install] npm install failed: npm install exited with code 1
+2026-11-21T12:52:12.151Z  [await-install] node_modules/typescript missing in c:\Users\DeLL\Desktop\GlowLedger — installing
+2026-11-21T12:52:12.249Z  'npm' is not recognized as an internal or external command,
+                          operable program or batch file.
+2026-11-21T12:52:12.255Z  [await-install] npm install failed: npm install exited with code 1
+2026-11-21T12:58:28.271Z  [dev-server] node_modules missing in c:\Users\DeLL\Desktop\GlowLedger — running npm install (this can take 30-90s)
+2026-11-21T12:58:28.303Z  'npm' is not recognized as an internal or external command,
+                          operable program or batch file.
+2026-11-21T13:03:31.487Z  [prewarm] kicking off npm install for c:\Users\DeLL\Desktop\GlowLedger (background)
+2026-11-21T13:03:31.555Z  'npm' is not recognized as an internal or external command,
+                          operable program or batch file.
+2026-11-21T13:03:31.561Z  [prewarm] background npm install failed: npm install exited with code 1
+2026-11-21T13:03:43.480Z  [dev-server] node_modules missing in c:\Users\DeLL\Desktop\GlowLedger — running npm install (this can take 30-90s)
+2026-11-21T13:03:43.517Z  'npm' is not recognized as an internal or external command,
+                          operable program or batch file.
+2026-11-21T13:18:57.701Z  [dev-server] node_modules missing in c:\Users\DeLL\Desktop\GlowLedger — running npm install (this can take 30-90s)
+2026-11-21T13:21:17.739Z  
+                          added 453 packages in 2m
+2026-11-21T13:21:17.744Z  npm notice
+                          npm notice New major version of npm available! 11.20.0 -> 12.2.3
+                          npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.3
+                          npm notice To update run: npm install -g npm@12.2.3
+                          npm notice
+2026-11-21T13:21:18.734Z  [prisma-client] regenerating — the generated client is missing
+2026-11-21T13:21:18.787Z  [dev-server] prisma: using node_modules/.bin/prisma
+2026-11-21T13:21:20.151Z  warn The configuration property `package.json#prisma` is deprecated and will be removed in Prisma 7. Please migrate to a Prisma config file (e.g., `prisma.config.ts`).
+                          For more information, see: https://pris.ly/prisma-config
+2026-11-21T13:21:30.164Z  Prisma schema loaded from prisma\schema.prisma
+2026-11-21T13:21:30.486Z  
+                          ✔ Generated Prisma Client (v6.19.3) to .\node_modules\@prisma\client in 81ms
+                          
+                          Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)
+                          
+                          Tip: Interested in query caching in just a few lines of code? Try Accelerate today! https://pris.ly/tip-3-accelerate
+2026-11-21T13:21:30.537Z  [prisma-client] ok
+2026-11-21T13:21:30.538Z  [dev-server] npm install complete
+2026-11-21T13:21:30.647Z  [db] skipped — no docker-compose.yml in the app
+2026-11-21T13:21:30.658Z  [env] .env: generated DEMO_PASSWORD (they were blank, which fails at sign-in)
+2026-11-21T13:21:30.710Z  [dev-server] prisma/schema.prisma found — running `prisma generate`
+2026-11-21T13:21:30.711Z  [dev-server] prisma: using node_modules/.bin/prisma
+2026-11-21T13:21:31.946Z  warn The configuration property `package.json#prisma` is deprecated and will be removed in Prisma 7. Please migrate to a Prisma config file (e.g., `prisma.config.ts`).
+                          For more information, see: https://pris.ly/prisma-config
+2026-11-21T13:21:32.091Z  Environment variables loaded from .env
+2026-11-21T13:21:32.092Z  Prisma schema loaded from prisma\schema.prisma
+2026-11-21T13:21:32.287Z  ┌─────────────────────────────────────────────────────────┐
+                          │  Update available 6.19.3 -> 8.0.0-rc.34                 │
+                          │                                                         │
+                          │  This is a major update - please follow the guide at    │
+                          │  https://pris.ly/d/major-version-upgrade                │
+                          │                                                         │
+                          │  Run the following to update                            │
+                          │    npm i --save-dev prisma@latest                       │
+                          │    npm i @prisma/client@latest                          │
+                          └─────────────────────────────────────────────────────────┘
+2026-11-21T13:21:32.288Z  
+                          ✔ Generated Prisma Client (v6.19.3) to .\node_modules\@prisma\client in 75ms
+                          
+                          Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)
+                          
+                          Tip: Need your database queries to be 1000x faster? Accelerate offers you that and more: https://pris.ly/tip-2-accelerate
+2026-11-21T13:21:32.323Z  [dev-server] prisma generate exited 0
+2026-11-21T13:21:32.324Z  [dev-server] DATABASE_URL set — running `prisma db push`
+2026-11-21T13:21:33.518Z  warn The configuration property `package.json#prisma` is deprecated and will be removed in Prisma 7. Please migrate to a Prisma config file (e.g., `prisma.config.ts`).
+                          For more information, see: https://pris.ly/prisma-config
+2026-11-21T13:21:33.663Z  Environment variables loaded from .env
+2026-11-21T13:21:33.664Z  Prisma schema loaded from prisma\schema.prisma
+2026-11-21T13:21:33.666Z  Datasource "db": PostgreSQL database "app", schema "public" at "localhost:5432"
+2026-11-21T13:21:39.009Z  Error: P1001: Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-21T13:21:39.037Z  [dev-server] prisma db push exited 1
+2026-11-21T13:21:39.044Z  [dev-server] build dir isolated → .next-nexen (next.config.mjs: already patched)
+2026-11-21T13:21:39.051Z  [dev-server] booting npm run dev in c:\Users\DeLL\Desktop\GlowLedger on port 3100
+2026-11-21T13:21:39.053Z  [dev-server] next via "dev"
+2026-11-21T13:21:39.066Z  [dev-server] boot platform=win32/x64 node=v22.21.1 pm=npm cmd=npm shell=true port=3100 resolved=C:\Program Files\nodejs\npm.CMD pathFixed=true cwd=c:\Users\DeLL\Desktop\GlowLedger
+2026-11-21T13:21:39.670Z  
+                          > glowledger@0.1.0 dev
+                          > next dev
+2026-11-21T13:21:40.656Z     ▲ Next.js 15.5.29
+2026-11-21T13:21:40.660Z     - Local:        http://localhost:3100
+                             - Network:      http://192.168.1.8:3100
+                             - Environments: .env
+                          
+                           ✓ Starting...
+2026-11-21T13:21:42.047Z     We detected TypeScript in your project and reconfigured your tsconfig.json file for you.
+                             The following suggested values were added to your tsconfig.json. These values can be changed to fit your project's needs:
+                          
+                             	- include was updated to add '.next-nexen/types/**/*.ts'
+2026-11-21T13:21:42.511Z   ✓ Ready in 1990ms
+2026-11-21T13:21:43.039Z   ○ Compiling / ...
+2026-11-21T13:21:50.586Z   ✓ Compiled / in 8.1s (644 modules)
+2026-11-21T13:21:50.694Z  [preview] dev server took 10012ms to answer GET http://localhost:3100. This is normal on Windows (Defender + slower FS) and is not an error — the readiness probe waits up to 10s per request.
+2026-11-21T13:21:51.255Z   GET / 200 in 8736ms
+2026-11-21T13:21:51.318Z  [dev-server] ready at http://localhost:3100
+2026-11-21T13:21:51.327Z   GET / 200 in 67ms
+2026-11-21T13:21:51.463Z   GET / 200 in 106ms
+2026-11-21T13:21:53.905Z   GET / 200 in 62ms
+2026-11-21T13:48:29.396Z   GET / 200 in 57ms
+2026-11-21T13:53:56.700Z  [dev-server] exited code=1 signal=-
+2026-11-21T13:53:56.701Z  [dev-server] (expected stop — not reporting as a crash)
+2026-11-21T13:54:07.128Z  [db] skipped — no docker-compose.yml in the app
+2026-11-21T13:54:07.131Z  [dev-server] prisma/schema.prisma found — running `prisma generate`
+2026-11-21T13:54:07.131Z  [dev-server] prisma: using node_modules/.bin/prisma
+2026-11-21T13:54:08.144Z  warn The configuration property `package.json#prisma` is deprecated and will be removed in Prisma 7. Please migrate to a Prisma config file (e.g., `prisma.config.ts`).
+                          For more information, see: https://pris.ly/prisma-config
+2026-11-21T13:54:08.286Z  Environment variables loaded from .env
+2026-11-21T13:54:08.286Z  Prisma schema loaded from prisma\schema.prisma
+2026-11-21T13:54:08.475Z  
+                          ✔ Generated Prisma Client (v6.19.3) to .\node_modules\@prisma\client in 70ms
+                          
+                          Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)
+                          
+                          Tip: Need your database queries to be 1000x faster? Accelerate offers you that and more: https://pris.ly/tip-2-accelerate
+2026-11-21T13:54:08.502Z  [dev-server] prisma generate exited 0
+2026-11-21T13:54:08.502Z  [dev-server] DATABASE_URL set — running `prisma db push`
+2026-11-21T13:54:09.563Z  warn The configuration property `package.json#prisma` is deprecated and will be removed in Prisma 7. Please migrate to a Prisma config file (e.g., `prisma.config.ts`).
+                          For more information, see: https://pris.ly/prisma-config
+2026-11-21T13:54:09.703Z  Environment variables loaded from .env
+2026-11-21T13:54:09.704Z  Prisma schema loaded from prisma\schema.prisma
+2026-11-21T13:54:09.706Z  Datasource "db": PostgreSQL database "app", schema "public" at "localhost:5432"
+2026-11-21T13:54:13.843Z  Error: P1001: Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-21T13:54:13.869Z  [dev-server] prisma db push exited 1
+2026-11-21T13:54:13.872Z  [dev-server] build dir isolated → .next-nexen (next.config.mjs: already patched)
+2026-11-21T13:54:13.874Z  [dev-server] booting npm run dev in c:\Users\DeLL\Desktop\GlowLedger on port 3100
+2026-11-21T13:54:13.875Z  [dev-server] next via "dev"
+2026-11-21T13:54:13.881Z  [dev-server] boot platform=win32/x64 node=v22.21.1 pm=npm cmd=npm shell=true port=3100 resolved=C:\Program Files\nodejs\npm.CMD pathFixed=true cwd=c:\Users\DeLL\Desktop\GlowLedger
+2026-11-21T13:54:14.231Z  
+                          > glowledger@0.1.0 dev
+                          > next dev
+2026-11-21T13:54:14.964Z     ▲ Next.js 15.5.29
+                             - Local:        http://localhost:3100
+                             - Network:      http://192.168.1.8:3100
+2026-11-21T13:54:14.965Z     - Environments: .env
+                          
+                           ✓ Starting...
+2026-11-21T13:54:16.733Z   ✓ Ready in 1862ms
+2026-11-21T13:54:17.246Z   ○ Compiling / ...
+2026-11-21T13:54:17.507Z   ✓ Compiled / in 760ms (630 modules)
+2026-11-21T13:54:17.784Z  [dev-server] ready at http://localhost:3100
+2026-11-21T13:54:17.790Z   GET / 200 in 1052ms
+2026-11-21T13:56:05.586Z  [dev-server] reusing the dev server already running for c:\Users\DeLL\Desktop\GlowLedger (pid 20244, port 3100)
+2026-11-21T13:56:05.661Z   GET / 200 in 59ms
+2026-11-21T13:56:07.136Z   ○ Compiling /api/who-owes-me ...
+2026-11-21T13:56:07.867Z   ✓ Compiled /api/who-owes-me in 1789ms (667 modules)
+2026-11-21T13:56:08.174Z   GET /api/auth/me 404 in 2102ms
+2026-11-21T13:56:08.215Z   GET / 200 in 226ms
+2026-11-21T13:56:08.219Z   GET / 200 in 84ms
+2026-11-21T13:56:08.678Z   GET /api/auth/me 404 in 43ms
+2026-11-21T13:56:08.979Z   GET /api/who-owes-me 200 in 2876ms
+2026-11-21T13:56:12.191Z  prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-21T13:56:12.192Z  prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-21T13:56:12.198Z   GET /api/who-owes-me 500 in 3216ms
+2026-11-21T13:56:16.320Z  prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-21T13:56:16.321Z   GET /api/who-owes-me 500 in 4122ms
+2026-11-21T13:56:17.684Z   GET / 200 in 22ms
+2026-11-21T13:56:33.845Z   ✓ Compiled /invoices in 287ms (664 modules)
+2026-11-21T13:56:33.899Z   GET /invoices 200 in 347ms
+2026-11-21T13:56:34.117Z   ✓ Compiled /api/invoices in 157ms (666 modules)
+2026-11-21T13:56:36.698Z   GET / 200 in 29ms
+2026-11-21T13:56:38.214Z  prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-21T13:56:38.215Z  prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-21T13:56:38.221Z   GET /api/invoices 500 in 4265ms
+2026-11-21T13:56:38.222Z   GET /api/who-owes-me 500 in 1505ms
+2026-11-21T13:56:42.318Z  prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-21T13:56:42.320Z  prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-21T13:56:42.322Z   GET /api/who-owes-me 500 in 4099ms
+2026-11-21T13:56:42.323Z   GET /api/invoices 500 in 4098ms
+2026-11-21T13:56:46.422Z  prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-21T13:56:46.425Z   GET /api/who-owes-me 500 in 4098ms
+2026-11-21T13:56:50.547Z  prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-21T13:56:50.549Z   GET /api/who-owes-me 500 in 4121ms
+2026-11-21T13:57:27.666Z   ✓ Compiled /bills in 479ms (673 modules)
+2026-11-21T13:57:27.721Z   GET /bills 200 in 539ms
+2026-11-21T13:57:27.934Z   ✓ Compiled /api/bills in 159ms (675 modules)
+2026-11-21T13:57:32.027Z  prisma:error 
+                          Invalid `prisma.bill.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-21T13:57:32.030Z   GET /api/bills 500 in 4261ms
+2026-11-21T13:57:36.119Z  prisma:error 
+                          Invalid `prisma.bill.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-21T13:57:36.123Z   GET /api/bills 500 in 4089ms
+2026-11-21T13:57:40.209Z  prisma:error 
+                          Invalid `prisma.bill.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-21T13:57:40.210Z   GET /api/bills 500 in 4086ms
+2026-11-21T13:57:42.639Z   ✓ Compiled /cash-forecast in 338ms (690 modules)
+2026-11-21T13:57:42.689Z   GET /cash-forecast 200 in 393ms
+2026-11-21T13:57:43.112Z   ✓ Compiled /api/invoices in 363ms (694 modules)
+2026-11-21T13:57:47.215Z  prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-21T13:57:47.217Z  prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+                          prisma:error 
+                          Invalid `prisma.bill.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+                          prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-21T13:57:47.222Z   GET /api/cash-forecast?late_bridal_payment=false 500 in 4478ms
+2026-11-21T13:57:47.224Z   GET /api/cash-forecast?late_bridal_payment=true 500 in 4479ms
+2026-11-21T13:57:47.228Z   GET /api/bills 500 in 4477ms
+                           GET /api/invoices 500 in 4476ms
+2026-11-21T13:57:51.379Z  prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-21T13:57:51.382Z  prisma:error 
+                          Invalid `prisma.bill.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+                          prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+                          prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-21T13:57:51.397Z   GET /api/cash-forecast?late_bridal_payment=false 500 in 4163ms
+2026-11-21T13:57:51.402Z   GET /api/bills 500 in 4163ms
+                           GET /api/invoices 500 in 4163ms
+                           GET /api/cash-forecast?late_bridal_payment=true 500 in 4163ms
+2026-11-21T13:58:08.957Z   GET /bills 200 in 40ms
+2026-11-21T13:58:13.061Z  prisma:error 
+                          Invalid `prisma.bill.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-21T13:58:13.064Z   GET /api/bills 500 in 4091ms
+2026-11-21T13:58:17.160Z  prisma:error 
+                          Invalid `prisma.bill.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-21T13:58:17.161Z   GET /api/bills 500 in 4095ms
+2026-11-21T13:58:58.315Z   GET /cash-forecast 200 in 39ms
+2026-11-21T13:59:02.421Z  prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-21T13:59:02.423Z  prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+                          prisma:error 
+                          Invalid `prisma.bill.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+                          prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-21T13:59:02.427Z   GET /api/cash-forecast?late_bridal_payment=false 500 in 4089ms
+2026-11-21T13:59:02.428Z   GET /api/cash-forecast?late_bridal_payment=true 500 in 4088ms
+                           GET /api/bills 500 in 4088ms
+                           GET /api/invoices 500 in 4088ms
+2026-11-21T13:59:06.494Z  prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-21T13:59:06.496Z  prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+                          prisma:error 
+                          Invalid `prisma.bill.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+                          prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-21T13:59:06.501Z   GET /api/cash-forecast?late_bridal_payment=false 500 in 4064ms
+                           GET /api/cash-forecast?late_bridal_payment=true 500 in 4063ms
+                           GET /api/bills 500 in 4064ms
+                           GET /api/invoices 500 in 4064ms
+2026-11-21T14:03:49.510Z   GET /cash-forecast 200 in 91ms
+2026-11-21T14:03:50.122Z   ✓ Compiled /api/invoices in 204ms (419 modules)
+2026-11-21T14:03:50.340Z   ✓ Compiled (442 modules)
+2026-11-21T14:03:50.548Z   GET /api/auth/me 404 in 633ms
+2026-11-21T14:03:54.580Z  prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-21T14:03:54.583Z  prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+                          prisma:error 
+                          Invalid `prisma.bill.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+                          prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-21T14:03:54.590Z   GET /api/cash-forecast?late_bridal_payment=true 500 in 4650ms
+2026-11-21T14:03:54.593Z   GET /api/cash-forecast?late_bridal_payment=false 500 in 4652ms
+                           GET /api/bills 500 in 4651ms
+                           GET /api/invoices 500 in 4651ms
+2026-11-21T14:04:47.455Z   GET / 200 in 50ms
+2026-11-21T14:04:47.900Z   GET /api/auth/me 404 in 64ms
+2026-11-21T14:04:48.071Z   ✓ Compiled /api/who-owes-me in 181ms (444 modules)
+2026-11-21T14:04:52.190Z  prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-21T14:04:52.193Z   GET /api/who-owes-me 500 in 4308ms
+2026-11-21T14:04:53.377Z   GET /api/who-owes-me 200 in 915ms
+2026-11-21T14:04:53.379Z  [dev-server] exited code=1 signal=-
+2026-11-21T14:04:53.379Z  [dev-server] (expected stop — not reporting as a crash)
+2026-11-21T14:05:28.783Z  [db] skipped — no docker-compose.yml in the app
+2026-11-21T14:05:28.786Z  [dev-server] prisma/schema.prisma found — running `prisma generate`
+2026-11-21T14:05:28.786Z  [dev-server] prisma: using node_modules/.bin/prisma
+2026-11-21T14:05:29.808Z  warn The configuration property `package.json#prisma` is deprecated and will be removed in Prisma 7. Please migrate to a Prisma config file (e.g., `prisma.config.ts`).
+                          For more information, see: https://pris.ly/prisma-config
+2026-11-21T14:05:29.943Z  Environment variables loaded from .env
+2026-11-21T14:05:29.945Z  Prisma schema loaded from prisma\schema.prisma
+2026-11-21T14:05:30.127Z  
+                          ✔ Generated Prisma Client (v6.19.3) to .\node_modules\@prisma\client in 68ms
+                          
+                          Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)
+                          
+                          Tip: Need your database queries to be 1000x faster? Accelerate offers you that and more: https://pris.ly/tip-2-accelerate
+2026-11-21T14:05:30.153Z  [dev-server] prisma generate exited 0
+2026-11-21T14:05:30.153Z  [dev-server] DATABASE_URL set — running `prisma db push`
+2026-11-21T14:05:31.234Z  warn The configuration property `package.json#prisma` is deprecated and will be removed in Prisma 7. Please migrate to a Prisma config file (e.g., `prisma.config.ts`).
+                          For more information, see: https://pris.ly/prisma-config
+2026-11-21T14:05:31.382Z  Environment variables loaded from .env
+2026-11-21T14:05:31.382Z  Prisma schema loaded from prisma\schema.prisma
+2026-11-21T14:05:31.385Z  Datasource "db": PostgreSQL database "app", schema "public" at "localhost:5432"
+2026-11-21T14:05:35.506Z  Error: P1001: Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-21T14:05:35.533Z  [dev-server] prisma db push exited 1
+2026-11-21T14:05:35.536Z  [dev-server] build dir isolated → .next-nexen (next.config.mjs: already patched)
+2026-11-21T14:05:35.538Z  [dev-server] booting npm run dev in c:\Users\DeLL\Desktop\GlowLedger on port 3100
+2026-11-21T14:05:35.540Z  [dev-server] next via "dev"
+2026-11-21T14:05:35.547Z  [dev-server] boot platform=win32/x64 node=v22.21.1 pm=npm cmd=npm shell=true port=3100 resolved=C:\Program Files\nodejs\npm.CMD pathFixed=true cwd=c:\Users\DeLL\Desktop\GlowLedger
+2026-11-21T14:05:35.912Z  
+                          > glowledger@0.1.0 dev
+                          > next dev
+2026-11-21T14:05:36.750Z     ▲ Next.js 15.5.29
+2026-11-21T14:05:36.751Z     - Local:        http://localhost:3100
+                             - Network:      http://192.168.1.8:3100
+                             - Environments: .env
+                          
+                           ✓ Starting...
+2026-11-21T14:05:38.532Z   ✓ Ready in 1879ms
+2026-11-21T14:05:39.069Z   ○ Compiling / ...
+2026-11-21T14:05:39.214Z   ✓ Compiled / in 668ms (630 modules)
+2026-11-21T14:05:39.484Z  [dev-server] ready at http://localhost:3100
+2026-11-21T14:05:39.492Z   GET / 200 in 954ms
+2026-11-22T02:15:44.325Z   ✓ Compiled in 6.1s (251 modules)
+2026-11-22T02:15:44.489Z   ✓ Compiled in 157ms (251 modules)
+2026-11-22T02:18:48.323Z   GET / 200 in 273ms
+2026-11-22T02:18:50.049Z   ○ Compiling /api/who-owes-me ...
+2026-11-22T02:18:50.988Z   ✓ Compiled /api/who-owes-me in 1440ms (653 modules)
+2026-11-22T02:18:52.320Z   GET /api/auth/me 404 in 2790ms
+2026-11-22T02:18:56.238Z  prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-22T02:18:56.251Z   GET /api/who-owes-me 500 in 6712ms
+2026-11-22T02:19:00.365Z  prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-22T02:19:00.369Z   GET /api/who-owes-me 500 in 4113ms
+2026-11-22T02:19:32.423Z   GET / 200 in 173ms
+2026-11-22T02:19:33.317Z   GET /api/auth/me 404 in 154ms
+2026-11-22T02:19:37.370Z  prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-22T02:19:37.376Z   GET /api/who-owes-me 500 in 4204ms
+2026-11-22T02:19:37.694Z   ○ Compiling /bills ...
+2026-11-22T02:19:38.793Z   ✓ Compiled /bills in 1633ms (661 modules)
+2026-11-22T02:19:39.035Z   GET /bills 200 in 1890ms
+2026-11-22T02:19:39.621Z   ○ Compiling /api/bills ...
+2026-11-22T02:19:39.670Z   ✓ Compiled /api/bills in 564ms (663 modules)
+2026-11-22T02:19:42.988Z  prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-22T02:19:42.993Z  prisma:error 
+                          Invalid `prisma.bill.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-22T02:19:43.000Z   GET /api/who-owes-me 500 in 5617ms
+2026-11-22T02:19:43.003Z   GET /api/bills 500 in 3903ms
+2026-11-22T02:19:47.112Z  prisma:error 
+                          Invalid `prisma.bill.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-22T02:19:47.118Z   GET /api/bills 500 in 4111ms
+2026-11-22T02:19:51.214Z  prisma:error 
+                          Invalid `prisma.bill.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-22T02:19:51.220Z   GET /api/bills 500 in 4097ms
+2026-11-22T02:19:54.824Z   ○ Compiling /cash-forecast ...
+2026-11-22T02:19:55.018Z   ✓ Compiled /cash-forecast in 704ms (680 modules)
+2026-11-22T02:19:55.176Z   GET /cash-forecast 200 in 882ms
+2026-11-22T02:19:55.331Z  prisma:error 
+                          Invalid `prisma.bill.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-22T02:19:55.338Z   GET /api/bills 500 in 4109ms
+2026-11-22T02:19:55.438Z   GET /cash-forecast 200 in 76ms
+2026-11-22T02:19:56.052Z   ○ Compiling /api/invoices ...
+2026-11-22T02:19:57.070Z   ✓ Compiled /api/invoices in 1578ms (684 modules)
+2026-11-22T02:20:01.257Z  prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-22T02:20:01.264Z  prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+                          prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-22T02:20:01.270Z  prisma:error 
+                          Invalid `prisma.bill.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-22T02:20:01.280Z   GET /api/invoices 500 in 5797ms
+                           GET /api/cash-forecast?late_bridal_payment=false 500 in 5802ms
+                           GET /api/cash-forecast?late_bridal_payment=true 500 in 5800ms
+                           GET /api/bills 500 in 5797ms
+2026-11-22T02:20:03.300Z   GET /api/invoices 200 in 2010ms
+2026-11-22T02:20:03.301Z   GET /api/bills 200 in 2007ms
+                           GET /api/cash-forecast?late_bridal_payment=true 200 in 2010ms
+2026-11-22T02:20:03.309Z   GET /api/cash-forecast?late_bridal_payment=false 200 in 2019ms
+2026-11-22T02:20:03.315Z   GET /cash-forecast 200 in 352ms
+2026-11-22T02:20:04.352Z   GET /api/auth/me 404 in 275ms
+2026-11-22T02:20:05.418Z  prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-22T02:20:05.423Z  prisma:error 
+                          Invalid `prisma.bill.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+                          prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+                          prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+                          prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-22T02:20:05.432Z  prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+                          prisma:error 
+                          Invalid `prisma.invoice.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+                          prisma:error 
+                          Invalid `prisma.bill.findMany()` invocation:
+                          
+                          
+                          Can't reach database server at `localhost:5432`
+                          
+                          Please make sure your database server is running at `localhost:5432`.
+2026-11-22T02:20:05.445Z   GET /api/cash-forecast?late_bridal_payment=false 500 in 1355ms
+                           GET /api/cash-forecast?late_bridal_payment=true 500 in 1353ms
+                           GET /api/invoices 500 in 1347ms
+                           GET /api/bills 500 in 1349ms
+2026-11-22T02:32:59.754Z  [dev-server] schema.prisma changed → prisma generate + restart
+2026-11-22T02:32:59.755Z  [dev-server] prisma/schema.prisma found — running `prisma generate`
+2026-11-22T02:32:59.756Z  [dev-server] prisma: using node_modules/.bin/prisma
+2026-11-22T02:33:01.531Z  warn The configuration property `package.json#prisma` is deprecated and will be removed in Prisma 7. Please migrate to a Prisma config file (e.g., `prisma.config.ts`).
+                          For more information, see: https://pris.ly/prisma-config
+2026-11-22T02:33:01.730Z  Environment variables loaded from .env
+2026-11-22T02:33:01.732Z  Prisma schema loaded from prisma\schema.prisma
+2026-11-22T02:33:02.022Z  Error: 
+                          EPERM: operation not permitted, rename 'C:\Users\DeLL\Desktop\GlowLedger\node_modules\.prisma\client\query_engine-windows.dll.node.tmp15716' -> 'C:\Users\DeLL\Desktop\GlowLedger\node_modules\.prisma\client\query_engine-windows.dll.node'
+2026-11-22T02:33:02.048Z  [dev-server] prisma generate exited 1
+2026-11-22T02:33:02.048Z  [dev-server] DATABASE_URL set — running `prisma db push`
+2026-11-22T02:33:03.142Z     Reload env: .env
+2026-11-22T02:33:03.628Z   ✓ Compiled in 477ms (656 modules)
+2026-11-22T02:33:03.906Z   GET /cash-forecast 200 in 259ms
+2026-11-22T02:33:04.093Z  warn The configuration property `package.json#prisma` is deprecated and will be removed in Prisma 7. Please migrate to a Prisma config file (e.g., `prisma.config.ts`).
+                          For more information, see: https://pris.ly/prisma-config
+2026-11-22T02:33:04.363Z  Environment variables loaded from .env
+2026-11-22T02:33:04.366Z  Prisma schema loaded from prisma\schema.prisma
+2026-11-22T02:33:04.370Z  Datasource "db": SQLite database "dev.db" at "file:./dev.db"
+2026-11-22T02:33:04.526Z  
+                          SQLite database dev.db created at file:./dev.db
+2026-11-22T02:33:04.601Z  
+                          Your database is now in sync with your Prisma schema. Done in 76ms
+2026-11-22T02:33:04.605Z  ┌─────────────────────────────────────────────────────────┐
+                          │  Update available 6.19.3 -> 8.0.0-rc.34                 │
+                          │                                                         │
+                          │  This is a major update - please follow the guide at    │
+                          │  https://pris.ly/d/major-version-upgrade                │
+                          │                                                         │
+                          │  Run the following to update                            │
+                          │    npm i --save-dev prisma@latest                       │
+                          │    npm i @prisma/client@latest                          │
+                          └─────────────────────────────────────────────────────────┘
+2026-11-22T02:33:04.655Z  [dev-server] prisma db push exited 0
+2026-11-22T02:33:04.655Z  [dev-server] restarting (prisma/schema.prisma changed)…
+2026-11-22T02:33:05.159Z  [dev-server] exited code=1 signal=-
+2026-11-22T02:33:05.159Z  [dev-server] (expected stop — not reporting as a crash)
+2026-11-22T02:33:05.191Z  [prisma-client] regenerating — the schema or the dependency tree changed since the client was generated
+2026-11-22T02:33:05.191Z  [dev-server] prisma: using node_modules/.bin/prisma
+2026-11-22T02:33:06.951Z  warn The configuration property `package.json#prisma` is deprecated and will be removed in Prisma 7. Please migrate to a Prisma config file (e.g., `prisma.config.ts`).
+                          For more information, see: https://pris.ly/prisma-config
+2026-11-22T02:33:07.172Z  Environment variables loaded from .env
+2026-11-22T02:33:07.173Z  Prisma schema loaded from prisma\schema.prisma
+2026-11-22T02:33:07.454Z  
+                          ✔ Generated Prisma Client (v6.19.3) to .\node_modules\@prisma\client in 103ms
+                          
+                          Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)
+                          
+                          Tip: Want to turn off tips and other hints? https://pris.ly/tip-4-nohints
+2026-11-22T02:33:07.492Z  [prisma-client] ok
+2026-11-22T02:33:07.493Z  [db] skipped — no server database for this stack
+2026-11-22T02:33:07.513Z  [dev-server] prisma/schema.prisma found — running `prisma generate`
+2026-11-22T02:33:07.513Z  [dev-server] prisma: using node_modules/.bin/prisma
+2026-11-22T02:33:09.200Z  warn The configuration property `package.json#prisma` is deprecated and will be removed in Prisma 7. Please migrate to a Prisma config file (e.g., `prisma.config.ts`).
+                          For more information, see: https://pris.ly/prisma-config
+2026-11-22T02:33:09.472Z  Environment variables loaded from .env
+2026-11-22T02:33:09.473Z  Prisma schema loaded from prisma\schema.prisma
+2026-11-22T02:33:09.742Z  
+                          ✔ Generated Prisma Client (v6.19.3) to .\node_modules\@prisma\client in 104ms
+                          
+                          Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)
+                          
+                          Tip: Need your database queries to be 1000x faster? Accelerate offers you that and more: https://pris.ly/tip-2-accelerate
+2026-11-22T02:33:09.780Z  [dev-server] prisma generate exited 0
+2026-11-22T02:33:09.780Z  [dev-server] DATABASE_URL set — running `prisma db push`
+2026-11-22T02:33:11.462Z  warn The configuration property `package.json#prisma` is deprecated and will be removed in Prisma 7. Please migrate to a Prisma config file (e.g., `prisma.config.ts`).
+                          For more information, see: https://pris.ly/prisma-config
+2026-11-22T02:33:11.671Z  Environment variables loaded from .env
+2026-11-22T02:33:11.671Z  Prisma schema loaded from prisma\schema.prisma
+2026-11-22T02:33:11.676Z  Datasource "db": SQLite database "dev.db" at "file:./dev.db"
+2026-11-22T02:33:11.750Z  
+                          The database is already in sync with the Prisma schema.
+2026-11-22T02:33:11.789Z  [dev-server] prisma db push exited 0
+2026-11-22T02:33:11.790Z  [dev-server] seeding demo user via scripts/setup-db.mjs
+2026-11-22T02:33:11.793Z  [dev-server] node scripts/setup-db.mjs failed to spawn: spawn node ENOENT
+2026-11-22T02:33:11.793Z  [dev-server] setup-db.mjs FAILED (exit -1) — the database has no schema or demo user, so preview pages will render unauthenticated and demo sign-in will fail.
+2026-11-22T02:33:11.844Z  [dev-server] build dir isolated → .next-nexen (next.config.mjs: already patched)
+2026-11-22T02:33:11.867Z  [dev-server] booting npm run dev in c:\Users\DeLL\Desktop\GlowLedger on port 3100
+2026-11-22T02:33:11.870Z  [dev-server] next via "dev"
+2026-11-22T02:33:11.890Z  [dev-server] boot platform=win32/x64 node=v22.21.1 pm=npm cmd=npm shell=true port=3100 resolved=C:\Program Files\nodejs\npm.CMD pathFixed=true cwd=c:\Users\DeLL\Desktop\GlowLedger
+2026-11-22T02:33:12.604Z  
+                          > glowledger@0.1.0 dev
+                          > next dev
+2026-11-22T02:33:16.511Z     ▲ Next.js 15.5.29
+2026-11-22T02:33:16.512Z     - Local:        http://localhost:3100
+                             - Network:      http://192.168.1.8:3100
+                             - Environments: .env
+                          
+                           ✓ Starting...
+2026-11-22T02:33:23.413Z   ✓ Ready in 7.1s
+2026-11-22T02:33:24.005Z   ○ Compiling / ...
+2026-11-22T02:33:24.504Z   ✓ Compiled / in 1065ms (630 modules)
+2026-11-22T02:33:24.957Z  [preview] dev server took 8434ms to answer GET http://localhost:3100. This is normal on Windows (Defender + slower FS) and is not an error — the readiness probe waits up to 10s per request.
+2026-11-22T02:33:24.958Z  [dev-server] ready at http://localhost:3100
+2026-11-22T02:33:24.966Z   GET / 200 in 1542ms
+2026-11-22T02:55:14.737Z     Reload env: .env
+2026-11-22T02:55:14.908Z   ✓ Compiled in 163ms (237 modules)
+2026-11-22T02:55:19.323Z  [dev-server] restarting (.env changed)…
+2026-11-22T02:55:19.740Z  [dev-server] exited code=1 signal=-
+2026-11-22T02:55:19.740Z  [dev-server] (expected stop — not reporting as a crash)
+2026-11-22T02:55:19.748Z  [db] skipped — no server database for this stack
+2026-11-22T02:55:19.752Z  [dev-server] prisma/schema.prisma found — running `prisma generate`
+2026-11-22T02:55:19.753Z  [dev-server] prisma: using node_modules/.bin/prisma
+2026-11-22T02:55:21.685Z  warn The configuration property `package.json#prisma` is deprecated and will be removed in Prisma 7. Please migrate to a Prisma config file (e.g., `prisma.config.ts`).
+                          For more information, see: https://pris.ly/prisma-config
+2026-11-22T02:55:21.910Z  Environment variables loaded from .env
+2026-11-22T02:55:21.912Z  Prisma schema loaded from prisma\schema.prisma
+2026-11-22T02:55:22.222Z  
+                          ✔ Generated Prisma Client (v6.19.3) to .\node_modules\@prisma\client in 111ms
+                          
+                          Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)
+                          
+                          Tip: Interested in query caching in just a few lines of code? Try Accelerate today! https://pris.ly/tip-3-accelerate
+2026-11-22T02:55:22.263Z  [dev-server] prisma generate exited 0
+2026-11-22T02:55:22.263Z  [dev-server] DATABASE_URL set — running `prisma db push`
+2026-11-22T02:55:24.126Z  warn The configuration property `package.json#prisma` is deprecated and will be removed in Prisma 7. Please migrate to a Prisma config file (e.g., `prisma.config.ts`).
+                          For more information, see: https://pris.ly/prisma-config
+2026-11-22T02:55:24.357Z  Environment variables loaded from .env
+2026-11-22T02:55:24.359Z  Prisma schema loaded from prisma\schema.prisma
+2026-11-22T02:55:24.362Z  Datasource "db": SQLite database "dev.db" at "file:./dev.db"
+2026-11-22T02:55:24.448Z  
+                          The database is already in sync with the Prisma schema.
+2026-11-22T02:55:24.489Z  [dev-server] prisma db push exited 0
+2026-11-22T02:55:24.490Z  [dev-server] seeding demo user via scripts/setup-db.mjs
+2026-11-22T02:55:24.492Z  [dev-server] node scripts/setup-db.mjs failed to spawn: spawn node ENOENT
+2026-11-22T02:55:24.493Z  [dev-server] setup-db.mjs FAILED (exit -1) — the database has no schema or demo user, so preview pages will render unauthenticated and demo sign-in will fail.
+2026-11-22T02:55:24.497Z  [dev-server] build dir isolated → .next-nexen (next.config.mjs: already patched)
+2026-11-22T02:55:24.499Z  [dev-server] booting npm run dev in c:\Users\DeLL\Desktop\GlowLedger on port 3100
+2026-11-22T02:55:24.501Z  [dev-server] next via "dev"
+2026-11-22T02:55:24.514Z  [dev-server] boot platform=win32/x64 node=v22.21.1 pm=npm cmd=npm shell=true port=3100 resolved=C:\Program Files\nodejs\npm.CMD pathFixed=true cwd=c:\Users\DeLL\Desktop\GlowLedger
+2026-11-22T02:55:25.142Z  
+                          > glowledger@0.1.0 dev
+                          > next dev
+2026-11-22T02:55:26.471Z     ▲ Next.js 15.5.29
+2026-11-22T02:55:26.472Z     - Local:        http://localhost:3100
+                             - Network:      http://192.168.1.8:3100
+                             - Environments: .env
+                          
+                           ✓ Starting...
+2026-11-22T02:55:28.976Z   ✓ Ready in 2.7s
+2026-11-22T02:55:29.569Z   ○ Compiling / ...
+2026-11-22T02:55:30.246Z   ✓ Compiled / in 1249ms (630 modules)
+2026-11-22T02:55:30.660Z  [preview] dev server took 4112ms to answer GET http://localhost:3100. This is normal on Windows (Defender + slower FS) and is not an error — the readiness probe waits up to 10s per request.
+2026-11-22T02:55:30.660Z  [dev-server] ready at http://localhost:3100
+2026-11-22T02:55:30.672Z   GET / 200 in 1688ms
+2026-11-22T02:56:06.765Z   ○ Compiling /cash-forecast ...
+2026-11-22T02:56:07.001Z   ✓ Compiled /cash-forecast in 752ms (647 modules)
+2026-11-22T02:56:07.309Z   GET /cash-forecast 200 in 1085ms
+2026-11-22T02:56:09.201Z   ○ Compiling /api/bills ...
+2026-11-22T02:56:11.061Z   ✓ Compiled /api/bills in 2.4s (674 modules)
+2026-11-22T02:56:12.381Z   GET /api/bills 200 in 3702ms
+2026-11-22T02:56:12.401Z   GET /api/invoices 200 in 3722ms
+2026-11-22T02:56:12.436Z   GET /api/cash-forecast?late_bridal_payment=false 200 in 3762ms
+2026-11-22T02:56:12.443Z   GET /api/cash-forecast?late_bridal_payment=true 200 in 3766ms
+2026-11-22T02:56:12.467Z   GET /api/auth/me 404 in 3805ms
+2026-11-22T02:56:21.158Z   GET /cash-forecast 200 in 192ms
+2026-11-22T02:56:22.133Z   GET /api/auth/me 404 in 222ms
+2026-11-22T02:56:22.158Z   GET /api/cash-forecast?late_bridal_payment=false 200 in 227ms
+2026-11-22T02:56:22.162Z   GET /api/bills 200 in 228ms
+2026-11-22T02:56:22.171Z   GET /api/invoices 200 in 235ms
+2026-11-22T02:56:22.177Z   GET /api/cash-forecast?late_bridal_payment=true 200 in 242ms
+2026-11-22T02:56:46.690Z   ○ Compiling /invoices ...
+2026-11-22T02:56:47.559Z   ✓ Compiled /invoices in 1383ms (675 modules)
+2026-11-22T02:56:47.753Z   GET /invoices 200 in 1596ms
+2026-11-22T02:56:47.831Z   GET /invoices 200 in 92ms
+2026-11-22T02:56:47.965Z   GET /api/invoices 200 in 90ms
+2026-11-22T02:56:48.037Z   GET /api/invoices 200 in 67ms
+2026-11-22T02:56:48.114Z   GET /invoices 200 in 75ms
+2026-11-22T02:56:48.452Z   GET /invoices 200 in 91ms
+2026-11-22T02:56:59.705Z   GET /cash-forecast 200 in 121ms
+2026-11-22T02:56:59.819Z   GET /api/cash-forecast?late_bridal_payment=false 200 in 85ms
+2026-11-22T02:56:59.897Z   GET /api/bills 200 in 161ms
+2026-11-22T02:56:59.906Z   GET /api/invoices 200 in 169ms
+2026-11-22T02:56:59.913Z   GET /api/cash-forecast?late_bridal_payment=true 200 in 178ms
+2026-11-22T02:56:59.993Z   GET /api/cash-forecast?late_bridal_payment=false 200 in 92ms
+2026-11-22T02:57:00.049Z   GET /api/bills 200 in 127ms
+2026-11-22T02:57:00.057Z   GET /api/invoices 200 in 132ms
+2026-11-22T02:57:00.067Z   GET /api/cash-forecast?late_bridal_payment=true 200 in 142ms
+2026-11-22T02:57:10.560Z   GET /cash-forecast 200 in 344ms
+2026-11-22T02:57:11.668Z   GET /api/cash-forecast?late_bridal_payment=false 200 in 209ms
+2026-11-22T02:57:11.728Z   GET /api/bills 200 in 266ms
+2026-11-22T02:57:11.736Z   GET /api/invoices 200 in 274ms
+2026-11-22T02:57:11.738Z   GET /api/auth/me 404 in 295ms
+2026-11-22T02:57:11.741Z   GET /api/cash-forecast?late_bridal_payment=true 200 in 281ms
+2026-11-22T02:57:19.772Z   ○ Compiling / ...
+2026-11-22T02:57:19.862Z   ✓ Compiled / in 596ms (436 modules)
+2026-11-22T02:57:19.998Z   GET / 200 in 747ms
+2026-11-22T02:57:20.576Z   ○ Compiling /api/who-owes-me ...
+2026-11-22T02:57:20.909Z   ✓ Compiled /api/who-owes-me in 843ms (687 modules)
+2026-11-22T02:57:21.105Z   GET /api/who-owes-me 200 in 1048ms
+2026-11-22T02:57:21.171Z   GET /api/who-owes-me 200 in 59ms
+2026-11-22T02:57:21.228Z   GET /api/who-owes-me 200 in 54ms
+2026-11-22T02:57:21.282Z   GET /api/who-owes-me 200 in 50ms
+2026-11-22T03:00:29.105Z   ✓ Compiled in 3.4s (673 modules)
+2026-11-22T03:00:29.336Z   GET / 200 in 218ms
+2026-11-22T03:00:29.384Z   ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+2026-11-22T03:00:29.668Z   GET / 200 in 256ms
+2026-11-22T03:00:31.055Z   ✓ Compiled /_not-found in 190ms (413 modules)
+2026-11-22T03:00:31.228Z   GET /api/auth/me 404 in 369ms
+2026-11-22T03:00:31.244Z   GET / 200 in 170ms
+2026-11-22T03:00:31.510Z   ✓ Compiled /api/who-owes-me in 273ms (432 modules)
+2026-11-22T03:00:31.647Z   GET /api/who-owes-me 200 in 417ms
+2026-11-22T03:00:31.752Z   GET / 200 in 219ms
+2026-11-22T03:00:31.758Z   GET /api/who-owes-me 200 in 105ms
+2026-11-22T03:00:55.054Z   GET / 200 in 80ms
+2026-11-22T03:00:56.648Z   GET / 200 in 74ms
+2026-11-22T03:00:56.859Z   GET / 200 in 67ms
+2026-11-22T03:01:12.215Z   GET /cash-forecast 200 in 106ms
+2026-11-22T03:01:13.060Z   ✓ Compiled /api/invoices in 483ms (434 modules)
+2026-11-22T03:01:13.694Z   ✓ Compiled (436 modules)
+2026-11-22T03:01:14.250Z   GET /api/invoices 200 in 1694ms
+2026-11-22T03:01:14.257Z   GET /api/bills 200 in 1702ms
+2026-11-22T03:01:14.372Z   GET /cash-forecast?{url}??{s} 200 in 1824ms
+2026-11-22T03:01:14.410Z   GET /cash-forecast 200 in 1287ms
+2026-11-22T03:01:14.419Z   GET /api/invoices 200 in 154ms
+2026-11-22T03:01:14.451Z   GET /api/bills 200 in 181ms
+2026-11-22T03:01:14.464Z   GET /cash-forecast?{url}??{s} 200 in 352ms
+2026-11-22T03:01:14.638Z   GET /cash-forecast 200 in 261ms
+2026-11-22T03:01:14.650Z   GET /cash-forecast?{url}??{s} 200 in 238ms
+2026-11-22T03:01:14.764Z   GET /cash-forecast?{url}??{s} 200 in 159ms
+2026-11-22T03:01:15.983Z   GET /cash-forecast 200 in 124ms
+2026-11-22T03:01:17.098Z   GET /api/auth/me 404 in 290ms
+2026-11-22T03:01:17.151Z   GET /api/bills 200 in 218ms
+2026-11-22T03:01:17.157Z   GET /api/invoices 200 in 223ms
+2026-11-22T03:01:17.174Z   GET /cash-forecast?{url}??{s} 200 in 242ms
+2026-11-22T03:01:17.274Z   GET /cash-forecast?{url}??{s} 200 in 126ms
+2026-11-22T03:01:22.386Z   GET /cash-forecast 200 in 107ms
+2026-11-22T03:01:23.430Z   GET /api/auth/me 404 in 276ms
+2026-11-22T03:01:23.435Z   GET /api/bills 200 in 261ms
+2026-11-22T03:01:23.442Z   GET /api/invoices 200 in 268ms
+2026-11-22T03:01:23.460Z   GET /cash-forecast?{url}??{s} 200 in 289ms
+2026-11-22T03:01:23.546Z   GET /cash-forecast?{url}??{s} 200 in 110ms
+2026-11-22T03:01:39.922Z   GET /invoices 200 in 95ms
+2026-11-22T03:01:40.016Z   GET /api/invoices 200 in 37ms
+2026-11-22T03:01:40.057Z   GET /api/invoices 200 in 38ms
+2026-11-22T03:01:43.653Z   ○ Compiling /invoices/new ...
+2026-11-22T03:01:44.766Z   ✓ Compiled /invoices/new in 1613ms (692 modules)
+2026-11-22T03:01:45.213Z   GET /invoices/new 200 in 2073ms
+2026-11-22T03:01:45.302Z   GET /invoices/new 200 in 108ms
+2026-11-22T03:01:45.363Z   GET /invoices/new 200 in 85ms
+2026-11-22T03:02:40.049Z   POST /api/invoices 400 in 90ms
+2026-11-22T03:02:44.322Z   POST /api/invoices 400 in 38ms
+2026-11-22T03:02:45.437Z   POST /api/invoices 400 in 135ms
+2026-11-22T03:02:45.708Z   POST /api/invoices 400 in 121ms
+2026-11-22T03:02:46.328Z   POST /api/invoices 400 in 39ms
+2026-11-22T03:02:51.084Z   ○ Compiling /bills ...
+2026-11-22T03:02:51.947Z   ✓ Compiled /bills in 1367ms (697 modules)
+2026-11-22T03:02:52.269Z   GET /bills 200 in 1700ms
+2026-11-22T03:02:52.339Z   GET /bills 200 in 87ms
+2026-11-22T03:02:52.871Z   ✓ Compiled /api/bills in 478ms (446 modules)
+2026-11-22T03:02:53.028Z   GET /api/bills 200 in 644ms
+2026-11-22T03:02:53.077Z   GET /api/bills 200 in 45ms
+2026-11-22T03:02:53.521Z   GET /cash-forecast 200 in 114ms
+2026-11-22T03:02:54.056Z   GET /api/bills 200 in 507ms
+2026-11-22T03:02:54.067Z   GET /api/invoices 200 in 516ms
+2026-11-22T03:02:54.201Z   GET /cash-forecast?{url}??{s} 200 in 656ms
+2026-11-22T03:02:54.281Z   GET /api/bills 200 in 204ms
+2026-11-22T03:02:54.288Z   GET /api/invoices 200 in 209ms
+2026-11-22T03:02:54.306Z   GET /cash-forecast?{url}??{s} 200 in 248ms
+2026-11-22T03:02:54.412Z   GET /cash-forecast?{url}??{s} 200 in 131ms
+2026-11-22T03:02:54.508Z   GET /cash-forecast?{url}??{s} 200 in 111ms
+2026-11-22T03:03:11.941Z   GET /invoices 200 in 110ms
+2026-11-22T03:03:12.009Z   GET /api/invoices 200 in 42ms
+2026-11-22T03:03:12.051Z   GET /api/invoices 200 in 38ms
+2026-11-22T03:03:17.375Z   GET /invoices/new 200 in 103ms
+2026-11-22T03:03:22.166Z   GET /invoices 200 in 71ms
+2026-11-22T03:03:22.229Z   GET /api/invoices 200 in 38ms
+2026-11-22T03:03:22.271Z   GET /api/invoices 200 in 39ms
+2026-11-22T03:03:41.653Z   GET /invoices?%7Binvoice.id%7D= 200 in 73ms
+2026-11-22T03:03:42.570Z   GET /invoices?%7Binvoice.id%7D= 200 in 73ms
+2026-11-22T03:03:43.411Z   GET /invoices?%7Binvoice.id%7D= 200 in 73ms
+2026-11-22T03:03:53.829Z   GET /invoices/new 200 in 125ms
+2026-11-22T03:04:36.730Z   POST /api/invoices 400 in 60ms
+2026-11-22T03:18:55.991Z   ✓ Compiled in 1936ms (684 modules)
+2026-11-22T03:18:56.286Z   GET /invoices/new 200 in 272ms
+2026-11-22T03:19:47.251Z   ✓ Compiled in 1365ms (684 modules)
+2026-11-22T03:19:47.346Z   GET /invoices/new 200 in 86ms
+2026-11-22T03:22:57.821Z   GET /invoices/new 200 in 521ms
+2026-11-22T03:22:59.334Z   ○ Compiling /_not-found ...
+2026-11-22T03:22:59.739Z   ✓ Compiled /_not-found in 964ms (420 modules)
+2026-11-22T03:23:00.278Z   GET /api/auth/me 404 in 1509ms
+2026-11-22T03:23:07.105Z   ✓ Compiled in 800ms (687 modules)
+2026-11-22T03:23:07.220Z   GET /invoices/new 200 in 100ms
+2026-11-22T03:23:09.148Z   ✓ Compiled in 248ms (267 modules)
+2026-11-22T03:23:09.238Z   GET /invoices/new 200 in 76ms
+2026-11-22T03:23:13.309Z   ✓ Compiled in 175ms (267 modules)
+2026-11-22T03:23:13.373Z   GET /invoices/new 200 in 54ms
+2026-11-22T03:23:20.807Z   ✓ Compiled in 385ms (267 modules)
+2026-11-22T03:23:20.868Z   GET /invoices/new 200 in 50ms
+2026-11-22T03:23:23.613Z   ✓ Compiled in 1054ms (687 modules)
+2026-11-22T03:23:23.734Z   GET /invoices/new 200 in 113ms
+2026-11-22T03:23:24.579Z   ✓ Compiled in 598ms (687 modules)
+2026-11-22T03:23:24.689Z   GET /invoices/new 200 in 99ms
+2026-11-22T03:24:54.769Z   ✓ Compiled in 558ms (267 modules)
+2026-11-22T03:24:54.862Z   GET /invoices/new 200 in 81ms
+2026-11-22T03:27:35.318Z   GET /invoices/new 200 in 141ms
+2026-11-22T03:27:35.855Z   GET /api/auth/me 404 in 98ms
+2026-11-22T03:27:55.488Z   ○ Compiling /api/invoices ...
+2026-11-22T03:27:55.537Z   ✓ Compiled /api/invoices in 588ms (439 modules)
+2026-11-22T03:27:55.747Z   POST /api/invoices 201 in 808ms
+2026-11-22T03:27:55.752Z   GET /invoices/new 200 in 181ms
+2026-11-22T03:27:55.807Z   GET /invoices?%7Binvoice.id%7D= 200 in 53ms
+2026-11-22T03:27:55.883Z   GET /api/invoices 200 in 35ms
+2026-11-22T03:27:55.910Z   GET /api/invoices 200 in 25ms
+2026-11-22T03:28:25.617Z   GET /invoices?%7Binvoice.id%7D= 200 in 48ms
+2026-11-22T03:28:29.750Z   ○ Compiling /bills ...
+2026-11-22T03:28:29.811Z   ✓ Compiled /bills in 572ms (445 modules)
+2026-11-22T03:28:29.903Z   GET /bills 200 in 671ms
+2026-11-22T03:28:30.197Z   ✓ Compiled /api/bills in 237ms (447 modules)
+2026-11-22T03:28:30.245Z   GET /api/bills 200 in 300ms
+2026-11-22T03:28:30.270Z   GET /api/bills 200 in 21ms
+2026-11-22T03:28:35.203Z   GET /cash-forecast 200 in 58ms
+2026-11-22T03:28:35.698Z   GET /api/bills 200 in 170ms
+2026-11-22T03:28:35.705Z   GET /api/invoices 200 in 174ms
+2026-11-22T03:28:35.730Z   GET /cash-forecast?{url}??{s} 200 in 205ms
+2026-11-22T03:28:35.836Z   GET /api/bills 200 in 127ms
+2026-11-22T03:28:35.840Z   GET /api/invoices 200 in 129ms
+2026-11-22T03:28:35.854Z   GET /cash-forecast?{url}??{s} 200 in 154ms
+2026-11-22T03:28:35.917Z   GET /cash-forecast?{url}??{s} 200 in 76ms
+2026-11-22T03:28:35.966Z   GET /cash-forecast?{url}??{s} 200 in 57ms
+2026-11-22T03:28:45.169Z   GET / 200 in 43ms
+2026-11-22T03:28:45.769Z   ✓ Compiled /api/who-owes-me in 278ms (448 modules)
+2026-11-22T03:28:45.826Z   GET /api/who-owes-me 200 in 341ms
+2026-11-22T03:28:45.884Z   GET / 200 in 97ms
+2026-11-22T03:28:45.906Z   GET /api/who-owes-me 200 in 76ms
+2026-11-22T03:28:45.939Z   GET /api/who-owes-me 200 in 30ms
+2026-11-22T03:28:45.971Z   GET /api/who-owes-me 200 in 29ms
+2026-11-22T03:32:50.170Z   GET / 200 in 145ms
+2026-11-22T03:32:50.951Z   ✓ Compiled /api/who-owes-me in 344ms (426 modules)
+2026-11-22T03:32:51.228Z   ✓ Compiled (445 modules)
+2026-11-22T03:32:51.480Z   GET /api/auth/me 404 in 882ms
+2026-11-22T03:32:51.483Z   GET /api/who-owes-me 200 in 878ms
+2026-11-22T03:32:51.512Z   GET /api/who-owes-me 200 in 25ms
+2026-11-22T03:32:56.817Z   GET / 200 in 61ms
+2026-11-22T03:32:57.302Z   GET /api/auth/me 404 in 55ms
+2026-11-22T03:32:57.323Z   GET /api/who-owes-me 200 in 29ms
+2026-11-22T03:32:57.351Z   GET /api/who-owes-me 200 in 25ms
+2026-11-22T03:33:27.561Z   GET / 200 in 78ms
+2026-11-22T03:33:28.754Z   GET / 200 in 74ms
+2026-11-22T03:33:32.401Z   GET / 200 in 125ms
+2026-11-22T03:33:33.322Z   GET /api/auth/me 404 in 148ms
+2026-11-22T03:33:33.332Z   GET /api/who-owes-me 200 in 52ms
+2026-11-22T03:33:33.383Z   GET /api/who-owes-me 200 in 47ms
+2026-11-22T03:33:48.579Z   GET /invoices 200 in 101ms
+2026-11-22T03:33:49.149Z   ○ Compiling /api/invoices ...
+2026-11-22T03:33:49.432Z   ✓ Compiled /api/invoices in 783ms (447 modules)
+2026-11-22T03:33:49.536Z   GET /api/invoices 200 in 896ms
+2026-11-22T03:33:49.585Z   GET /api/invoices 200 in 45ms
+2026-11-22T03:34:03.830Z   GET /invoices/new 200 in 130ms
+2026-11-22T03:34:12.310Z   GET /invoices 200 in 104ms
+2026-11-22T03:34:12.373Z   GET /api/invoices 200 in 44ms
+2026-11-22T03:34:12.416Z   GET /api/invoices 200 in 39ms
+2026-11-22T03:34:54.668Z   GET /cash-forecast 200 in 98ms
+2026-11-22T03:34:55.617Z   ○ Compiling /api/bills ...
+2026-11-22T03:34:55.676Z   ✓ Compiled /api/bills in 665ms (446 modules)
+2026-11-22T03:34:56.567Z   GET /api/invoices 200 in 1570ms
+2026-11-22T03:34:56.652Z   GET /api/bills 200 in 1656ms
+2026-11-22T03:34:56.708Z   GET /api/invoices 200 in 119ms
+2026-11-22T03:34:56.710Z   GET /cash-forecast?{url}??{s} 200 in 1722ms
+2026-11-22T03:34:56.824Z   GET /api/bills 200 in 164ms
+2026-11-22T03:34:56.838Z   GET /cash-forecast?{url}??{s} 200 in 244ms
+2026-11-22T03:34:56.926Z   GET /cash-forecast?{url}??{s} 200 in 106ms
+2026-11-22T03:34:57.008Z   GET /cash-forecast?{url}??{s} 200 in 97ms
+2026-11-22T03:35:19.460Z   GET /bills 200 in 107ms
+2026-11-22T03:35:19.840Z   GET /api/bills 200 in 50ms
+2026-11-22T03:35:19.883Z   GET /api/bills 200 in 40ms
+2026-11-22T03:35:35.852Z   GET /bills 200 in 78ms
+2026-11-22T03:35:40.012Z   GET / 200 in 86ms
+2026-11-22T03:35:40.550Z   ✓ Compiled /api/who-owes-me in 510ms (448 modules)
+2026-11-22T03:35:40.740Z   GET /api/who-owes-me 200 in 709ms
+2026-11-22T03:35:40.789Z   GET /api/who-owes-me 200 in 46ms
+2026-11-22T03:35:40.840Z   GET /api/who-owes-me 200 in 47ms
+2026-11-22T03:35:40.900Z   GET /api/who-owes-me 200 in 56ms
+2026-11-22T03:37:01.832Z   GET /invoices/new 200 in 220ms
+2026-11-22T03:37:05.604Z   GET /invoices 200 in 103ms
+2026-11-22T03:37:05.678Z   GET /api/invoices 200 in 51ms
+2026-11-22T03:37:05.721Z   GET /api/invoices 200 in 40ms
+2026-11-22T03:37:09.828Z   GET / 200 in 94ms
+2026-11-22T03:37:09.887Z   GET /api/who-owes-me 200 in 38ms
+2026-11-22T03:37:09.940Z   GET /api/who-owes-me 200 in 46ms
+2026-11-22T03:37:09.988Z   GET /api/who-owes-me 200 in 48ms
+2026-11-22T03:37:10.030Z   GET /api/who-owes-me 200 in 38ms
+2026-11-22T03:40:45.456Z   GET / 200 in 33ms
+2026-11-22T03:41:05.400Z   GET / 200 in 139ms
+2026-11-22T03:41:06.117Z   ✓ Compiled /api/who-owes-me in 291ms (426 modules)
+2026-11-22T03:41:06.333Z   ✓ Compiled (445 modules)
+2026-11-22T03:41:06.594Z   GET /api/auth/me 404 in 771ms
+2026-11-22T03:41:06.600Z   GET /api/who-owes-me 200 in 761ms
+2026-11-22T03:41:06.631Z   GET /api/who-owes-me 200 in 27ms
+2026-11-22T03:41:38.447Z   ○ Compiling /bills/new ...
+2026-11-22T03:41:38.964Z   ✓ Compiled /bills/new in 1017ms (706 modules)
+2026-11-22T03:41:39.151Z   GET /bills/new 200 in 1213ms
+2026-11-22T03:41:39.187Z   GET /bills/new 200 in 44ms
+2026-11-22T03:41:43.722Z   GET /bills 200 in 49ms
+2026-11-22T03:41:44.014Z   ✓ Compiled /api/bills in 257ms (453 modules)
+2026-11-22T03:41:44.104Z   GET /api/bills 200 in 350ms
+2026-11-22T03:41:44.129Z   GET /api/bills 200 in 23ms
+2026-11-22T03:41:46.933Z   GET /invoices 200 in 101ms
+2026-11-22T03:41:47.294Z   ✓ Compiled /api/invoices in 328ms (445 modules)
+2026-11-22T03:41:47.404Z   GET /api/invoices 200 in 442ms
+2026-11-22T03:41:47.436Z   GET /api/invoices 200 in 30ms
+2026-11-22T03:42:23.018Z   ✓ Compiled /cash-forecast in 261ms (452 modules)
+2026-11-22T03:42:23.098Z   GET /cash-forecast 200 in 351ms
+2026-11-22T03:42:23.608Z   GET /api/bills 200 in 188ms
+2026-11-22T03:42:23.615Z   GET /api/invoices 200 in 195ms
+2026-11-22T03:42:23.710Z   GET /cash-forecast?{url}??{s} 200 in 290ms
+2026-11-22T03:42:23.740Z   GET /api/bills 200 in 117ms
+2026-11-22T03:42:23.744Z   GET /api/invoices 200 in 119ms
+2026-11-22T03:42:23.756Z   GET /cash-forecast?{url}??{s} 200 in 145ms
+2026-11-22T03:42:23.821Z   GET /cash-forecast?{url}??{s} 200 in 80ms
+2026-11-22T03:42:23.885Z   GET /cash-forecast?{url}??{s} 200 in 76ms
+2026-11-22T03:43:30.369Z   GET /bills 200 in 62ms
+2026-11-22T03:43:30.406Z   GET /api/bills 200 in 23ms
+2026-11-22T03:43:30.431Z   GET /api/bills 200 in 23ms
+2026-11-22T03:43:54.112Z   GET /bills/new 200 in 63ms
+2026-11-22T03:45:51.820Z   GET / 200 in 51ms
+2026-11-22T03:45:52.186Z   ✓ Compiled /api/who-owes-me in 344ms (443 modules)
+2026-11-22T03:45:52.346Z   GET /api/who-owes-me 200 in 508ms
+2026-11-22T03:45:52.385Z   GET /api/who-owes-me 200 in 35ms
+2026-11-22T03:45:52.412Z   GET /api/who-owes-me 200 in 25ms
+2026-11-22T03:45:52.446Z   GET /api/who-owes-me 200 in 31ms
+2026-11-22T03:46:08.990Z   GET / 200 in 172ms
+2026-11-22T03:46:09.721Z   ✓ Compiled /_not-found in 249ms (444 modules)
+2026-11-22T03:46:10.254Z   GET /api/auth/me 404 in 788ms
+2026-11-22T03:46:10.258Z   GET /api/who-owes-me 200 in 769ms
+2026-11-22T03:46:10.290Z   GET /api/who-owes-me 200 in 30ms
+2026-11-22T03:47:07.489Z   ✓ Compiled /invoices in 264ms (451 modules)
+2026-11-22T03:47:07.574Z   GET /invoices 200 in 357ms
+2026-11-22T03:47:07.608Z   GET /invoices 200 in 43ms
+2026-11-22T03:47:08.159Z   ○ Compiling /api/invoices ...
+2026-11-22T03:47:08.280Z   ✓ Compiled /api/invoices in 623ms (453 modules)
+2026-11-22T03:47:08.382Z   GET /api/invoices 200 in 731ms
+2026-11-22T03:47:08.414Z   GET /api/invoices 200 in 29ms
+2026-11-22T03:47:49.090Z   GET /invoices/new 200 in 76ms
+2026-11-22T03:47:59.672Z   GET /cash-forecast 200 in 50ms
+2026-11-22T03:48:00.087Z   ✓ Compiled /api/bills in 356ms (452 modules)
+2026-11-22T03:48:00.505Z   GET /api/invoices 200 in 785ms
+2026-11-22T03:48:00.538Z   GET /api/bills 200 in 821ms
+2026-11-22T03:48:00.563Z   GET /api/invoices 200 in 45ms
+2026-11-22T03:48:00.565Z   GET /cash-forecast?{url}??{s} 200 in 850ms
+2026-11-22T03:48:00.623Z   GET /api/bills 200 in 80ms
+2026-11-22T03:48:00.634Z   GET /cash-forecast?{url}??{s} 200 in 114ms
+2026-11-22T03:48:00.684Z   GET /cash-forecast?{url}??{s} 200 in 62ms
+2026-11-22T03:48:00.727Z   GET /cash-forecast?{url}??{s} 200 in 47ms
+2026-11-22T03:49:42.476Z   GET /bills 200 in 45ms
+2026-11-22T03:49:42.533Z   GET /api/bills 200 in 24ms
+2026-11-22T03:49:42.555Z   GET /api/bills 200 in 20ms
+2026-11-22T03:49:47.378Z   GET /bills 200 in 28ms
+2026-11-22T03:49:51.842Z   GET /cash-forecast 200 in 30ms
+2026-11-22T03:49:51.941Z   GET /api/bills 200 in 81ms
+2026-11-22T03:49:51.944Z   GET /api/invoices 200 in 84ms
+2026-11-22T03:49:51.995Z   GET /cash-forecast?{url}??{s} 200 in 139ms
+2026-11-22T03:49:52.022Z   GET /api/bills 200 in 72ms
+2026-11-22T03:49:52.025Z   GET /api/invoices 200 in 75ms
+2026-11-22T03:49:52.030Z   GET /cash-forecast?{url}??{s} 200 in 88ms
+2026-11-22T03:49:52.080Z   GET /cash-forecast?{url}??{s} 200 in 58ms
+2026-11-22T03:49:52.127Z   GET /cash-forecast?{url}??{s} 200 in 52ms
+2026-11-22T03:50:11.241Z   GET /bills 200 in 29ms
+2026-11-22T03:50:11.270Z   GET /api/bills 200 in 17ms
+2026-11-22T03:50:11.292Z   GET /api/bills 200 in 18ms
+2026-11-22T03:50:22.215Z   GET / 200 in 43ms
+2026-11-22T03:50:22.536Z   ✓ Compiled /api/who-owes-me in 304ms (454 modules)
+2026-11-22T03:50:22.627Z   GET /api/who-owes-me 200 in 400ms
+2026-11-22T03:50:22.651Z   GET /api/who-owes-me 200 in 22ms
+2026-11-22T03:50:22.674Z   GET /api/who-owes-me 200 in 22ms
+2026-11-22T03:50:22.695Z   GET /api/who-owes-me 200 in 18ms
+2026-11-22T04:22:13.031Z   ✓ Compiled in 552ms (692 modules)
+2026-11-22T04:22:13.199Z   GET / 200 in 149ms
+2026-11-22T04:22:14.684Z   ✓ Compiled in 351ms (692 modules)
+2026-11-22T04:22:14.765Z   GET / 200 in 50ms
+2026-11-22T04:22:19.888Z   ✓ Compiled in 163ms (269 modules)
+2026-11-22T04:22:19.931Z   GET / 200 in 38ms
+2026-11-22T04:22:28.206Z   ✓ Compiled in 322ms (692 modules)
+2026-11-22T04:22:28.260Z   GET / 200 in 45ms
+2026-11-22T04:32:57.436Z   ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+2026-11-22T04:32:57.681Z   ✓ Compiled in 685ms (692 modules)
+2026-11-22T04:32:58.023Z   ⨯ ReferenceError: listClients is not defined
+                              at HomePage (src\app\page.tsx:44:33)
+                            42 |
+                            43 |       <section className="min-w-0 space-y-3 rounded-[var(--radius)] border border-border bg-card p-4 shadow-sm" data-nexen-id="nx-3393394e-7">
+                          > 44 |         <WhoOwesMeList clients={listClients} />
+                               |                                 ^
+                            45 |         <OverdueTotal />
+                            46 |       </section>
+                            47 | {
+                            digest: '4033436148'
+                          }
+2026-11-22T04:32:58.037Z   GET / 200 in 490ms
+2026-11-22T04:32:59.066Z   ✓ Compiled /_not-found in 292ms (426 modules)
+2026-11-22T04:32:59.203Z   GET /api/auth/me 404 in 432ms
+2026-11-22T04:33:00.478Z   ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+2026-11-22T04:33:00.570Z   ✓ Compiled in 298ms (695 modules)
+2026-11-22T04:33:00.774Z   ⨯ ReferenceError: useMemo is not defined
+                              at HomePage (src\app\page.tsx:11:23)
+                             9 | export default function HomePage() {
+                            10 |   const { alerts, overdueClients, error, refetch } = useWhoOwesMe();
+                          > 11 |   const listClients = useMemo(
+                               |                       ^
+                            12 |     () =>
+                            13 |       (overdueClients ?? []).map((client) => ({
+                            14 |         invoiceId: client.invoice_id, {
+                            digest: '2507644821'
+                          }
+2026-11-22T04:33:00.784Z   GET / 200 in 300ms
+2026-11-22T04:33:01.510Z   GET /api/auth/me 404 in 45ms
+2026-11-22T04:33:02.263Z   ✓ Compiled in 311ms (695 modules)
+2026-11-22T04:33:02.350Z   ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+2026-11-22T04:33:02.358Z   GET / 200 in 83ms
+2026-11-22T04:33:03.065Z   GET /api/auth/me 404 in 45ms
+2026-11-22T04:33:03.326Z   ✓ Compiled /api/who-owes-me in 231ms (445 modules)
+2026-11-22T04:33:03.476Z   GET /api/who-owes-me 200 in 388ms
+2026-11-22T04:33:03.496Z   GET /api/who-owes-me 200 in 18ms
+2026-11-22T04:33:11.384Z   ✓ Compiled in 255ms (714 modules)
+2026-11-22T04:33:11.460Z   GET / 200 in 66ms
+2026-11-22T04:38:03.260Z   GET / 200 in 219ms
+2026-11-22T04:38:03.674Z   GET /api/auth/me 404 in 80ms
+2026-11-22T04:38:03.683Z   GET /api/who-owes-me 200 in 81ms
+2026-11-22T04:38:03.705Z   GET /api/who-owes-me 200 in 21ms
+2026-11-22T04:38:05.726Z   GET / 200 in 45ms
+2026-11-22T04:38:06.106Z   GET /api/auth/me 404 in 55ms
+2026-11-22T04:38:06.109Z   GET /api/who-owes-me 200 in 24ms
+2026-11-22T04:38:06.130Z   GET /api/who-owes-me 200 in 18ms
+2026-11-22T04:38:10.252Z   GET / 200 in 42ms
+2026-11-22T04:38:10.640Z   GET /api/auth/me 404 in 54ms
+2026-11-22T04:38:10.644Z   GET /api/who-owes-me 200 in 54ms
+2026-11-22T04:38:10.665Z   GET /api/who-owes-me 200 in 19ms
+2026-11-22T04:38:50.037Z   GET /cash-forecast 200 in 43ms
+2026-11-22T04:38:50.501Z   ✓ Compiled /api/invoices in 409ms (447 modules)
+2026-11-22T04:38:50.768Z   ✓ Compiled (449 modules)
+2026-11-22T04:38:50.956Z   GET /api/bills 200 in 872ms
+2026-11-22T04:38:50.959Z   GET /api/invoices 200 in 875ms
+2026-11-22T04:38:50.969Z   GET /cash-forecast?{url}??{s} 200 in 887ms
+2026-11-22T04:38:51.037Z   GET /api/invoices 200 in 75ms
+2026-11-22T04:38:51.039Z   GET /api/bills 200 in 77ms
+2026-11-22T04:38:51.051Z   GET /cash-forecast?{url}??{s} 200 in 136ms
+2026-11-22T04:38:51.100Z   GET /cash-forecast?{url}??{s} 200 in 56ms
+2026-11-22T04:38:51.148Z   GET /cash-forecast?{url}??{s} 200 in 51ms
+2026-11-22T04:38:53.563Z   GET /cash-forecast 200 in 49ms
+2026-11-22T04:38:54.222Z   GET /api/bills 200 in 189ms
+2026-11-22T04:38:54.225Z   GET /api/invoices 200 in 192ms
+2026-11-22T04:38:54.231Z   GET /api/auth/me 404 in 205ms
+2026-11-22T04:38:54.234Z   GET /cash-forecast?{url}??{s} 200 in 203ms
+2026-11-22T04:38:54.293Z   GET /cash-forecast?{url}??{s} 200 in 66ms
+2026-11-22T04:39:00.072Z   GET /invoices 200 in 57ms
+2026-11-22T04:39:00.123Z   GET /api/invoices 200 in 21ms
+2026-11-22T04:39:00.144Z   GET /api/invoices 200 in 19ms
+2026-11-22T04:39:04.854Z   GET /invoices 200 in 60ms
+2026-11-22T04:39:05.232Z   GET /api/auth/me 404 in 49ms
+2026-11-22T04:39:05.244Z   GET /api/invoices 200 in 53ms
+2026-11-22T04:46:43.124Z   GET /invoices 200 in 67ms
+2026-11-22T04:46:43.510Z   GET /api/auth/me 404 in 52ms
+2026-11-22T04:46:43.527Z   GET /api/invoices 200 in 58ms
+2026-11-22T04:46:46.559Z   GET / 200 in 44ms
+2026-11-22T04:46:46.613Z   GET /api/who-owes-me 200 in 21ms
+2026-11-22T04:46:46.630Z   GET /api/who-owes-me 200 in 15ms
+2026-11-22T04:46:46.647Z   GET /api/who-owes-me 200 in 15ms
+2026-11-22T04:46:46.672Z   GET /api/who-owes-me 200 in 23ms
+2026-11-22T04:46:49.993Z   GET / 200 in 49ms
+2026-11-22T04:46:50.384Z   GET /api/auth/me 404 in 51ms
+2026-11-22T04:46:50.396Z   GET /api/who-owes-me 200 in 18ms
+2026-11-22T04:46:50.419Z   GET /api/who-owes-me 200 in 21ms
+2026-11-22T04:47:09.805Z   GET /invoices 200 in 37ms
+2026-11-22T04:47:09.859Z   GET /api/invoices 200 in 20ms
+2026-11-22T04:47:09.884Z   GET /api/invoices 200 in 22ms
+2026-11-22T04:47:23.243Z   GET /cash-forecast 200 in 33ms
+2026-11-22T04:47:23.321Z   GET /api/bills 200 in 43ms
+2026-11-22T04:47:23.337Z   GET /api/invoices 200 in 58ms
+2026-11-22T04:47:23.356Z   GET /cash-forecast?{url}??{s} 200 in 82ms
+2026-11-22T04:47:23.367Z   GET /api/bills 200 in 24ms
+2026-11-22T04:47:23.382Z   GET /api/invoices 200 in 37ms
+2026-11-22T04:47:23.431Z   GET /cash-forecast?{url}??{s} 200 in 85ms
+2026-11-22T04:47:23.470Z   GET /cash-forecast?{url}??{s} 200 in 43ms
+2026-11-22T04:47:23.517Z   GET /cash-forecast?{url}??{s} 200 in 52ms
+2026-11-22T04:47:38.264Z   GET /bills 200 in 54ms
+2026-11-22T04:47:38.308Z   GET /api/bills 200 in 18ms
+2026-11-22T04:47:38.325Z   GET /api/bills 200 in 16ms
+2026-11-22T04:48:01.224Z   GET /cash-forecast 200 in 29ms
+2026-11-22T04:48:01.295Z   GET /api/bills 200 in 54ms
+2026-11-22T04:48:01.297Z   GET /api/invoices 200 in 56ms
+2026-11-22T04:48:01.317Z   GET /cash-forecast?{url}??{s} 200 in 79ms
+2026-11-22T04:48:01.332Z   GET /api/bills 200 in 26ms
+2026-11-22T04:48:01.345Z   GET /api/invoices 200 in 38ms
+2026-11-22T04:48:01.385Z   GET /cash-forecast?{url}??{s} 200 in 76ms
+2026-11-22T04:48:01.448Z   GET /cash-forecast?{url}??{s} 200 in 68ms
+2026-11-22T04:48:01.524Z   GET /cash-forecast?{url}??{s} 200 in 81ms
+2026-11-22T04:48:20.796Z   GET / 200 in 28ms
+2026-11-22T04:48:20.828Z   GET /api/who-owes-me 200 in 20ms
+2026-11-22T04:48:20.848Z   GET /api/who-owes-me 200 in 19ms
+2026-11-22T04:48:20.869Z   GET /api/who-owes-me 200 in 17ms
+2026-11-22T04:48:20.889Z   GET /api/who-owes-me 200 in 18ms
+2026-11-22T04:52:31.989Z   GET /cash-forecast 200 in 35ms
+2026-11-22T04:52:32.061Z   GET /api/bills 200 in 53ms
+2026-11-22T04:52:32.090Z   GET /api/invoices 200 in 81ms
+2026-11-22T04:52:32.120Z   GET /cash-forecast?{url}??{s} 200 in 115ms
+2026-11-22T04:52:32.123Z   GET /api/bills 200 in 27ms
+2026-11-22T04:52:32.139Z   GET /api/invoices 200 in 41ms
+2026-11-22T04:52:32.182Z   GET /cash-forecast?{url}??{s} 200 in 83ms
+2026-11-22T04:52:32.249Z   GET /cash-forecast?{url}??{s} 200 in 70ms
+2026-11-22T04:52:32.296Z   GET /cash-forecast?{url}??{s} 200 in 53ms
+2026-11-22T04:53:36.606Z   GET /invoices 200 in 35ms
+2026-11-22T04:53:36.642Z   GET /api/invoices 200 in 21ms
+2026-11-22T04:53:36.665Z   GET /api/invoices 200 in 21ms
+2026-11-22T04:54:01.368Z   GET /bills 200 in 28ms
+2026-11-22T04:54:01.406Z   GET /api/bills 200 in 23ms
+2026-11-22T04:54:01.427Z   GET /api/bills 200 in 20ms
+2026-11-22T04:54:13.100Z   GET /cash-forecast 200 in 34ms
+2026-11-22T04:54:13.158Z   GET /api/invoices 200 in 36ms
+2026-11-22T04:54:13.196Z   GET /api/bills 200 in 75ms
+2026-11-22T04:54:13.215Z   GET /cash-forecast?{url}??{s} 200 in 98ms
+2026-11-22T04:54:13.232Z   GET /api/invoices 200 in 29ms
+2026-11-22T04:54:13.248Z   GET /api/bills 200 in 43ms
+2026-11-22T04:54:13.295Z   GET /cash-forecast?{url}??{s} 200 in 89ms
+2026-11-22T04:54:13.346Z   GET /cash-forecast?{url}??{s} 200 in 57ms
+2026-11-22T04:54:13.395Z   GET /cash-forecast?{url}??{s} 200 in 54ms
+2026-11-22T04:54:39.568Z   GET / 200 in 34ms
+2026-11-22T04:54:39.608Z   GET /api/who-owes-me 200 in 25ms
+2026-11-22T04:54:39.635Z   GET /api/who-owes-me 200 in 25ms
+2026-11-22T04:54:39.657Z   GET /api/who-owes-me 200 in 21ms
+2026-11-22T04:54:39.680Z   GET /api/who-owes-me 200 in 21ms
+2026-11-22T04:54:44.957Z   GET / 200 in 48ms
+2026-11-22T04:54:45.440Z   GET /api/auth/me 404 in 85ms
+2026-11-22T04:54:45.447Z   GET /api/who-owes-me 200 in 29ms
+2026-11-22T04:54:45.481Z   GET /api/who-owes-me 200 in 30ms
+2026-11-22T04:54:51.262Z   GET /cash-forecast 200 in 30ms
+2026-11-22T04:54:51.365Z   GET /api/bills 200 in 54ms
+2026-11-22T04:54:51.378Z   GET /api/invoices 200 in 68ms
+2026-11-22T04:54:51.401Z   GET /cash-forecast?{url}??{s} 200 in 92ms
+2026-11-22T04:54:51.418Z   GET /api/bills 200 in 29ms
+2026-11-22T04:54:51.461Z   GET /api/invoices 200 in 70ms
+2026-11-22T04:54:51.502Z   GET /cash-forecast?{url}??{s} 200 in 111ms
+2026-11-22T04:54:51.559Z   GET /cash-forecast?{url}??{s} 200 in 77ms
+2026-11-22T04:54:51.616Z   GET /cash-forecast?{url}??{s} 200 in 63ms
+2026-11-22T04:56:53.493Z   GET / 200 in 30ms
+2026-11-22T04:56:53.531Z   GET /api/who-owes-me 200 in 21ms
+2026-11-22T04:56:53.551Z   GET /api/who-owes-me 200 in 18ms
+2026-11-22T04:56:53.570Z   GET /api/who-owes-me 200 in 18ms
+2026-11-22T04:56:53.603Z   GET /api/who-owes-me 200 in 30ms
+2026-11-22T04:58:47.655Z   GET /cash-forecast 200 in 32ms
+2026-11-22T04:58:47.735Z   GET /api/bills 200 in 62ms
+2026-11-22T04:58:47.738Z   GET /api/invoices 200 in 66ms
+2026-11-22T04:58:47.760Z   GET /cash-forecast?{url}??{s} 200 in 91ms
+2026-11-22T04:58:47.776Z   GET /api/bills 200 in 27ms
+2026-11-22T04:58:47.788Z   GET /api/invoices 200 in 38ms
+2026-11-22T04:58:47.828Z   GET /cash-forecast?{url}??{s} 200 in 76ms
+2026-11-22T04:58:47.873Z   GET /cash-forecast?{url}??{s} 200 in 50ms
+2026-11-22T04:58:47.923Z   GET /cash-forecast?{url}??{s} 200 in 54ms
+2026-11-22T04:58:49.630Z   GET /invoices 200 in 33ms
+2026-11-22T04:58:49.674Z   GET /api/invoices 200 in 18ms
+2026-11-22T04:58:49.699Z   GET /api/invoices 200 in 23ms
+2026-11-22T05:00:12.663Z   GET /cash-forecast 200 in 35ms
+2026-11-22T05:00:12.728Z   GET /api/invoices 200 in 42ms
+2026-11-22T05:00:12.743Z   GET /api/bills 200 in 57ms
+2026-11-22T05:00:12.773Z   GET /cash-forecast?{url}??{s} 200 in 94ms
+2026-11-22T05:00:12.777Z   GET /api/invoices 200 in 27ms
+2026-11-22T05:00:12.790Z   GET /api/bills 200 in 38ms
+2026-11-22T05:00:12.842Z   GET /cash-forecast?{url}??{s} 200 in 89ms
+2026-11-22T05:00:12.893Z   GET /cash-forecast?{url}??{s} 200 in 56ms
+2026-11-22T05:00:12.931Z   GET /cash-forecast?{url}??{s} 200 in 44ms
+2026-11-22T06:06:18.961Z   ✓ Compiled in 2.1s (692 modules)
+2026-11-22T06:06:41.945Z   ✓ Compiled in 575ms (692 modules)
+2026-11-22T06:06:57.938Z   ✓ Compiled in 575ms (692 modules)
+2026-11-22T06:07:04.908Z   ✓ Compiled in 440ms (692 modules)
+2026-11-22T06:07:28.006Z   ✓ Compiled in 605ms (692 modules)
+2026-11-22T06:08:14.728Z   ✓ Compiled in 336ms (269 modules)
+2026-11-22T06:08:16.409Z   ✓ Compiled in 278ms (269 modules)
+2026-11-22T06:13:32.962Z   ✓ Compiled in 435ms (269 modules)
+2026-11-22T06:13:36.765Z   ✓ Compiled in 1229ms (692 modules)
+2026-11-22T06:13:37.490Z   ✓ Compiled in 494ms (692 modules)
+2026-11-22T06:13:39.020Z   ✓ Compiled in 599ms (692 modules)
+2026-11-22T06:13:40.101Z   ✓ Compiled in 259ms (269 modules)
+2026-11-22T06:13:42.039Z   ✓ Compiled in 858ms (692 modules)
+2026-11-22T06:13:42.758Z   ✓ Compiled in 217ms (269 modules)
+2026-11-22T06:13:54.282Z   ✓ Compiled in 529ms (692 modules)
+2026-11-22T06:14:01.392Z   ✓ Compiled in 463ms (692 modules)
+2026-11-22T06:14:08.459Z   ✓ Compiled in 254ms (269 modules)
+2026-11-22T06:14:11.918Z   ✓ Compiled in 251ms (269 modules)
+2026-11-22T06:14:53.157Z   ✓ Compiled in 209ms (269 modules)
+2026-11-22T06:14:58.493Z   ✓ Compiled in 204ms (269 modules)
+2026-11-22T06:15:00.712Z   ✓ Compiled in 731ms (692 modules)
+2026-11-22T06:15:09.622Z   ✓ Compiled in 676ms (692 modules)
+2026-11-22T06:15:11.923Z   ✓ Compiled in 557ms (692 modules)
+2026-11-22T06:56:11.915Z   ✓ Compiled in 1366ms (692 modules)
+2026-11-22T06:58:01.721Z   ✓ Compiled in 1444ms (692 modules)
+2026-11-22T06:58:02.542Z   ✓ Compiled in 631ms (692 modules)
+2026-11-22T07:20:57.311Z   ✓ Compiled in 444ms (269 modules)
+2026-11-22T07:21:01.164Z   ✓ Compiled in 251ms (269 modules)
+2026-11-22T07:27:30.505Z   ✓ Compiled in 1062ms (692 modules)
+2026-11-22T07:27:49.149Z   ✓ Compiled in 677ms (692 modules)
+2026-11-22T07:27:58.771Z   ✓ Compiled in 587ms (692 modules)
+2026-11-22T07:57:43.555Z   ✓ Compiled in 432ms (269 modules)
+2026-11-22T07:57:52.882Z   ✓ Compiled in 291ms (269 modules)
+2026-11-22T07:57:57.313Z   ✓ Compiled in 222ms (269 modules)
+2026-11-22T07:58:00.375Z   ✓ Compiled in 287ms (269 modules)
+2026-11-22T07:58:08.053Z   ✓ Compiled in 238ms (269 modules)
+2026-11-22T08:04:34.684Z   ✓ Compiled in 1268ms (692 modules)
+2026-11-22T08:04:39.171Z   ✓ Compiled in 810ms (692 modules)
+2026-11-22T08:04:43.089Z   ✓ Compiled in 546ms (692 modules)
+2026-11-22T08:05:00.221Z   ✓ Compiled in 581ms (692 modules)
+2026-11-22T08:05:03.886Z   ✓ Compiled in 693ms (692 modules)
+2026-11-22T08:05:07.470Z   ✓ Compiled in 649ms (692 modules)
+2026-11-22T08:05:18.492Z   ✓ Compiled in 502ms (692 modules)
+2026-11-22T08:20:26.431Z   ✓ Compiled in 1032ms (692 modules)
+2026-11-22T08:20:30.260Z   ✓ Compiled in 730ms (692 modules)
+2026-11-22T08:20:35.212Z   ✓ Compiled in 148ms (269 modules)
+2026-11-22T08:37:15.921Z   ✓ Compiled in 332ms (269 modules)
+2026-11-22T08:37:23.616Z   ✓ Compiled in 184ms (269 modules)
+2026-11-22T08:37:24.109Z   ✓ Compiled in 447ms (678 modules)
+2026-11-22T08:37:36.415Z   ✓ Compiled in 959ms (692 modules)
+2026-11-22T08:52:21.191Z   ✓ Compiled in 656ms (692 modules)
+2026-11-22T08:53:07.416Z   ✓ Compiled in 197ms (269 modules)
+2026-11-22T09:07:39.622Z  [dev-server] exited code=1073807364 signal=-

@@ -1,0 +1,16 @@
+{
+  "prdHash": "09d89d21e08f5bcf99354d8d64851a436ca73d85",
+  "generatedAt": "2026-11-21T11:21:10.813Z",
+  "agent_type": "brand-preview-html",
+  "style": "glass",
+  "designSpec": {
+    "layout_archetype": "hero-led glass dashboard preview with feature grid",
+    "nav_pattern": "sticky translucent top bar with wordmark, links and CTA",
+    "surface": "frosted translucent cards over soft radial gradient glows",
+    "card_treatment": "1px border, shadow-sm, backdrop blur",
+    "density": "comfortable",
+    "elevation": "layered shadows with primary glow on hero card",
+    "radius_language": "var(--radius) cards, nested inner radius, pill badges and avatars",
+    "signature_motifs": "frosted glass panels, primary glow, Who Owes Me list, cash forecast bars, WhatsApp message bubble"
+  }
+}

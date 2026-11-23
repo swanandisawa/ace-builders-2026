@@ -1,0 +1,120 @@
+2026-11-21T11:18:38.118Z  [log] [brand-preview] replaced 2 mark(s) the mock drew with the logo slot
+2026-11-21T11:18:44.890Z  [log] [brand-preview] replaced 2 mark(s) the mock drew with the logo slot
+2026-11-21T11:19:50.678Z  [log] [brand-preview] replaced 1 mark(s) the mock drew with the logo slot
+2026-11-21T11:19:52.793Z  [log] [brand-preview] replaced 1 mark(s) the mock drew with the logo slot
+2026-11-21T11:20:05.070Z  [log] [brand-preview] replaced 1 mark(s) the mock drew with the logo slot
+2026-11-21T11:20:34.649Z  [log] [brand-preview] replaced 1 mark(s) the mock drew with the logo slot
+2026-11-21T11:21:10.833Z  [log] [brand-preview] replaced 1 mark(s) the mock drew with the logo slot
+2026-11-21T11:23:31.867Z  [log] [brand-preview] replaced 1 mark(s) the mock drew with the logo slot
+2026-11-21T11:23:35.844Z  [log] [brand-preview] replaced 1 mark(s) the mock drew with the logo slot
+2026-11-21T11:23:38.924Z  [log] [brand-preview] replaced 1 mark(s) the mock drew with the logo slot
+2026-11-21T11:23:45.302Z  [log] [brand-preview] replaced 1 mark(s) the mock drew with the logo slot
+2026-11-21T11:23:50.884Z  [log] [brand-preview] replaced 1 mark(s) the mock drew with the logo slot
+2026-11-21T11:23:52.851Z  [log] [brand-preview] replaced 1 mark(s) the mock drew with the logo slot
+2026-11-21T11:23:54.505Z  [log] [brand-preview] replaced 1 mark(s) the mock drew with the logo slot
+2026-11-21T11:23:55.783Z  [log] [brand-preview] replaced 1 mark(s) the mock drew with the logo slot
+2026-11-21T11:23:57.686Z  [log] [brand-preview] replaced 1 mark(s) the mock drew with the logo slot
+2026-11-21T11:24:00.137Z  [log] [brand-preview] replaced 1 mark(s) the mock drew with the logo slot
+2026-11-21T11:26:28.151Z  [log] [brand-preview] replaced 1 mark(s) the mock drew with the logo slot
+2026-11-21T11:26:44.747Z  [log] [brand-preview] replaced 1 mark(s) the mock drew with the logo slot
+2026-11-21T11:26:50.149Z  [log] [brand-preview] replaced 1 mark(s) the mock drew with the logo slot
+2026-11-21T11:28:59.345Z  [log] [pages] asking for the descriptions of 7 saved screens
+2026-11-21T11:29:53.137Z  [log] [pages] every screen is described: making the common components (7 screens)
+2026-11-21T11:36:20.806Z  [log] [pages] asking for the descriptions of 7 saved screens
+2026-11-21T11:42:37.377Z  [log] [phase.commit] continue phase=pages dirty=false commit=available
+2026-11-21T11:42:37.377Z  [log] [phase.commit] posting from PhaseEditor phase=pages variant=none
+2026-11-21T11:42:37.379Z  [log] [walk] waiting for the host to confirm pages is done before moving to architecture
+2026-11-21T11:42:37.411Z  [log] [walk] pages confirmed done; moving to architecture
+2026-11-21T11:42:37.508Z  [log] [architecture] saving monolith (architecture-implied)
+2026-11-21T11:47:18.409Z  [log] [phase.commit] continue phase=architecture dirty=false commit=available
+2026-11-21T11:47:18.410Z  [log] [phase.commit] posting from PhaseEditor phase=architecture variant=none
+2026-11-21T11:58:15.986Z  [log] [walk] waiting for the host to confirm stack is done before moving to apis
+2026-11-21T11:58:16.407Z  [log] [walk] stack confirmed done; moving to apis
+2026-11-21T11:58:57.715Z  [log] [phase.commit] continue phase=apis dirty=false commit=available
+2026-11-21T11:58:57.716Z  [log] [phase.commit] posting from PhaseEditor phase=apis variant=none
+2026-11-21T11:58:57.717Z  [log] [walk] waiting for the host to confirm apis is done before moving to ble
+2026-11-21T11:58:57.752Z  [log] [walk] apis confirmed done; moving to ble
+2026-11-21T12:02:00.708Z  [log] [phase.commit] continue phase=ble dirty=false commit=available
+2026-11-21T12:02:00.709Z  [log] [phase.commit] posting from the BLE screen phase=ble
+2026-11-21T12:02:00.711Z  [log] [walk] waiting for the host to confirm ble is done before moving to schema
+2026-11-21T12:02:00.745Z  [log] [walk] ble confirmed done; moving to schema
+2026-11-21T12:03:13.539Z  [log] [phase.commit] continue phase=schema dirty=false commit=available
+2026-11-21T12:03:13.541Z  [log] [phase.commit] posting from PhaseEditor phase=schema variant=none
+2026-11-21T12:03:13.542Z  [log] [walk] waiting for the host to confirm schema is done before moving to atlas
+2026-11-21T12:03:13.575Z  [log] [walk] schema confirmed done; moving to atlas
+2026-11-21T12:04:58.040Z  [log] [phase.commit] continue phase=atlas dirty=false commit=available
+2026-11-21T12:04:58.041Z  [log] [phase.commit] posting from PhaseEditor phase=atlas variant=none
+2026-11-21T12:04:58.043Z  [log] [walk] waiting for the host to confirm atlas is done before moving to generate
+2026-11-21T12:04:58.093Z  [log] [walk] atlas confirmed done; moving to generate
+2026-11-21T12:18:13.521Z  [log] [pages] asking for the descriptions of 7 saved screens
+2026-11-21T12:19:39.950Z  [log] [phase.commit] continue phase=schema dirty=false commit=available
+2026-11-21T12:19:39.951Z  [log] [phase.commit] posting from PhaseEditor phase=schema variant=none
+2026-11-21T12:19:44.736Z  [log] [phase.commit] continue phase=atlas dirty=false commit=available
+2026-11-21T12:19:44.736Z  [log] [phase.commit] posting from PhaseEditor phase=atlas variant=none
+2026-11-21T12:20:13.363Z  [log] [generate-dispatch] auto-start flag consumed — this mount will start a generation
+2026-11-21T12:20:13.363Z  [log] [edit-mode] generationInProgress=false (pipelineSnap.running=false previewState=idle pipelineStatus=idle) devServerUrl=none editModeEnabled=false
+2026-11-21T12:26:44.176Z  [log] [generate-dispatch] posting preview.generate turnId=preview-1795263613463 origin=auto-start
+2026-11-21T12:26:44.198Z  [log] [edit-mode] generationInProgress=true (pipelineSnap.running=false previewState=running pipelineStatus=running) devServerUrl=none editModeEnabled=false
+2026-11-21T12:26:44.200Z  [log] [edit-mode] generationInProgress=true (pipelineSnap.running=true previewState=running pipelineStatus=running) devServerUrl=none editModeEnabled=false
+2026-11-21T12:27:07.418Z  [log] [edit-mode] generationInProgress=true (pipelineSnap.running=true previewState=idle pipelineStatus=paused) devServerUrl=none editModeEnabled=false
+2026-11-21T12:52:10.183Z  [log] [edit-mode] generationInProgress=true (pipelineSnap.running=true previewState=idle pipelineStatus=running) devServerUrl=none editModeEnabled=false
+2026-11-21T12:52:10.195Z  [log] [edit-mode] generationInProgress=true (pipelineSnap.running=true previewState=running pipelineStatus=running) devServerUrl=none editModeEnabled=false
+2026-11-21T12:52:10.256Z  [log] [edit-mode] generationInProgress=true (pipelineSnap.running=true previewState=idle pipelineStatus=paused) devServerUrl=none editModeEnabled=false
+2026-11-21T12:52:12.196Z  [log] [edit-mode] generationInProgress=true (pipelineSnap.running=true previewState=idle pipelineStatus=running) devServerUrl=none editModeEnabled=false
+2026-11-21T12:52:12.197Z  [log] [edit-mode] generationInProgress=true (pipelineSnap.running=true previewState=running pipelineStatus=running) devServerUrl=none editModeEnabled=false
+2026-11-21T12:52:12.281Z  [log] [edit-mode] generationInProgress=true (pipelineSnap.running=true previewState=idle pipelineStatus=paused) devServerUrl=none editModeEnabled=false
+2026-11-21T12:52:34.375Z  [log] [edit-mode] generationInProgress=true (pipelineSnap.running=true previewState=idle pipelineStatus=running) devServerUrl=none editModeEnabled=false
+2026-11-21T12:52:34.416Z  [log] [edit-mode] generationInProgress=true (pipelineSnap.running=true previewState=idle pipelineStatus=complete) devServerUrl=none editModeEnabled=false
+2026-11-21T12:52:36.490Z  [log] [edit-mode] generationInProgress=false (pipelineSnap.running=false previewState=idle pipelineStatus=complete) devServerUrl=none editModeEnabled=false
+2026-11-21T12:52:36.508Z  [log] [scan] auto-fire isBrownfield=true devServerUrl=undefined redesignMode=false
+2026-11-21T12:52:37.747Z  [log] [scan] result received total=7 static=6 dynamic=1 routes=/|/bills|/invoices|/bills/new|/invoices/[id]|/invoices/new|/cash-forecast
+2026-11-21T12:58:13.741Z  [log] [scan] auto-fire isBrownfield=true devServerUrl=undefined redesignMode=false
+2026-11-21T12:58:13.742Z  [log] [edit-mode] generationInProgress=false (pipelineSnap.running=false previewState=idle pipelineStatus=idle) devServerUrl=none editModeEnabled=false
+2026-11-21T12:58:14.582Z  [log] [scan] result received total=7 static=6 dynamic=1 routes=/|/bills|/invoices/new|/invoices|/invoices/[id]|/cash-forecast|/bills/new
+2026-11-21T13:01:59.214Z  [log] [generate-dispatch] auto-start flag consumed — this mount will start a generation
+2026-11-21T13:01:59.215Z  [log] [scan] auto-fire isBrownfield=true devServerUrl=undefined redesignMode=false
+2026-11-21T13:01:59.216Z  [log] [edit-mode] generationInProgress=false (pipelineSnap.running=false previewState=idle pipelineStatus=idle) devServerUrl=none editModeEnabled=false
+2026-11-21T13:02:00.024Z  [log] [scan] result received total=7 static=6 dynamic=1 routes=/|/bills|/invoices/[id]|/invoices|/bills/new|/invoices/new|/cash-forecast
+2026-11-21T13:02:04.108Z  [log] [generate-dispatch] posting preview.generate turnId=preview-1795266119314 origin=auto-start
+2026-11-21T13:02:04.117Z  [log] [edit-mode] generationInProgress=true (pipelineSnap.running=false previewState=running pipelineStatus=running) devServerUrl=none editModeEnabled=false
+2026-11-21T13:02:04.121Z  [log] [edit-mode] generationInProgress=true (pipelineSnap.running=true previewState=running pipelineStatus=running) devServerUrl=none editModeEnabled=false
+2026-11-21T13:03:31.507Z  [log] [edit-mode] generationInProgress=true (pipelineSnap.running=true previewState=running pipelineStatus=complete) devServerUrl=none editModeEnabled=false
+2026-11-21T13:04:11.275Z  [log] [edit-mode] generationInProgress=true (pipelineSnap.running=true previewState=idle pipelineStatus=complete) devServerUrl=none editModeEnabled=false
+2026-11-21T13:04:12.614Z  [log] [edit-mode] generationInProgress=true (pipelineSnap.running=true previewState=running pipelineStatus=complete) devServerUrl=none editModeEnabled=false
+2026-11-21T13:04:13.686Z  [log] [edit-mode] generationInProgress=true (pipelineSnap.running=false previewState=running pipelineStatus=complete) devServerUrl=none editModeEnabled=false
+2026-11-21T13:21:51.332Z  [log] [edit-mode] generationInProgress=true (pipelineSnap.running=false previewState=running pipelineStatus=complete) devServerUrl=up editModeEnabled=false
+2026-11-21T13:55:55.698Z  [log] [edit-mode] generationInProgress=false (pipelineSnap.running=false previewState=idle pipelineStatus=idle) devServerUrl=none editModeEnabled=false
+2026-11-21T13:56:05.589Z  [log] [edit-mode] generationInProgress=false (pipelineSnap.running=false previewState=idle pipelineStatus=idle) devServerUrl=up editModeEnabled=false
+2026-11-21T14:02:07.934Z  [log] [edit-mode] generationInProgress=false (pipelineSnap.running=false previewState=idle pipelineStatus=idle) devServerUrl=up editModeEnabled=true
+2026-11-21T14:02:09.839Z  [log] [edit-mode] generationInProgress=false (pipelineSnap.running=false previewState=idle pipelineStatus=idle) devServerUrl=up editModeEnabled=false
+2026-11-21T14:02:10.605Z  [log] [edit-mode] generationInProgress=false (pipelineSnap.running=false previewState=idle pipelineStatus=idle) devServerUrl=up editModeEnabled=true
+2026-11-21T14:02:11.708Z  [log] [edit-mode] generationInProgress=false (pipelineSnap.running=false previewState=idle pipelineStatus=idle) devServerUrl=up editModeEnabled=false
+2026-11-21T14:02:11.932Z  [log] [edit-mode] generationInProgress=false (pipelineSnap.running=false previewState=idle pipelineStatus=idle) devServerUrl=up editModeEnabled=true
+2026-11-21T14:02:14.531Z  [log] [edit-mode] generationInProgress=false (pipelineSnap.running=false previewState=idle pipelineStatus=idle) devServerUrl=up editModeEnabled=false
+2026-11-21T14:02:14.757Z  [log] [edit-mode] generationInProgress=false (pipelineSnap.running=false previewState=idle pipelineStatus=idle) devServerUrl=up editModeEnabled=true
+2026-11-21T14:02:16.926Z  [log] [edit-mode] generationInProgress=false (pipelineSnap.running=false previewState=idle pipelineStatus=idle) devServerUrl=up editModeEnabled=false
+2026-11-21T14:02:19.973Z  [log] [edit-mode] generationInProgress=false (pipelineSnap.running=false previewState=idle pipelineStatus=idle) devServerUrl=up editModeEnabled=true
+2026-11-21T14:02:20.961Z  [log] [edit-mode] generationInProgress=false (pipelineSnap.running=false previewState=idle pipelineStatus=idle) devServerUrl=up editModeEnabled=false
+2026-11-21T14:02:21.190Z  [log] [edit-mode] generationInProgress=false (pipelineSnap.running=false previewState=idle pipelineStatus=idle) devServerUrl=up editModeEnabled=true
+2026-11-21T14:02:21.920Z  [log] [edit-mode] generationInProgress=false (pipelineSnap.running=false previewState=idle pipelineStatus=idle) devServerUrl=up editModeEnabled=false
+2026-11-21T14:02:22.105Z  [log] [edit-mode] generationInProgress=false (pipelineSnap.running=false previewState=idle pipelineStatus=idle) devServerUrl=up editModeEnabled=true
+2026-11-21T14:02:22.325Z  [log] [edit-mode] generationInProgress=false (pipelineSnap.running=false previewState=idle pipelineStatus=idle) devServerUrl=up editModeEnabled=false
+2026-11-21T14:02:27.541Z  [log] [edit-mode] generationInProgress=false (pipelineSnap.running=false previewState=idle pipelineStatus=idle) devServerUrl=up editModeEnabled=true
+2026-11-21T14:02:29.831Z  [log] [edit-mode] generationInProgress=false (pipelineSnap.running=false previewState=idle pipelineStatus=idle) devServerUrl=up editModeEnabled=false
+2026-11-21T14:02:30.025Z  [log] [edit-mode] generationInProgress=false (pipelineSnap.running=false previewState=idle pipelineStatus=idle) devServerUrl=up editModeEnabled=true
+2026-11-21T14:02:30.196Z  [log] [edit-mode] generationInProgress=false (pipelineSnap.running=false previewState=idle pipelineStatus=idle) devServerUrl=up editModeEnabled=false
+2026-11-21T14:02:30.389Z  [log] [edit-mode] generationInProgress=false (pipelineSnap.running=false previewState=idle pipelineStatus=idle) devServerUrl=up editModeEnabled=true
+2026-11-21T14:02:30.572Z  [log] [edit-mode] generationInProgress=false (pipelineSnap.running=false previewState=idle pipelineStatus=idle) devServerUrl=up editModeEnabled=false
+2026-11-21T14:02:30.739Z  [log] [edit-mode] generationInProgress=false (pipelineSnap.running=false previewState=idle pipelineStatus=idle) devServerUrl=up editModeEnabled=true
+2026-11-21T14:02:30.915Z  [log] [edit-mode] generationInProgress=false (pipelineSnap.running=false previewState=idle pipelineStatus=idle) devServerUrl=up editModeEnabled=false
+2026-11-21T14:02:31.069Z  [log] [edit-mode] generationInProgress=false (pipelineSnap.running=false previewState=idle pipelineStatus=idle) devServerUrl=up editModeEnabled=true
+2026-11-21T14:02:31.188Z  [log] [edit-mode] generationInProgress=false (pipelineSnap.running=false previewState=idle pipelineStatus=idle) devServerUrl=up editModeEnabled=false
+2026-11-21T14:02:31.315Z  [log] [edit-mode] generationInProgress=false (pipelineSnap.running=false previewState=idle pipelineStatus=idle) devServerUrl=up editModeEnabled=true
+2026-11-21T14:04:08.277Z  [log] [edit-mode] generationInProgress=false (pipelineSnap.running=false previewState=idle pipelineStatus=idle) devServerUrl=up editModeEnabled=false
+2026-11-21T14:04:12.425Z  [log] [edit-mode] generationInProgress=false (pipelineSnap.running=false previewState=idle pipelineStatus=idle) devServerUrl=up editModeEnabled=true
+2026-11-21T14:04:23.840Z  [log] [edit-mode] generationInProgress=false (pipelineSnap.running=false previewState=idle pipelineStatus=idle) devServerUrl=up editModeEnabled=false
+2026-11-21T14:04:46.759Z  [log] [scan] auto-fire isBrownfield=true devServerUrl=http://localhost:3100 redesignMode=false
+2026-11-21T14:04:47.398Z  [log] [scan] result received total=7 static=6 dynamic=1 routes=/|/invoices/[id]|/invoices|/invoices/new|/cash-forecast|/bills|/bills/new
+2026-11-21T14:05:17.041Z  [log] [scan] auto-fire isBrownfield=true devServerUrl=undefined redesignMode=false
+2026-11-21T14:05:17.042Z  [log] [edit-mode] generationInProgress=false (pipelineSnap.running=false previewState=idle pipelineStatus=idle) devServerUrl=none editModeEnabled=false
+2026-11-21T14:05:17.662Z  [log] [scan] result received total=7 static=6 dynamic=1 routes=/|/invoices/[id]|/invoices|/bills|/invoices/new|/bills/new|/cash-forecast

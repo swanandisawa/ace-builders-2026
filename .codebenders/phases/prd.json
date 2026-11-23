@@ -1,0 +1,25 @@
+{
+  "target_users": [
+    "Solo freelance makeup artists and bridal stylists",
+    "Small salon owners with 1 to 3 assistants",
+    "Makeup artists who manage client bookings via WhatsApp and Instagram"
+  ],
+  "product_name": "GlowLedger",
+  "one_line_summary": "a mobile app build for mua",
+  "core_capabilities": [
+    "Create invoices in 3 taps with client name, event date, total fee, and advance paid",
+    "Track pending balances and mark payments as received",
+    "Generate one-click polite WhatsApp payment reminders ready to copy and send",
+    "Show a Who Owes Me dashboard listing overdue clients, exact amounts, and days overdue",
+    "Display a 30, 60, and 90 day cash forecast chart comparing expected client inflows against upcoming bills like rent and cosmetic restocks",
+    "Provide a What-If scenario toggle to simulate a key bridal client paying 15 days late and see how it impacts cash",
+    "Trigger clear action alerts like Chase Priya's balance today to cover next month's rent",
+    "Pre-load realistic sample makeup artist data so the app works immediately on open"
+  ],
+  "non_goals": [
+    "No complex tax or GST filing",
+    "No live bank account syncing or payment gateway integration",
+    "No multi-branch or enterprise staff permissions",
+    "No bulky inventory barcode scanning"
+  ]
+}

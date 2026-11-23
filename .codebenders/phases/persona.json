@@ -1,0 +1,28 @@
+{
+  "personas": [
+    {
+      "name": "Solo Freelance Makeup Artist",
+      "short_description": "Books bridal and event clients over WhatsApp, invoices advances and balances, and tracks overdue payments and 90-day cash for rent and kit restocks.",
+      "key_responsibilities": [
+        "Create invoices in 3 taps with client name, event date, total fee, and advance paid",
+        "Track pending balances and mark payments as received",
+        "Generate one-click polite WhatsApp payment reminders ready to copy and send",
+        "View the Who Owes Me dashboard of overdue clients, amounts, and days overdue",
+        "Review the 30/60/90 day cash forecast and run the late-bridal-payment what-if toggle"
+      ],
+      "frictions": [
+        "Chasing advance and balance payments by hand across WhatsApp threads after bridal events",
+        "Losing track of which clients still owe money once several bookings overlap",
+        "Lumpy event income makes it hard to know if next month's rent and kit restocks are covered"
+      ],
+      "devices": "mobile",
+      "instructions": [
+        "Make invoice creation a three-step flow with large tap targets and sensible defaults for event date and advance",
+        "Put the Who Owes Me list on the home screen, sorted by days overdue, with one-tap access to the reminder",
+        "Show the reminder text in a copy-ready card with a single copy button and no extra confirmation step",
+        "Surface action alerts at the top of the home screen in plain sentences with the exact amount and due date"
+      ],
+      "persona_id": "P-84445E"
+    }
+  ]
+}

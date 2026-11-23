@@ -1,0 +1,114 @@
+{
+  "prdHash": "09d89d21e08f5bcf99354d8d64851a436ca73d85",
+  "brief": "",
+  "alternatives": [
+    {
+      "id": "vanity-mirror-blush",
+      "label": "Vanity Mirror Blush",
+      "colors": {
+        "primary": "#B87B7F",
+        "secondary": "#7A4E5C",
+        "accent": "#B08D57",
+        "bg": "#FBF6EE",
+        "surface": "#FFFBF6",
+        "text": "#3D2B2A",
+        "muted": "#8C7570",
+        "success": "#6F8F6A",
+        "danger": "#B5443F"
+      },
+      "typography": {
+        "font_family": "Nunito",
+        "font_family_heading": "Playfair Display",
+        "font_family_mono": "DM Mono"
+      },
+      "spacing": {
+        "base": "4px"
+      },
+      "radius": {
+        "base": "8px"
+      },
+      "reason": "Ivory and dusty rose surfaces with bronze-gold accents and a soft high-contrast serif give the app the warm, low-glare feel of a lit dressing table, so money screens feel personal rather than corporate."
+    },
+    {
+      "id": "backstage-ring-light",
+      "label": "Backstage Ring Light",
+      "colors": {
+        "primary": "#D4AF6A",
+        "secondary": "#5B2A4E",
+        "accent": "#F3D9A4",
+        "bg": "#1C1420",
+        "surface": "#2A1F2D",
+        "text": "#FBF6EE",
+        "muted": "#9C8FA0",
+        "success": "#7FB88A",
+        "danger": "#E0655C"
+      },
+      "typography": {
+        "font_family": "Inter, system-ui, sans-serif",
+        "font_family_heading": "Barlow Condensed, Oswald, sans-serif",
+        "font_family_mono": "JetBrains Mono, IBM Plex Mono, monospace"
+      },
+      "spacing": {
+        "base": "4px"
+      },
+      "radius": {
+        "base": "8px"
+      },
+      "reason": "A deep charcoal-plum stage backdrop with champagne-gold labels and a warm-white spotlight on balances makes money figures and overdue alerts the brightest things on screen, like a ring light on a face."
+    },
+    {
+      "id": "shade-card-swatch",
+      "label": "Foundation Shade Card",
+      "colors": {
+        "primary": "#4A2E22",
+        "secondary": "#8C6A55",
+        "accent": "#B5562E",
+        "bg": "#F4EBDD",
+        "surface": "#FBF6EE",
+        "text": "#2B1B14",
+        "muted": "#8A7568",
+        "success": "#5E7A4E",
+        "danger": "#7A1F1F"
+      },
+      "typography": {
+        "font_family": "Jost",
+        "font_family_heading": "Urbanist",
+        "font_family_mono": "JetBrains Mono"
+      },
+      "spacing": {
+        "base": "4px"
+      },
+      "radius": {
+        "base": "8px"
+      },
+      "reason": "The palette borrows the warm beige and deep umber steps of a foundation shade card, so pending and overdue states read as tonal lightness and depth, with one sienna accent reserved for actions and flat surfaces with a tracked geometric sans keeping the tool precise and swatch-clean."
+    },
+    {
+      "id": "invoice-letterpress-ink",
+      "label": "Letterpress Invoice Ink",
+      "colors": {
+        "primary": "#1F2A44",
+        "secondary": "#6B5B45",
+        "accent": "#B8862B",
+        "bg": "#F5EFE3",
+        "surface": "#FBF7EE",
+        "text": "#1B2233",
+        "muted": "#7A7062",
+        "success": "#3F6B4E",
+        "danger": "#C8382A"
+      },
+      "typography": {
+        "font_family": "Source Sans 3",
+        "font_family_heading": "Libre Caslon Text",
+        "font_family_mono": "IBM Plex Mono"
+      },
+      "spacing": {
+        "base": "4px"
+      },
+      "radius": {
+        "base": "8px"
+      },
+      "reason": "A cream-paper ledger aesthetic with ink-navy type, hairline rules, and vermilion reserved solely for overdue and urgent money, so the app reads like a printed bookkeeping page where red marks what needs chasing."
+    }
+  ]
+}

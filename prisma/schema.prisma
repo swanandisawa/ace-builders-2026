@@ -1,0 +1,79 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+enum InvoiceStatus {
+  pending
+  overdue
+  paid
+}
+
+enum PaymentStatus {
+  expected
+  received
+}
+
+enum BillCategory {
+  rent
+  restock
+  other
+}
+
+enum BillStatus {
+  upcoming
+  paid
+}
+
+model Invoice {
+  id             String        @id @default(uuid())
+  createdAt      DateTime      @default(now()) @map("created_at")
+  updatedAt      DateTime      @updatedAt @map("updated_at")
+  clientName     String        @map("client_name")
+  eventDate      DateTime      @map("event_date")
+  dueDate        DateTime?     @map("due_date")
+  totalFee       Decimal       @map("total_fee")
+  advancePaid    Decimal       @default(0) @map("advance_paid")
+  balanceDue     Decimal       @default(0) @map("balance_due")
+  pendingBalance Decimal       @default(0) @map("pending_balance")
+  status         InvoiceStatus @default(pending)
+
+  payments Payment[] @relation("InvoicePayments")
+
+  @@map("invoices")
+}
+
+model Payment {
+  id         String        @id @default(uuid())
+  createdAt  DateTime      @default(now()) @map("created_at")
+  updatedAt  DateTime      @updatedAt @map("updated_at")
+  invoiceId  String        @map("invoice_id")
+  amount     Decimal
+  status     PaymentStatus @default(expected)
+  receivedOn DateTime?     @map("received_on")
+  receivedAt DateTime?     @map("received_at")
+
+  invoice Invoice @relation("InvoicePayments", fields: [invoiceId], references: [id], onDelete: Cascade)
+
+  @@index([invoiceId])
+  @@map("payments")
+}
+
+model Bill {
+  id        String       @id @default(uuid())
+  createdAt DateTime     @default(now()) @map("created_at")
+  updatedAt DateTime     @updatedAt @map("updated_at")
+  name      String
+  category  BillCategory @default(other)
+  amount    Decimal
+  dueDate   DateTime     @map("due_date")
+  status    BillStatus   @default(upcoming)
+  isPaid    Boolean      @default(false) @map("is_paid")
+  paidAt    DateTime?    @map("paid_at")
+
+  @@map("bills")
+}

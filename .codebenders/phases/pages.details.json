@@ -1,0 +1,476 @@
+{
+  "version": 1,
+  "details": {
+    "/": {
+      "detail": {
+        "purpose": "GlowLedger is a mobile app for makeup artists to track money owed to them and plan cash. This home screen is where the Solo Freelance Makeup Artist checks which clients are overdue, sees the action alerts, and goes to chase a balance or copy a reminder.",
+        "layout": [
+          {
+            "area": "Page header",
+            "contents": "Heading 'GlowLedger' with a line saying it tracks what clients owe you and your cash for the next 90 days."
+          },
+          {
+            "area": "Action alerts",
+            "contents": "Clear alert cards at the top, each with a short action sentence such as 'Chase Priya's balance today to cover next month's rent'. Each card has a 'View invoice' button."
+          },
+          {
+            "area": "Who Owes Me list",
+            "contents": "Heading 'Who Owes Me' with one row per overdue client. Each row shows client name, exact pending balance, and days overdue. Each row is tappable."
+          },
+          {
+            "area": "Overdue total",
+            "contents": "A single line under the list showing the number of overdue clients and the sum of their pending balances."
+          },
+          {
+            "area": "Quick links",
+            "contents": "Buttons: 'New invoice', 'View all invoices', 'Cash forecast', 'Bills', 'New bill'."
+          }
+        ],
+        "shows": [
+          {
+            "item": "Action alerts",
+            "details": "Short alert cards, each with a plain sentence on what to do and by when. Sample data includes a chase alert for Priya's balance to cover next month's rent."
+          },
+          {
+            "item": "Overdue clients",
+            "details": "Client name, exact pending balance, days overdue. Listed one row per client with an overdue balance."
+          },
+          {
+            "item": "Overdue total",
+            "details": "Count of overdue clients and total of their pending balances."
+          }
+        ],
+        "actions": [
+          {
+            "who": "Everyone",
+            "action": "Scan the Who Owes Me list for overdue clients, amounts, and days overdue",
+            "result": "Sees who owes money and how late each payment is."
+          },
+          {
+            "who": "Everyone",
+            "action": "Tap an overdue client row",
+            "result": "Opens that client's invoice to review the balance, mark a payment received, or copy a reminder."
+          },
+          {
+            "who": "Everyone",
+            "action": "Tap 'View invoice' on an action alert",
+            "result": "Opens the invoice the alert is about so the artist can chase the balance."
+          },
+          {
+            "who": "Everyone",
+            "action": "Tap 'New invoice'",
+            "result": "Opens the three-tap form to create an invoice."
+          },
+          {
+            "who": "Everyone",
+            "action": "Tap 'Cash forecast', 'Bills', or 'New bill'",
+            "result": "Opens the 30/60/90 day cash view, the upcoming bills list, or the form to add a bill."
+          }
+        ],
+        "links": [
+          {
+            "to": "/invoices/[id]",
+            "label": "Overdue client row",
+            "when": "Artist wants to check the balance, mark a payment received, or copy a WhatsApp reminder for that client."
+          },
+          {
+            "to": "/invoices/new",
+            "label": "New invoice",
+            "when": "Artist books a new client and needs to invoice the advance and balance."
+          },
+          {
+            "to": "/invoices",
+            "label": "View all invoices",
+            "when": "Artist wants the full list of invoices, not just overdue ones."
+          },
+          {
+            "to": "/cash-forecast",
+            "label": "Cash forecast",
+            "when": "Artist wants to see 30, 60, and 90 day cash against upcoming bills."
+          },
+          {
+            "to": "/bills",
+            "label": "Bills",
+            "when": "Artist wants to see upcoming rent and cosmetic restock bills."
+          },
+          {
+            "to": "/bills/new",
+            "label": "New bill",
+            "when": "Artist adds an upcoming bill such as rent or a restock."
+          }
+        ],
+        "states": {
+          "empty": "No overdue clients: show 'Nobody owes you right now' with the quick links still visible.",
+          "loading": "Show placeholder rows and alert cards while the overdue list and alerts load.",
+          "error": "Show 'Could not load your balances. Try again' with a retry button; quick links stay available."
+        },
+        "notes": "Payments are marked received manually on the invoice; there is no bank syncing or payment gateway. Reminders are copied and sent by the artist, not sent by the app. The screen is pre-loaded with realistic sample data so it is populated on first open. No tax or GST figures appear on this screen."
+      },
+      "basis": "[\"Who Owes Me\",\"Home dashboard listing overdue clients with exact amounts and days overdue, plus clear action alerts.\",[\"Solo Freelance Makeup Artist\"],[[\"Solo Freelance Makeup Artist\",\"scan overdue clients, act on alerts like chasing a balance before rent, copy reminders\"]]]",
+      "at": "2026-11-21T11:29:16.191Z"
+    },
+    "/invoices/{}": {
+      "detail": {
+        "purpose": "Shows one invoice's total fee, advance paid and pending balance, and lets the artist mark a payment as received or copy a polite WhatsApp payment reminder. The solo freelance makeup artist comes here from the invoice list or the Who Owes Me dashboard.",
+        "layout": [
+          {
+            "area": "Page header",
+            "contents": "Back control to the invoices list, the client name as the heading, and the event date beneath it."
+          },
+          {
+            "area": "Invoice amounts",
+            "contents": "Three figures in order: total fee, advance paid, and pending balance (fee minus advance minus payments received). The pending balance is the most prominent figure."
+          },
+          {
+            "area": "Payments received",
+            "contents": "A button to mark a payment as received, which updates the pending balance."
+          },
+          {
+            "area": "Payment reminder",
+            "contents": "A polite WhatsApp payment reminder for this client, shown ready to copy, with a copy button."
+          }
+        ],
+        "shows": [
+          {
+            "item": "Invoice",
+            "details": "Client name, event date, total fee, advance paid, pending balance. Balance = total fee minus advance paid minus payments received."
+          },
+          {
+            "item": "Payment reminder text",
+            "details": "Polite WhatsApp message stating the client's pending balance, ready to copy and send."
+          }
+        ],
+        "actions": [
+          {
+            "who": "Everyone",
+            "action": "Mark a payment as received on this invoice",
+            "result": "The payment is recorded and the pending balance on this invoice goes down."
+          },
+          {
+            "who": "Everyone",
+            "action": "Copy the one-click WhatsApp payment reminder",
+            "result": "The polite reminder is copied, ready to paste and send in WhatsApp."
+          }
+        ],
+        "links": [
+          {
+            "to": "/invoices",
+            "label": "Back",
+            "when": "When the artist has finished with this invoice and wants the full invoice list."
+          }
+        ],
+        "states": {
+          "empty": "No payments recorded yet: the balance equals total fee minus advance paid.",
+          "loading": "Invoice figures and reminder text are shown as placeholders until the invoice loads.",
+          "error": "If the invoice cannot be loaded, a message says so with a way to go back to the invoices list."
+        },
+        "notes": "The app does not sync bank accounts or take payments through a gateway, so payments are recorded by hand. No tax or GST details appear on the invoice. The reminder is copied for the artist to send; the app does not send it."
+      },
+      "basis": "[\"Invoice Detail\",\"Shows one invoice's fee, advance and balance, and lets the artist mark payments received and copy a payment reminder.\",[\"Solo Freelance Makeup Artist\"],[[\"Solo Freelance Makeup Artist\",\"record a payment received, copy a one-click WhatsApp reminder\"]]]",
+      "at": "2026-11-21T11:29:28.506Z"
+    },
+    "/invoices": {
+      "detail": {
+        "purpose": "Shows every invoice the artist has created, with each client's event date, fee, advance and pending balance. The Solo Freelance Makeup Artist comes here to see what is still owed, open an invoice, or create a new one.",
+        "layout": [
+          {
+            "area": "Page header",
+            "contents": "Heading \"Invoices\" and a \"New invoice\" button that opens the three-tap form."
+          },
+          {
+            "area": "Invoice list",
+            "contents": "One row per invoice, showing all invoices. Each row shows client name, event date, total fee, advance paid and pending balance."
+          },
+          {
+            "area": "Invoice row",
+            "contents": "Client name, event date, total fee, advance paid and pending balance on one row. The whole row is tappable to open that invoice."
+          }
+        ],
+        "shows": [
+          {
+            "item": "Invoices",
+            "details": "All invoices, one row each. Fields in order: client name, event date, total fee, advance paid, pending balance."
+          }
+        ],
+        "actions": [
+          {
+            "who": "Everyone",
+            "action": "Taps \"New invoice\"",
+            "result": "Opens the New Invoice form at /invoices/new."
+          },
+          {
+            "who": "Everyone",
+            "action": "Taps an invoice row",
+            "result": "Opens that invoice's detail page, where payments can be marked received and a reminder copied."
+          },
+          {
+            "who": "Everyone",
+            "action": "Reviews pending balances across invoices",
+            "result": "Sees which clients still owe money without leaving the list."
+          }
+        ],
+        "links": [
+          {
+            "to": "/invoices/new",
+            "label": "New invoice",
+            "when": "When the artist has a new booking and needs to invoice a client."
+          },
+          {
+            "to": "/invoices/[id]",
+            "label": "Invoice row",
+            "when": "When the artist wants to see one invoice's fee, advance and balance, mark a payment received, or copy a payment reminder."
+          }
+        ],
+        "states": {
+          "empty": "No invoices yet: a short message and a \"New invoice\" button.",
+          "loading": "A loading indicator in the invoice list area until invoices are fetched.",
+          "error": "A message that invoices could not be loaded, with a retry option."
+        },
+        "notes": "Invoices are pre-loaded with sample data so the list is never empty on first open. No tax or GST fields appear on the list. Only the Solo Freelance Makeup Artist uses this screen."
+      },
+      "basis": "[\"Invoices\",\"List of all invoices showing client, event date, total fee, advance paid and pending balance.\",[\"Solo Freelance Makeup Artist\"],[[\"Solo Freelance Makeup Artist\",\"track pending balances, open invoices, mark payments received\"]]]",
+      "at": "2026-11-21T11:29:29.995Z"
+    },
+    "/invoices/new": {
+      "detail": {
+        "purpose": "Lets the Solo Freelance Makeup Artist create a new client invoice in three taps by entering the client name, event date, total fee and advance paid. The artist reaches it when a booking is confirmed over WhatsApp.",
+        "layout": [
+          {
+            "area": "Page header",
+            "contents": "Heading 'New Invoice' with a back control to return to the invoices list."
+          },
+          {
+            "area": "Client name field",
+            "contents": "Single text input labelled client name."
+          },
+          {
+            "area": "Event date field",
+            "contents": "Date input labelled event date."
+          },
+          {
+            "area": "Money fields",
+            "contents": "Numeric input labelled total fee and a numeric input labelled advance paid, in that order."
+          },
+          {
+            "area": "Action buttons",
+            "contents": "Primary button 'Save invoice' and a secondary 'Cancel' button."
+          }
+        ],
+        "shows": [],
+        "actions": [
+          {
+            "who": "Everyone",
+            "action": "Enters client name, event date, total fee and advance paid, then taps 'Save invoice'.",
+            "result": "The invoice is created with its fee, advance and pending balance, and the artist is taken to that invoice's detail."
+          },
+          {
+            "who": "Everyone",
+            "action": "Taps 'Cancel'.",
+            "result": "Nothing is saved and the artist returns to the invoices list."
+          }
+        ],
+        "links": [
+          {
+            "to": "/invoices/[id]",
+            "label": "Save invoice",
+            "when": "After the invoice is saved, to see its fee, advance and balance."
+          },
+          {
+            "to": "/invoices",
+            "label": "Cancel",
+            "when": "When the artist leaves without creating an invoice."
+          }
+        ],
+        "states": {
+          "empty": "Blank form with all four fields empty, ready for entry.",
+          "loading": "'Save invoice' shows a busy state and the fields are locked while the invoice is saved.",
+          "error": "If saving fails, a message says the invoice was not saved and the entered values stay in the form."
+        },
+        "notes": "The form covers only client name, event date, total fee and advance paid; no tax or GST fields. Three taps is the target for creating an invoice, so keep the form to these four fields."
+      },
+      "basis": "[\"New Invoice\",\"Form to create an invoice in three taps with client name, event date, total fee and advance paid.\",[\"Solo Freelance Makeup Artist\"],[[\"Solo Freelance Makeup Artist\",\"enter client name, event date, total fee and advance paid\"]]]",
+      "at": "2026-11-21T11:29:40.542Z"
+    },
+    "/cash-forecast": {
+      "detail": {
+        "purpose": "Shows the artist's expected cash over the next 30, 60 or 90 days by comparing client payments due in against upcoming bills such as rent and cosmetic restocks. The solo freelance makeup artist uses it to check whether cash will cover upcoming costs and to test what a late bridal payment would do.",
+        "layout": [
+          {
+            "area": "Page header",
+            "contents": "Heading 'Cash Forecast' and a one-line description of the 30, 60 and 90 day view."
+          },
+          {
+            "area": "Horizon selector",
+            "contents": "Three options: '30 days', '60 days', '90 days'. One is selected at a time."
+          },
+          {
+            "area": "Forecast chart",
+            "contents": "Chart over the chosen horizon with two series: expected client inflows and upcoming bills. The what-if line appears when the toggle is on."
+          },
+          {
+            "area": "What-if toggle panel",
+            "contents": "Switch labelled 'Late bridal payment: 15 days late' with a short note that it simulates a key bridal client paying 15 days late. Below it, the cash impact in plain words."
+          },
+          {
+            "area": "Totals summary",
+            "contents": "Figures for the selected horizon: total expected inflows, total upcoming bills, and net cash. With the toggle on, also the net cash with the late payment."
+          },
+          {
+            "area": "Upcoming items list",
+            "contents": "Client payments and bills in date order, each with name, due date and amount. Client payments show the pending balance. Bills show the bill name, such as rent or a cosmetic restock. A link to add a bill sits at the bottom."
+          }
+        ],
+        "shows": [
+          {
+            "item": "Expected client inflows",
+            "details": "Pending balances from invoices, placed on the date each balance is expected, within the selected horizon. Each shows client name, expected date and amount."
+          },
+          {
+            "item": "Upcoming bills",
+            "details": "Bills with their due date and amount, within the selected horizon, such as rent and cosmetic restocks. Each shows bill name, due date and amount."
+          },
+          {
+            "item": "Horizon totals",
+            "details": "Total expected inflows, total upcoming bills and net cash for the selected 30, 60 or 90 day period."
+          },
+          {
+            "item": "Late bridal payment what-if",
+            "details": "When the toggle is on, the key bridal client's balance moves 15 days later. The chart, totals and net cash update to match."
+          }
+        ],
+        "actions": [
+          {
+            "who": "Everyone",
+            "action": "Selects 30, 60 or 90 days",
+            "result": "The chart and totals redraw for that horizon. Nothing is saved."
+          },
+          {
+            "who": "Everyone",
+            "action": "Switches the late bridal payment what-if on",
+            "result": "The bridal client's balance moves 15 days later on the chart and in the totals. Nothing is saved to invoices."
+          },
+          {
+            "who": "Everyone",
+            "action": "Switches the late bridal payment what-if off",
+            "result": "The chart and totals return to the expected dates."
+          }
+        ],
+        "links": [
+          {
+            "to": "/bills",
+            "label": "View all bills",
+            "when": "The artist wants to see the full list of upcoming bills behind the forecast."
+          },
+          {
+            "to": "/bills/new",
+            "label": "Add a bill",
+            "when": "The artist wants to add a missing rent or restock bill so the forecast is complete."
+          }
+        ],
+        "states": {
+          "empty": "No pending balances or bills in the horizon: chart shows zero for both series, with a prompt to add a bill.",
+          "loading": "Chart area shows a loading indicator while the forecast is calculated.",
+          "error": "Message says the forecast could not be calculated, with a retry button."
+        },
+        "notes": "The forecast is based only on invoices and bills entered in the app. It does not sync with bank accounts or payment gateways. The app does not do tax or GST calculations. The what-if toggle is a simulation only and does not change any invoice or payment record. Bills with due dates outside the selected horizon are not shown."
+      },
+      "basis": "[\"Cash Forecast\",\"30, 60 and 90 day chart comparing expected client inflows against upcoming bills, with a what-if toggle for a late bridal payment.\",[\"Solo Freelance Makeup Artist\"],[[\"Solo Freelance Makeup Artist\",\"review 30/60/90 day cash and switch the late bridal payment what-if on or off\"]]]",
+      "at": "2026-11-21T11:29:43.649Z"
+    },
+    "/bills": {
+      "detail": {
+        "purpose": "Shows the artist's upcoming bills, such as rent and cosmetic restocks, with their due dates and amounts, so she can plan cash. The artist comes here to review these costs and to add new ones.",
+        "layout": [
+          {
+            "area": "Page header",
+            "contents": "Heading 'Bills' and a 'New bill' button."
+          },
+          {
+            "area": "Bills list",
+            "contents": "One row per upcoming bill, showing the bill name (for example rent or cosmetic restock), its amount and its due date."
+          }
+        ],
+        "shows": [
+          {
+            "item": "Upcoming bills",
+            "details": "Each row shows bill name, amount and due date. Sample bills are pre-loaded so the list is populated on first open."
+          }
+        ],
+        "actions": [
+          {
+            "who": "Everyone",
+            "action": "Review upcoming rent and restock costs in the list",
+            "result": "Stays on the Bills screen with the amounts and due dates in view"
+          },
+          {
+            "who": "Everyone",
+            "action": "Tap 'New bill'",
+            "result": "Opens the New Bill form at /bills/new"
+          }
+        ],
+        "links": [
+          {
+            "to": "/bills/new",
+            "label": "New bill",
+            "when": "When she needs to add an upcoming bill such as rent or a cosmetic restock with its amount and due date"
+          }
+        ],
+        "states": {
+          "empty": "Message saying no bills have been added yet, with the 'New bill' button shown.",
+          "loading": "List area shows a loading indicator until the bills are fetched.",
+          "error": "Message that bills could not be loaded, with a retry option."
+        },
+        "notes": "Only the Solo Freelance Makeup Artist uses this screen. The app has no separate bill detail screen, so rows are not links."
+      },
+      "basis": "[\"Bills\",\"List of upcoming bills such as rent and cosmetic restocks with their due dates and amounts.\",[\"Solo Freelance Makeup Artist\"],[[\"Solo Freelance Makeup Artist\",\"review upcoming rent and restock costs\"]]]",
+      "at": "2026-11-21T11:29:50.394Z"
+    },
+    "/bills/new": {
+      "detail": {
+        "purpose": "Lets the makeup artist add an upcoming bill, such as rent or a cosmetic restock, with its amount and due date. Bills added here feed the cash forecast.",
+        "layout": [
+          {
+            "area": "Page header",
+            "contents": "Back arrow to Bills, heading 'New bill'."
+          },
+          {
+            "area": "Bill form",
+            "contents": "Bill name field (e.g. rent, cosmetic restock), amount field, due date field."
+          },
+          {
+            "area": "Form actions",
+            "contents": "'Save bill' primary button and 'Cancel' secondary button."
+          }
+        ],
+        "shows": [],
+        "actions": [
+          {
+            "who": "Everyone",
+            "action": "Enter the bill name, amount and due date, then tap 'Save bill'.",
+            "result": "The bill is saved and the artist goes to Bills, where it appears in the list of upcoming bills."
+          },
+          {
+            "who": "Everyone",
+            "action": "Tap 'Cancel' or the back arrow.",
+            "result": "Nothing is saved and the artist goes back to Bills."
+          }
+        ],
+        "links": [
+          {
+            "to": "/bills",
+            "label": "Back arrow and 'Cancel'",
+            "when": "The artist decides not to add a bill and returns to the bills list."
+          }
+        ],
+        "states": {
+          "empty": "Blank form with empty fields and no existing data shown.",
+          "loading": "'Save bill' shows a busy indicator while the bill is being saved.",
+          "error": "If the bill cannot be saved, an error message appears on the form and the artist stays on it with the entered values kept."
+        },
+        "notes": "All three fields are needed to save a bill: bill name, amount and due date. The bill appears in the upcoming bills list and counts as an outflow in the 30, 60 and 90 day cash forecast."
+      },
+      "basis": "[\"New Bill\",\"Form to add an upcoming bill such as rent or a cosmetic restock with its amount and due date.\",[\"Solo Freelance Makeup Artist\"],[[\"Solo Freelance Makeup Artist\",\"enter bill name, amount and due date\"]]]",
+      "at": "2026-11-21T11:29:53.111Z"
+    }
+  }
+}

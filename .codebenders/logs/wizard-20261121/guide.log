@@ -1,0 +1,8 @@
+2026-11-21T10:36:14.104Z  [before session started] [log-upload] enabled — this run's diagnostics are also being sent to the backend
+2026-11-21T10:36:14.106Z  [generation-log] session wizard-20261121 → c:/Users/DeLL/Desktop/GlowLedger/.codebenders/logs/wizard-20261121
+2026-11-21T10:36:14.107Z  [phase] ▸ prd (propose) started [turn prd-untagged-1795257374034-4c8qsi]
+2026-11-21T10:36:14.155Z  [phase] ✓ prd ok in 120ms
+2026-11-21T11:10:54.465Z  [phase] ▸ prd (propose) started [turn prd-untagged-1795259454460-43jiq6]
+2026-11-21T11:10:54.498Z  [phase] ✓ prd ok in 36ms
+2026-11-21T11:11:05.122Z  [phase] ▸ persona (detect) started [turn persona-auto-suggest-1795259465118-slwk73]
+2026-11-21T11:11:05.533Z  [phase] ✖ persona failed in 414ms — Select a model to continue.

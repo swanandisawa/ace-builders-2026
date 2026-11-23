@@ -1,0 +1,345 @@
+{
+  "version": 1,
+  "data": {
+    "currency": "GBP",
+    "today": "2026-11-21",
+    "collections": {
+      "users": [
+        {
+          "id": "u1",
+          "name": "Meera Kapoor",
+          "email": "meera.kapoor@lumemakeup.co.uk",
+          "persona": "Solo Freelance Makeup Artist"
+        },
+        {
+          "id": "u2",
+          "name": "Shreya Nair",
+          "email": "shreya.nair.mua@gmail.com",
+          "persona": "Solo Freelance Makeup Artist"
+        }
+      ],
+      "artist_profiles": [
+        {
+          "id": "ap1",
+          "user_id": "u1",
+          "business_name": "Meera Kapoor Makeup",
+          "city": "Leicester",
+          "whatsapp_number": "+447700900412"
+        },
+        {
+          "id": "ap2",
+          "user_id": "u2",
+          "business_name": "Shreya Nair Beauty",
+          "city": "Birmingham",
+          "whatsapp_number": "+447700900873"
+        }
+      ],
+      "clients": [
+        {
+          "id": "c1",
+          "user_id": "u1",
+          "name": "Priya Sharma",
+          "whatsapp_number": "+447700900121",
+          "kind": "bridal"
+        },
+        {
+          "id": "c2",
+          "user_id": "u1",
+          "name": "Charlotte Hughes",
+          "whatsapp_number": "+447700900236",
+          "kind": "bridal"
+        },
+        {
+          "id": "c3",
+          "user_id": "u1",
+          "name": "Aisha Rahman",
+          "whatsapp_number": "+447700900348",
+          "kind": "bridal"
+        },
+        {
+          "id": "c4",
+          "user_id": "u1",
+          "name": "Tamara Doyle",
+          "whatsapp_number": "+447700900457",
+          "kind": "editorial"
+        },
+        {
+          "id": "c5",
+          "user_id": "u1",
+          "name": "Jess Whitfield",
+          "whatsapp_number": "+447700900562",
+          "kind": "party"
+        },
+        {
+          "id": "c6",
+          "user_id": "u1",
+          "name": "Leah Osei",
+          "whatsapp_number": "+447700900679",
+          "kind": "bridal"
+        },
+        {
+          "id": "c7",
+          "user_id": "u1",
+          "name": "Nadia Petrova",
+          "whatsapp_number": "+447700900781",
+          "kind": "party"
+        },
+        {
+          "id": "c8",
+          "user_id": "u1",
+          "name": "Sophie Lang",
+          "whatsapp_number": "+447700900894",
+          "kind": "corporate"
+        }
+      ],
+      "invoices": [
+        {
+          "id": "i1",
+          "user_id": "u1",
+          "client_id": "c1",
+          "event_date": "2026-12-06",
+          "total_fee": 1450,
+          "advance_paid": 400,
+          "balance_due_date": "2026-11-18",
+          "status": "open"
+        },
+        {
+          "id": "i2",
+          "user_id": "u1",
+          "client_id": "c2",
+          "event_date": "2026-11-08",
+          "total_fee": 680,
+          "advance_paid": 150,
+          "balance_due_date": "2026-11-15",
+          "status": "open"
+        },
+        {
+          "id": "i3",
+          "user_id": "u1",
+          "client_id": "c3",
+          "event_date": "2026-11-01",
+          "total_fee": 540,
+          "advance_paid": 540,
+          "balance_due_date": "2026-11-01",
+          "status": "settled"
+        },
+        {
+          "id": "i4",
+          "user_id": "u1",
+          "client_id": "c4",
+          "event_date": "2026-11-22",
+          "total_fee": 360,
+          "advance_paid": 120,
+          "balance_due_date": "2026-11-27",
+          "status": "open"
+        },
+        {
+          "id": "i5",
+          "user_id": "u1",
+          "client_id": "c5",
+          "event_date": "2026-10-18",
+          "total_fee": 425,
+          "advance_paid": 100,
+          "balance_due_date": "2026-10-25",
+          "status": "open"
+        },
+        {
+          "id": "i6",
+          "user_id": "u1",
+          "client_id": "c6",
+          "event_date": "2026-11-28",
+          "total_fee": 890,
+          "advance_paid": 300,
+          "balance_due_date": "2026-12-02",
+          "status": "open"
+        },
+        {
+          "id": "i7",
+          "user_id": "u1",
+          "client_id": "c7",
+          "event_date": "2026-11-21",
+          "total_fee": 275,
+          "advance_paid": 75,
+          "balance_due_date": "2026-11-21",
+          "status": "open"
+        },
+        {
+          "id": "i8",
+          "user_id": "u1",
+          "client_id": "c8",
+          "event_date": "2026-09-30",
+          "total_fee": 320,
+          "advance_paid": 320,
+          "balance_due_date": "2026-09-30",
+          "status": "settled"
+        },
+        {
+          "id": "i9",
+          "user_id": "u1",
+          "client_id": "c8",
+          "event_date": "2026-12-19",
+          "total_fee": 610,
+          "advance_paid": 0,
+          "balance_due_date": "2026-12-12",
+          "status": "cancelled"
+        },
+        {
+          "id": "i10",
+          "user_id": "u1",
+          "client_id": "c3",
+          "event_date": "2027-01-16",
+          "total_fee": 1200,
+          "advance_paid": 300,
+          "balance_due_date": "2026-12-20",
+          "status": "open"
+        }
+      ],
+      "payments": [
+        {
+          "id": "p1",
+          "invoice_id": "i2",
+          "amount": 200,
+          "received_on": "2026-11-14",
+          "method": "bank_transfer"
+        },
+        {
+          "id": "p2",
+          "invoice_id": "i5",
+          "amount": 200,
+          "received_on": "2026-11-10",
+          "method": "bank_transfer"
+        }
+      ],
+      "bills": [
+        {
+          "id": "b1",
+          "user_id": "u1",
+          "name": "Studio rent",
+          "category": "rent",
+          "amount": 850,
+          "due_date": "2026-12-01",
+          "status": "upcoming"
+        },
+        {
+          "id": "b2",
+          "user_id": "u1",
+          "name": "November studio rent",
+          "category": "rent",
+          "amount": 850,
+          "due_date": "2026-11-01",
+          "status": "paid"
+        },
+        {
+          "id": "b3",
+          "user_id": "u1",
+          "name": "Pro cosmetics restock (foundation and setting powder)",
+          "category": "restock",
+          "amount": 214.6,
+          "due_date": "2026-11-26",
+          "status": "upcoming"
+        },
+        {
+          "id": "b4",
+          "user_id": "u1",
+          "name": "Brush and kit cleaning supplies",
+          "category": "restock",
+          "amount": 96.4,
+          "due_date": "2026-11-24",
+          "status": "upcoming"
+        },
+        {
+          "id": "b5",
+          "user_id": "u1",
+          "name": "Mobile phone and data plan",
+          "category": "utilities",
+          "amount": 38,
+          "due_date": "2026-11-25",
+          "status": "upcoming"
+        },
+        {
+          "id": "b6",
+          "user_id": "u1",
+          "name": "Public liability insurance",
+          "category": "insurance",
+          "amount": 186,
+          "due_date": "2026-12-14",
+          "status": "upcoming"
+        },
+        {
+          "id": "b7",
+          "user_id": "u1",
+          "name": "December lashes and adhesives restock",
+          "category": "restock",
+          "amount": 142.9,
+          "due_date": "2027-01-08",
+          "status": "upcoming"
+        }
+      ],
+      "forecast_scenarios": [
+        {
+          "id": "s1",
+          "user_id": "u1",
+          "name": "Priya pays 15 days late",
+          "invoice_id": "i1",
+          "delay_days": 15,
+          "enabled": false
+        }
+      ],
+      "alerts": [
+        {
+          "id": "a1",
+          "user_id": "u1",
+          "kind": "chase_balance",
+          "invoice_id": "i1",
+          "bill_id": "b1",
+          "message": "Chase Priya Sharma's GBP 1,050 balance today so it covers December's GBP 850 studio rent.",
+          "due_by": "2026-11-21",
+          "status": "open"
+        },
+        {
+          "id": "a2",
+          "user_id": "u1",
+          "kind": "chase_balance",
+          "invoice_id": "i2",
+          "bill_id": null,
+          "message": "Send Charlotte Hughes a polite reminder about her GBP 330 balance before Monday.",
+          "due_by": "2026-11-24",
+          "status": "open"
+        },
+        {
+          "id": "a3",
+          "user_id": "u1",
+          "kind": "pay_bill",
+          "invoice_id": null,
+          "bill_id": "b4",
+          "message": "Pay the GBP 96.40 brush cleaning restock by 24 November to keep your kit stocked for next week's bookings.",
+          "due_by": "2026-11-24",
+          "status": "open"
+        },
+        {
+          "id": "a4",
+          "user_id": "u1",
+          "kind": "chase_balance",
+          "invoice_id": "i5",
+          "bill_id": null,
+          "message": "Sent Jess Whitfield a reminder for her GBP 125 balance from the October party booking.",
+          "due_by": "2026-11-19",
+          "status": "done"
+        }
+      ]
+    },
+    "viewers": {
+      "Solo Freelance Makeup Artist": "u1"
+    }
+  },
+  "covers": {
+    "/": "9398e0765cfb63e0",
+    "/invoices": "08bc3155bf4e85a9",
+    "/invoices/{}": "3bcdadcb072fff29",
+    "/invoices/new": "bd0a01010cba59e8",
+    "/cash-forecast": "945724a6abedc6fa",
+    "/bills": "0ea908fdabb38070",
+    "/bills/new": "e701e6c43528d383"
+  },
+  "at": "2026-11-21T11:30:33.937Z"
+}

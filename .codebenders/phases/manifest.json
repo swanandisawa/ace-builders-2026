@@ -1,0 +1,362 @@
+{
+  "models": {
+    "Invoice": {
+      "file": "prisma/schema.prisma",
+      "fields": [
+        "id",
+        "createdAt",
+        "updatedAt",
+        "clientName",
+        "eventDate",
+        "dueDate",
+        "totalFee",
+        "advancePaid",
+        "balanceDue",
+        "pendingBalance",
+        "status",
+        "payments"
+      ],
+      "relations": [
+        "InvoiceStatus",
+        "Payment"
+      ]
+    },
+    "Payment": {
+      "file": "prisma/schema.prisma",
+      "fields": [
+        "id",
+        "createdAt",
+        "updatedAt",
+        "invoiceId",
+        "amount",
+        "status",
+        "receivedOn",
+        "receivedAt",
+        "invoice"
+      ],
+      "relations": [
+        "PaymentStatus",
+        "Invoice"
+      ]
+    },
+    "Bill": {
+      "file": "prisma/schema.prisma",
+      "fields": [
+        "id",
+        "createdAt",
+        "updatedAt",
+        "name",
+        "category",
+        "amount",
+        "dueDate",
+        "status",
+        "isPaid",
+        "paidAt"
+      ],
+      "relations": [
+        "BillCategory",
+        "BillStatus"
+      ]
+    }
+  },
+  "routes": {
+    "GET /api/invoice-defaults": {
+      "method": "GET",
+      "path": "/api/invoice-defaults",
+      "file": "src/app/api/invoice-defaults/route.ts"
+    },
+    "GET /api/who-owes-me": {
+      "method": "GET",
+      "path": "/api/who-owes-me",
+      "file": "src/app/api/who-owes-me/route.ts"
+    },
+    "GET /api/bills/[billId]": {
+      "method": "GET",
+      "path": "/api/bills/[billId]",
+      "file": "src/app/api/bills/[billId]/route.ts"
+    },
+    "PATCH /api/bills/[billId]": {
+      "method": "PATCH",
+      "path": "/api/bills/[billId]",
+      "file": "src/app/api/bills/[billId]/route.ts"
+    },
+    "DELETE /api/bills/[billId]": {
+      "method": "DELETE",
+      "path": "/api/bills/[billId]",
+      "file": "src/app/api/bills/[billId]/route.ts"
+    },
+    "GET /api/cash-forecast": {
+      "method": "GET",
+      "path": "/api/cash-forecast",
+      "file": "src/app/api/cash-forecast/route.ts"
+    },
+    "GET /api/invoices": {
+      "method": "GET",
+      "path": "/api/invoices",
+      "file": "src/app/api/invoices/route.ts"
+    },
+    "POST /api/invoices": {
+      "method": "POST",
+      "path": "/api/invoices",
+      "file": "src/app/api/invoices/route.ts"
+    },
+    "GET /api/bills": {
+      "method": "GET",
+      "path": "/api/bills",
+      "file": "src/app/api/bills/route.ts"
+    },
+    "POST /api/bills": {
+      "method": "POST",
+      "path": "/api/bills",
+      "file": "src/app/api/bills/route.ts"
+    },
+    "GET /api/invoices/[invoiceId]": {
+      "method": "GET",
+      "path": "/api/invoices/[invoiceId]",
+      "file": "src/app/api/invoices/[invoiceId]/route.ts"
+    },
+    "PATCH /api/invoices/[invoiceId]": {
+      "method": "PATCH",
+      "path": "/api/invoices/[invoiceId]",
+      "file": "src/app/api/invoices/[invoiceId]/route.ts"
+    },
+    "DELETE /api/invoices/[invoiceId]": {
+      "method": "DELETE",
+      "path": "/api/invoices/[invoiceId]",
+      "file": "src/app/api/invoices/[invoiceId]/route.ts"
+    },
+    "POST /api/bills/[billId]/mark-paid": {
+      "method": "POST",
+      "path": "/api/bills/[billId]/mark-paid",
+      "file": "src/app/api/bills/[billId]/mark-paid/route.ts"
+    },
+    "GET /api/invoices/[invoiceId]/reminder": {
+      "method": "GET",
+      "path": "/api/invoices/[invoiceId]/reminder",
+      "file": "src/app/api/invoices/[invoiceId]/reminder/route.ts"
+    },
+    "POST /api/payments/[paymentId]/receive": {
+      "method": "POST",
+      "path": "/api/payments/[paymentId]/receive",
+      "file": "src/app/api/payments/[paymentId]/receive/route.ts"
+    },
+    "GET /api/invoices/[invoiceId]/payments": {
+      "method": "GET",
+      "path": "/api/invoices/[invoiceId]/payments",
+      "file": "src/app/api/invoices/[invoiceId]/payments/route.ts"
+    },
+    "POST /api/invoices/[invoiceId]/payments": {
+      "method": "POST",
+      "path": "/api/invoices/[invoiceId]/payments",
+      "file": "src/app/api/invoices/[invoiceId]/payments/route.ts"
+    }
+  },
+  "pages": {
+    "/": {
+      "file": "src/app/page.tsx",
+      "route": "/",
+      "isDynamic": false
+    },
+    "/bills": {
+      "file": "src/app/bills/page.tsx",
+      "route": "/bills",
+      "isDynamic": false
+    },
+    "/cash-forecast": {
+      "file": "src/app/cash-forecast/page.tsx",
+      "route": "/cash-forecast",
+      "isDynamic": false
+    },
+    "/bills/new": {
+      "file": "src/app/bills/new/page.tsx",
+      "route": "/bills/new",
+      "isDynamic": false
+    },
+    "/invoices": {
+      "file": "src/app/invoices/page.tsx",
+      "route": "/invoices",
+      "isDynamic": false
+    },
+    "/invoices/[id]": {
+      "file": "src/app/invoices/[id]/page.tsx",
+      "route": "/invoices/[id]",
+      "isDynamic": true
+    },
+    "/invoices/new": {
+      "file": "src/app/invoices/new/page.tsx",
+      "route": "/invoices/new",
+      "isDynamic": false
+    }
+  },
+  "components": {
+    "HomePage": {
+      "file": "src/app/page.tsx",
+      "props": []
+    },
+    "NotFound": {
+      "file": "src/app/not-found.tsx",
+      "props": []
+    },
+    "Loading": {
+      "file": "src/app/loading.tsx",
+      "props": []
+    },
+    "RootLayout": {
+      "file": "src/app/layout.tsx",
+      "props": [
+        "children"
+      ]
+    },
+    "InvoiceDetailPage": {
+      "file": "src/app/invoices/[id]/page.tsx",
+      "props": [
+        "params"
+      ]
+    },
+    "InvoicesPage": {
+      "file": "src/app/invoices/page.tsx",
+      "props": []
+    },
+    "BillsPage": {
+      "file": "src/app/bills/page.tsx",
+      "props": []
+    },
+    "NewInvoicePage": {
+      "file": "src/app/invoices/new/page.tsx",
+      "props": []
+    },
+    "NewBillPage": {
+      "file": "src/app/bills/new/page.tsx",
+      "props": []
+    },
+    "BillForm": {
+      "file": "src/components/BillForm.tsx",
+      "props": []
+    },
+    "AppShell": {
+      "file": "src/components/AppShell.tsx",
+      "props": [
+        "children"
+      ]
+    },
+    "ActionAlerts": {
+      "file": "src/components/ActionAlerts.tsx",
+      "props": [
+        "alerts"
+      ]
+    },
+    "BillRow": {
+      "file": "src/components/BillRow.tsx",
+      "props": [
+        "bill",
+        "onMarkPaid",
+        "isMarking"
+      ]
+    },
+    "BillsList": {
+      "file": "src/components/BillsList.tsx",
+      "props": []
+    },
+    "ForecastChart": {
+      "file": "src/components/ForecastChart.tsx",
+      "props": [
+        "points",
+        "horizonDays",
+        "showWhatIf"
+      ]
+    },
+    "PaymentReminderCard": {
+      "file": "src/components/PaymentReminderCard.tsx",
+      "props": []
+    },
+    "PageSkeleton": {
+      "file": "src/components/PageSkeleton.tsx",
+      "props": [
+        "variant"
+      ]
+    },
+    "OverdueTotal": {
+      "file": "src/components/OverdueTotal.tsx",
+      "props": []
+    },
+    "InvoiceRow": {
+      "file": "src/components/InvoiceRow.tsx",
+      "props": [
+        "invoice"
+      ]
+    },
+    "InvoiceList": {
+      "file": "src/components/InvoiceList.tsx",
+      "props": [
+        "invoices",
+        "isLoading"
+      ]
+    },
+    "InvoiceForm": {
+      "file": "src/components/InvoiceForm.tsx",
+      "props": []
+    },
+    "InvoiceAmounts": {
+      "file": "src/components/InvoiceAmounts.tsx",
+      "props": []
+    },
+    "HorizonSelector": {
+      "file": "src/components/HorizonSelector.tsx",
+      "props": [
+        "horizons",
+        "value",
+        "onChange",
+        "disabled"
+      ]
+    },
+    "CashForecastPage": {
+      "file": "src/app/cash-forecast/page.tsx",
+      "props": []
+    },
+    "QuickLinks": {
+      "file": "src/components/QuickLinks.tsx",
+      "props": []
+    },
+    "PaymentsReceived": {
+      "file": "src/components/PaymentsReceived.tsx",
+      "props": [
+        "payments",
+        "pendingBalance",
+        "isReceiving",
+        "onReceive"
+      ]
+    },
+    "TotalsSummary": {
+      "file": "src/components/TotalsSummary.tsx",
+      "props": [
+        "horizonLabel",
+        "expectedInflows",
+        "upcomingBills",
+        "netCash",
+        "lateNetCash"
+      ]
+    },
+    "WhatIfToggle": {
+      "file": "src/components/WhatIfToggle.tsx",
+      "props": []
+    },
+    "UpcomingItemsList": {
+      "file": "src/components/UpcomingItemsList.tsx",
+      "props": [
+        "items"
+      ]
+    },
+    "WhoOwesMeList": {
+      "file": "src/components/WhoOwesMeList.tsx",
+      "props": [
+        "clients"
+      ]
+    },
+    "NexenInspector": {
+      "file": "src/components/_internal/NexenInspector.tsx",
+      "props": []
+    }
+  },
+  "integrations": {},
+  "updated_at": "2026-11-21T13:04:11.227Z"
+}

@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "name": "GlowLedger",
+  "kind": "next-unified",
+  "stack": {
+    "frontend": "next",
+    "backend": "",
+    "database": "postgres",
+    "orm": "prisma",
+    "architecture": "monolith"
+  },
+  "services": [
+    {
+      "name": "web",
+      "root": ".",
+      "runtime": "node",
+      "runtimeVersion": "22",
+      "install": "npm ci",
+      "build": "npm run build",
+      "start": "npm run start",
+      "port": 3000,
+      "health": "/",
+      "output": ".next"
+    }
+  ],
+  "routing": {
+    "apiPrefix": "/__nexen_api"
+  },
+  "database": {
+    "engine": "postgres",
+    "orm": "prisma",
+    "envVar": "DATABASE_URL",
+    "schemaPath": "prisma/schema.prisma"
+  },
+  "env": [
+    {
+      "name": "AUTH_SECRET",
+      "class": "generated",
+      "required": true
+    },
+    {
+      "name": "DATABASE_URL",
+      "class": "managed",
+      "required": true
+    },
+    {
+      "name": "MOCK_MODE",
+      "class": "forbidden"
+    },
+    {
+      "name": "NEXT_PUBLIC_MOCK_MODE",
+      "class": "forbidden"
+    },
+    {
+      "name": "SESSION_COOKIE_NAME",
+      "class": "secret",
+      "required": false
+    }
+  ],
+  "publishable": {
+    "ok": true,
+    "reasons": []
+  }
+}
