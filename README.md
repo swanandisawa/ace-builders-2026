@@ -5,4 +5,4 @@ Financial dashboard and WhatsApp payment reminder tool for solo freelance makeup
 ## Local Setup
 1. Copy `.env.example` to `.env`
 2. Run `npm install`
-3. Run `npx prisma db push && npx prisma db seed && npm run dev`
+3. Run `npx prisma db push`, `npx prisma db seed`, and `npm run dev`
